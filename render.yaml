@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+# Paid resources: 1 CPU / 2 GB RAM ($25/month) + 1 GB disk ($0.25/month).
+# Review current Render pricing before applying this Blueprint.
+services:
+  - type: web
+    name: storymotion
+    runtime: docker
+    region: oregon
+    plan: 1c-2g
+    numInstances: 1
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: "off"
+    healthCheckPath: /api/health
+    maxShutdownDelaySeconds: 300
+    disk:
+      name: storymotion-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: STORYMOTION_DATA_DIR
+        value: /var/data/storymotion
+      - key: STORYMOTION_RENDER_CONCURRENCY
+        value: "1"
+      - key: CHROME_EXECUTABLE
+        value: /usr/bin/chromium
+      - key: STORYMOTION_ACCESS_PASSWORD
+        sync: false

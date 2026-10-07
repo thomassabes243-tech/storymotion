@@ -1,0 +1,28 @@
+{
+  "verifiedAt": "2026-10-07T00:16:32.232Z",
+  "projectId": "25ba3352-2ca2-49a1-b297-206556a3247a",
+  "jobId": "76ee7b53-ce5f-4981-b194-eb10c0c0c936",
+  "scenes": 10,
+  "characters": [
+    {
+      "id": "archer",
+      "scenes": 6
+    },
+    {
+      "id": "army",
+      "scenes": 4
+    }
+  ],
+  "allScenesAnimated": true,
+  "continuity": "PASS",
+  "persistence": "PASS",
+  "output": "/workspace/storymotion/data/renders/76ee7b53-ce5f-4981-b194-eb10c0c0c936.mp4",
+  "probe": {
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "fps": 30,
+    "duration": 30,
+    "audioStreams": 0
+  }
+}
