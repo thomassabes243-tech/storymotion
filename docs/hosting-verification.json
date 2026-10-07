@@ -1,0 +1,22 @@
+{
+  "checkedAt": "2026-10-07T00:32:06.241Z",
+  "projectId": "49277fb3-3d8f-4756-b731-88d64fdd24f2",
+  "jobId": "17050b85-b169-4b69-80cb-d40d131ac1d1",
+  "sceneCount": 2,
+  "probe": {
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "fps": 30,
+    "duration": 2,
+    "audioStreams": 0
+  },
+  "download": "PASS",
+  "ownerGate": "PASS",
+  "mobile": "PASS",
+  "browserErrors": [],
+  "persistenceAfterContainerRestart": "PASS",
+  "cpuLimit": 1,
+  "memoryLimitGB": 2,
+  "oomKilled": false
+}
