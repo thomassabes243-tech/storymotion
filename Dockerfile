@@ -29,5 +29,5 @@ COPY --from=build --chown=node:node /app/src ./src
 COPY --chmod=755 scripts/docker-entrypoint.sh /usr/local/bin/storymotion-entrypoint
 RUN mkdir -p /var/data/storymotion && chown -R node:node /var/data /app
 EXPOSE 10000
-ENTRYPOINT ["/usr/bin/tini", "--", "/usr/local/bin/storymotion-entrypoint"]
+ENTRYPOINT ["/usr/local/bin/storymotion-entrypoint"]
 CMD ["node", "--import", "tsx", "scripts/start.ts"]

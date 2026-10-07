@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-10-07T22:17:38.911Z",
+  "url": "https://storymotion.onrender.com",
+  "deployedCommit": "b4098f5e8554832ecfb330ba7d4c942db1d6f746",
+  "serviceId": "srv-db3c1dflot8c73agcuhg",
+  "projectId": "47ce0a56-9190-49eb-a220-fb6733ea7781",
+  "jobId": "d96189d2-d196-4e02-b21a-590180bc53ec",
+  "sceneCount": 10,
+  "probe": {
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "fps": 30,
+    "duration": 30,
+    "audioStreams": 0
+  },
+  "download": "PASS",
+  "rangeDownload": "PASS",
+  "characterContinuity": "PASS",
+  "storyboardReopen": "PASS",
+  "persistentDisk": {
+    "id": "dsk-db3c1dnlot8c73agcuv0",
+    "mountPath": "/var/data",
+    "name": "storymotion-data",
+    "sizeGB": 1
+  },
+  "ownerGate": "PASS",
+  "mobile": "PASS",
+  "browserErrors": [],
+  "persistenceAfterDeployment": {
+    "checkedAt": "2026-10-07T22:16:41.261Z",
+    "projectId": "47ce0a56-9190-49eb-a220-fb6733ea7781",
+    "jobId": "e2b673bb-3912-491e-b588-33ba99667836",
+    "storyboardAfterDeployment": "PASS",
+    "charactersAfterDeployment": "PASS",
+    "completedRenderAfterDeployment": "PASS",
+    "downloadAfterDeployment": "PASS"
+  },
+  "restrictedContainerShutdown": {
+    "checked": "CAP_KILL dropped",
+    "uid": 1000,
+    "exitCode": 0,
+    "gracefulSignalForwarding": "PASS"
+  },
+  "automatedTestsPassed": 25
+}
