@@ -140,7 +140,10 @@ export class RenderManager extends RenderQueue {
       const outputKey = `renders/${job.id}.mp4`,
         output = this.storage.resolve(outputKey);
       await fs.mkdir(path.dirname(output), { recursive: true });
-      await this.ffmpeg.concat(files, `${output}.partial.mp4`);
+      await this.ffmpeg.concat(files, `${output}.partial.mp4`, {
+        fps: project.config.fps,
+        durationFrames: project.scenes.map((scene) => scene.durationFrames),
+      });
       const probe = this.ffmpeg.validate(
         await this.ffmpeg.probe(`${output}.partial.mp4`),
         {

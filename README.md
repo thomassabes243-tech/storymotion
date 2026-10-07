@@ -2,6 +2,12 @@
 
 MVP independiente que transforma una historia escrita en un storyboard editable y un MP4 animado 2.5D sin audio. No tiene dependencias de ClipForge.
 
+## Aplicación web
+
+Abre **[StoryMotion](https://storymotion.onrender.com)** desde el teléfono o el navegador. La instalación pide el usuario **storymotion** y la contraseña entregada al propietario. Crea un proyecto, pega la historia, pulsa **Analizar historia**, revisa el storyboard y exporta el MP4 sin audio. Incluye una demostración de 30 segundos con diez planos.
+
+Los assets automáticos de este MVP son ilustraciones provisionales por capas. Puedes importar PNG, JPG y WebP para reemplazarlos. Consulta [la instalación y los costos](docs/HOSTING.md) y [las pruebas realizadas](docs/VERIFICATION.md).
+
 ## Ejecutar localmente
 
 Requisitos: **Node.js 24+**, FFmpeg, FFprobe y Chromium/Chrome. SQLite viene integrado en Node; no necesitas servidores de base de datos ni cuentas de IA.
@@ -12,7 +18,7 @@ npm ci
 npm run dev
 ```
 
-Abre `http://localhost:3000`. El comando inicia **Next.js y el worker de render**. Si el puerto está ocupado, Next indica el puerto alternativo. Para fijarlo: `PORT=3100 npm run dev`. En esta sesión la aplicación usa **http://localhost:3001**.
+Abre `http://localhost:3000`. El comando inicia **Next.js y el worker de render**. Si el puerto está ocupado, Next indica el puerto alternativo. Para fijarlo: `PORT=3100 npm run dev`.
 
 La primera apertura crea una demostración de 30 segundos con diez planos. También puedes crearla y renderizarla desde la terminal:
 
@@ -108,7 +114,7 @@ Story → StoryAnalyzer → Narrative Model → ScenePlanner
 ## Comprobaciones
 
 ```bash
-npm test                 # 22 pruebas de módulos y persistencia real
+npm test                 # 25 pruebas de módulos, acceso y persistencia real
 npm run typecheck
 npm run build
 npm run test:e2e         # abre servidor aislado en 3100, datos en data-e2e

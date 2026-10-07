@@ -68,11 +68,33 @@ export class FFmpegService {
       throw new Error("La duración exportada no coincide con el storyboard");
     return probe;
   }
-  async concat(files: string[], output: string) {
+  async concat(
+    files: string[],
+    output: string,
+    timing: { fps: number; durationFrames: number[] },
+  ) {
     const list = `${output}.concat.txt`;
     if (files.some((f) => /[\n\r']/.test(f)))
       throw new Error("Ruta de render no válida");
-    await fs.writeFile(list, files.map((file) => `file '${file}'`).join("\n"));
+    if (
+      !files.length ||
+      !Number.isInteger(timing.fps) ||
+      timing.fps <= 0 ||
+      timing.durationFrames.length !== files.length ||
+      timing.durationFrames.some((n) => !Number.isInteger(n) || n <= 0)
+    )
+      throw new Error("Duraciones de render no válidas");
+    // MP4 container durations can be rounded to milliseconds. Derive each
+    // segment boundary from its frame count so concatenation stays on the grid.
+    await fs.writeFile(
+      list,
+      files
+        .map(
+          (file, i) =>
+            `file '${file}'\nduration ${(timing.durationFrames[i] / timing.fps).toFixed(12)}`,
+        )
+        .join("\n"),
+    );
     try {
       await runProcess(process.env.FFMPEG_PATH || "ffmpeg", [
         "-y",
