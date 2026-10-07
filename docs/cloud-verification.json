@@ -42,5 +42,22 @@
     "exitCode": 0,
     "gracefulSignalForwarding": "PASS"
   },
-  "automatedTestsPassed": 25
+  "automatedTestsPassed": 25,
+  "finalDeployment": {
+    "checkedAt": "2026-10-07T22:24:42.460Z",
+    "url": "https://storymotion.onrender.com",
+    "deployedCommit": "ab04a212c8a318d53bc51f086bca5e0352dd5b77",
+    "state": "COMPLETE",
+    "probe": {
+      "width": 1080,
+      "height": 1920,
+      "codec": "h264",
+      "fps": 30,
+      "duration": 30,
+      "audioStreams": 0
+    },
+    "persistenceAfterRestart": "PASS",
+    "ownerGate": "PASS",
+    "serviceRestart": "PASS"
+  }
 }
