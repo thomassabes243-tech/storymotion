@@ -258,6 +258,7 @@ export type RenderJob = {
   createdAt: string;
   updatedAt: string;
   ownerPid?: number;
+  ownerStartedAt?: string;
   attempts: number;
   snapshot: Project;
   probe?: VideoProbe;

@@ -193,6 +193,7 @@ export class RenderManager extends RenderQueue {
         outputKey,
         probe,
         ownerPid: undefined,
+        ownerStartedAt: undefined,
         error: undefined,
       });
       return job;
@@ -201,6 +202,7 @@ export class RenderManager extends RenderQueue {
         state: "FAILED",
         error: error instanceof Error ? error.message : String(error),
         ownerPid: undefined,
+        ownerStartedAt: undefined,
       });
       return job;
     } finally {

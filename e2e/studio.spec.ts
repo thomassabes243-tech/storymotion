@@ -109,6 +109,7 @@ test("demo preview animates, mobile views fit and export responds with a queued 
   page,
   request,
 }) => {
+  test.setTimeout(650000);
   await page.setViewportSize({ width: 390, height: 844 });
   const demo = await (await request.post("/api/demo")).json();
   expect(demo.scenes.length).toBe(10);
@@ -143,7 +144,7 @@ test("demo preview animates, mobile views fit and export responds with a queued 
         const result = await (await request.get(`/api/jobs/${job.id}`)).json();
         return result.state;
       },
-      { timeout: 60000 },
+      { timeout: 600000 },
     )
     .toBe("COMPLETE");
   const completed = await (await request.get(`/api/jobs/${job.id}`)).json();

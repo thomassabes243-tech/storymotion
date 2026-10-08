@@ -115,7 +115,7 @@ Story → StoryAnalyzer → Narrative Model → ScenePlanner
 ## Comprobaciones
 
 ```bash
-npm test                 # 30 pruebas de módulos, acceso y persistencia real
+npm test                 # 31 pruebas de módulos, acceso y persistencia real
 npm run typecheck
 npm run build
 npm run test:e2e         # abre servidor aislado en 3100, datos en data-e2e

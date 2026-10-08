@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import type { Project } from "../domain";
 import { SQLiteRepository } from "../storage/ProjectRepository";
 import { ContinuityEngine } from "../story/ContinuityEngine";
+import { workerIsAlive } from "./WorkerIdentity";
 // Lightweight queue API: it never loads Chromium, webpack or the renderer.
 export class RenderQueue {
   constructor(protected repo: SQLiteRepository) {}
@@ -54,24 +55,20 @@ export class RenderQueue {
       state: "RENDER_QUEUED",
       error: undefined,
       ownerPid: undefined,
+      ownerStartedAt: undefined,
       updatedAt: new Date().toISOString(),
     });
   }
   recover() {
     for (const job of this.repo.listJobs())
       if (job.state === "RENDERING") {
-        let alive = false;
-        try {
-          if (job.ownerPid) {
-            process.kill(job.ownerPid, 0);
-            alive = true;
-          }
-        } catch {}
+        const alive = workerIsAlive(job.ownerPid, job.ownerStartedAt);
         if (!alive)
           this.repo.putJob({
             ...job,
             state: "RENDER_QUEUED",
             ownerPid: undefined,
+            ownerStartedAt: undefined,
             error: undefined,
             updatedAt: new Date().toISOString(),
           });

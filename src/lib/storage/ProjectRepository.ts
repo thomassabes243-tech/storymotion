@@ -2,6 +2,7 @@ import { DatabaseSync } from "node:sqlite";
 import { mkdirSync } from "node:fs";
 import path from "node:path";
 import { dataDirectory } from "./StorageProvider";
+import { processIdentity } from "../render/WorkerIdentity";
 import {
   ProjectSchema,
   type Project,
@@ -166,6 +167,7 @@ export class SQLiteRepository implements ProjectRepository {
         ...job,
         state: "RENDERING",
         ownerPid: pid,
+        ownerStartedAt: processIdentity(pid)?.startedAt,
         attempts: job.attempts + 1,
         updatedAt: new Date().toISOString(),
       });
