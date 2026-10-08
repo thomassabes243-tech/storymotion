@@ -2,7 +2,9 @@
 
 StoryMotion puede narrar la historia escrita completa en español y exportar un MP4 con audio AAC. Los proyectos existentes conservan la exportación sin audio. En un proyecto, abre **Audio**, elige **Voz automática en español** y guarda; después exporta. Los proyectos nuevos activan la voz si está instalada. Puedes subir música propia y ajustar su volumen; se atenúa durante la voz. No se incluye música por defecto.
 
-El motor local no cobra por carácter ni requiere una API externa. Utiliza los recursos del servidor existente; no cambia su plan ni crea servicios de pago. Una narración larga tarda más que una corta. La voz es sintética; actualmente hay una voz masculina de español mexicano, con tres velocidades.
+El motor local no cobra por carácter ni requiere una API externa. Utiliza los recursos del servidor existente; no cambia su plan ni crea servicios de pago. Una narración larga tarda más que una corta. Hay dos voces sintéticas de español mexicano. **Narrador · español latino** utiliza el modelo Claude; **Voz original · español mexicano** conserva Ald. Los proyectos nuevos eligen el narrador cuando está instalado.
+
+En **Audio**, selecciona la voz y **Narrador pausado** para añadir pausas entre frases y acontecimientos. La velocidad **Normal** conserva ese ritmo de narración; **Pausada** lo reduce más. **Lectura continua** mantiene la síntesis sin esas pausas adicionales. Estas opciones no garantizan reproducir exactamente el timbre y la expresividad de otra voz.
 
 ## Instalación local
 
@@ -22,7 +24,7 @@ Las escenas siguen naciendo del texto. La voz no se transcribe ni se interpreta 
 
 La duración final sigue la narración completa: una historia larga no se recorta para alcanzar una duración objetivo breve. El storyboard editable conserva sus tiempos originales; cada trabajo guarda también el plan con los tiempos efectivamente renderizados. La vista previa del storyboard muestra el ritmo visual estimado sin voz; el MP4 exportado incluye el audio y su duración real.
 
-SQLite guarda la configuración de audio, los recursos y las duraciones; filesystem guarda los audios. La caché depende del texto, voz, velocidad y versión del motor. Cambiar una imagen o la cámara reutiliza la narración. Los fallos de voz se muestran en el trabajo y pueden reintentarse sin perder el proyecto.
+SQLite guarda la configuración de audio, los recursos y las duraciones; filesystem guarda los audios. La caché depende del texto, voz, forma de narrar, velocidad y versión del motor. Cambiar una imagen o la cámara reutiliza la narración. Los fallos de voz se muestran en el trabajo y pueden reintentarse sin perder el proyecto.
 
 ## Componentes y licencias
 
@@ -30,5 +32,6 @@ La interfaz `SpeechProvider` separa la síntesis de la planificación y permite 
 
 - [Piper 1.4.1](https://github.com/OHF-Voice/piper1-gpl): GPL-3.0. Se utiliza como proceso Python independiente. Su distribución y código fuente incluyen la licencia correspondiente.
 - [Modelo es_MX-ald-medium](https://huggingface.co/rhasspy/piper-voices/blob/main/es/es_MX/ald/medium/MODEL_CARD): dataset publicado bajo [Unlicense](https://unlicense.org/), voz de Ald, ajustada desde davefx (dataset CC0). Los dos archivos descargados se verifican con SHA-256.
+- [Modelo es_MX-claude-high](https://huggingface.co/rhasspy/piper-voices/blob/main/es/es_MX/claude/high/MODEL_CARD): dataset publicado bajo Apache-2.0. Modelo y configuración verificados con SHA-256. No requiere una suscripción a otro proveedor de voz.
 
 No se envía la historia a un proveedor externo de voz. No se usa Whisper.

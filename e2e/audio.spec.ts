@@ -29,6 +29,14 @@ test("automatic narration settings persist and the worker exports a playable MP4
   await expect(page).toHaveURL(/\/projects\//, { timeout: 60000 });
   const id = page.url().split("/").at(-1)!;
   await page.getByRole("tab", { name: "Audio", exact: true }).click();
+  if (health.voices?.includes("es_MX-claude-high")) {
+    await expect(
+      page.getByRole("combobox", { name: "Voz", exact: true }),
+    ).toHaveValue("es_MX-claude-high");
+    await expect(
+      page.getByRole("combobox", { name: "Forma de narrar", exact: true }),
+    ).toHaveValue("narrator");
+  }
   await page.getByLabel("Velocidad de la voz").selectOption("0.9");
   await page.getByRole("button", { name: "Guardar audio" }).click();
   await expect(
@@ -39,6 +47,10 @@ test("automatic narration settings persist and the worker exports a playable MP4
   await expect(page.getByLabel("Velocidad de la voz")).toHaveValue("0.9");
   const saved = await (await request.get(`/api/projects/${id}`)).json();
   expect(saved.audio.mode).toBe("automatic");
+  if (health.voices?.includes("es_MX-claude-high")) {
+    expect(saved.audio.voice).toBe("es_MX-claude-high");
+    expect(saved.audio.delivery).toBe("narrator");
+  }
   await page.getByRole("tab", { name: "Render", exact: true }).click();
   await page
     .getByRole("button", { name: "Renderizar MP4", exact: true })

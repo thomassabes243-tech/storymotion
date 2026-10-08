@@ -37,6 +37,7 @@ import {
 import {
   defaultConfig,
   defaultAudio,
+  narratorAudio,
   defaultSettings,
   cameraMovements,
   transitions,
@@ -943,12 +944,16 @@ function NewProject({
     [config, setConfig] = useState<Config>({ ...defaultConfig, settings });
   useEffect(() => {
     let live = true;
-    api<{ automaticVoice: boolean }>("/api/health")
+    api<{ automaticVoice: boolean; voices?: Project["audio"]["voice"][] }>(
+      "/api/health",
+    )
       .then((data) => {
         if (live) {
           setVoiceAvailable(data.automaticVoice);
           if (!data.automaticVoice)
             setAudio((current) => ({ ...current, mode: "off" }));
+          else if (data.voices?.includes("es_MX-claude-high"))
+            setAudio((current) => ({ ...narratorAudio, mode: current.mode }));
         }
       })
       .catch(() => {

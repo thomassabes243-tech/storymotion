@@ -1,18 +1,30 @@
 import { spawn } from "node:child_process";
 import { existsSync } from "node:fs";
 import path from "node:path";
+import { speechVoices, type AudioConfig } from "../../domain";
 export type SpeechCue = { text: string; duration: number };
 export interface SpeechProvider {
   readonly version: string;
   synthesize(request: {
     texts: string[];
     rate: number;
+    voice?: AudioConfig["voice"];
+    delivery?: AudioConfig["delivery"];
     output: string;
     onProgress?: (progress: number) => void;
   }): Promise<SpeechCue[]>;
 }
-export function speechAvailable() {
-  const model = process.env.STORYMOTION_VOICE_MODEL;
+export function speechModel(voice: AudioConfig["voice"] = "es_MX-ald-medium") {
+  const base = process.env.STORYMOTION_VOICE_MODEL;
+  if (!base) return undefined;
+  return voice === "es_MX-ald-medium"
+    ? base
+    : path.join(path.dirname(base), `${voice}.onnx`);
+}
+export function speechAvailable(
+  voice: AudioConfig["voice"] = "es_MX-ald-medium",
+) {
+  const model = speechModel(voice);
   return (
     !!model &&
     existsSync(model) &&
@@ -20,10 +32,13 @@ export function speechAvailable() {
     !!process.env.STORYMOTION_VOICE_PYTHON
   );
 }
+export function availableVoices() {
+  return speechVoices.filter((voice) => speechAvailable(voice));
+}
 export class PiperSpeechProvider implements SpeechProvider {
-  readonly version = "piper-1.4.1-ald-019b3803-v1";
+  readonly version = "piper-1.4.1-narrator-3ef40a71-v2";
   async synthesize(request: Parameters<SpeechProvider["synthesize"]>[0]) {
-    if (!speechAvailable())
+    if (!speechAvailable(request.voice))
       throw new Error(
         "La voz automática no está instalada en este servidor. Configura el motor de voz o elige exportar sin audio.",
       );
@@ -32,7 +47,7 @@ export class PiperSpeechProvider implements SpeechProvider {
         process.env.STORYMOTION_VOICE_PYTHON!,
         [
           path.resolve("scripts/synthesize.py"),
-          process.env.STORYMOTION_VOICE_MODEL!,
+          speechModel(request.voice)!,
           request.output,
         ],
         { stdio: ["pipe", "pipe", "pipe"] },
@@ -80,7 +95,11 @@ export class PiperSpeechProvider implements SpeechProvider {
       });
       child.stdin.on("error", () => {});
       child.stdin.end(
-        JSON.stringify({ texts: request.texts, rate: request.rate }),
+        JSON.stringify({
+          texts: request.texts,
+          rate: request.rate,
+          delivery: request.delivery || "neutral",
+        }),
       );
     });
   }

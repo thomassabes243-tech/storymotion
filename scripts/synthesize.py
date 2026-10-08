@@ -1,5 +1,6 @@
 """CPU-only speech process. Receives text JSON on stdin; never analyzes audio."""
 import json
+import re
 import sys
 import wave
 from pathlib import Path
@@ -15,7 +16,8 @@ voice = PiperVoice(
     config=PiperConfig.from_dict(json.loads(Path(model + ".json").read_text())),
     session=ort.InferenceSession(model, sess_options=options, providers=["CPUExecutionProvider"]),
 )
-config = SynthesisConfig(length_scale=1 / request["rate"], volume=0.9)
+narrator = request.get("delivery") == "narrator"
+config = SynthesisConfig(length_scale=(1.02 if narrator else 1) / request["rate"], volume=0.9)
 rate = voice.config.sample_rate
 cues = []
 with wave.open(output, "wb") as wav:
@@ -24,13 +26,19 @@ with wave.open(output, "wb") as wav:
     wav.setframerate(rate)
     for i, text in enumerate(request["texts"]):
         samples = 0
-        for chunk in voice.synthesize(text, config):
-            data = chunk.audio_int16_bytes
-            wav.writeframesraw(data)
-            samples += len(data) // 2
+        sentences = re.split(r"(?<=[.!?])\s+", text.strip()) if narrator else [text]
+        for sentence_index, sentence in enumerate(sentences):
+            for chunk in voice.synthesize(sentence, config):
+                data = chunk.audio_int16_bytes
+                wav.writeframesraw(data)
+                samples += len(data) // 2
+            if narrator and sentence_index < len(sentences) - 1:
+                gap = round(rate * 0.2)
+                wav.writeframesraw(bytes(gap * 2))
+                samples += gap
         # A short breath between narrative beats, included in the timing cue.
         if i < len(request["texts"]) - 1:
-            gap = round(rate * 0.12)
+            gap = round(rate * (0.45 if narrator else 0.12))
             wav.writeframesraw(bytes(gap * 2))
             samples += gap
         if samples == 0:

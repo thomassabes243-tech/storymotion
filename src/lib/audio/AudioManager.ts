@@ -26,6 +26,7 @@ export class AudioManager {
           texts,
           rate: project.audio.rate,
           voice: project.audio.voice,
+          delivery: project.audio.delivery,
           provider: this.provider.version,
         }),
       )
@@ -41,6 +42,8 @@ export class AudioManager {
       const cues = await this.provider.synthesize({
         texts,
         rate: project.audio.rate,
+        voice: project.audio.voice,
+        delivery: project.audio.delivery,
         output: wav,
         onProgress,
       });

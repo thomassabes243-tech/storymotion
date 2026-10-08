@@ -207,15 +207,23 @@ export const AssetSchema = z.object({
   height: z.number(),
 });
 export type Asset = z.infer<typeof AssetSchema>;
+export const speechVoices = ["es_MX-ald-medium", "es_MX-claude-high"] as const;
 export const AudioConfigSchema = z.object({
   mode: z.enum(["off", "automatic"]).default("off"),
-  voice: z.literal("es_MX-ald-medium").default("es_MX-ald-medium"),
+  voice: z.enum(speechVoices).default("es_MX-ald-medium"),
+  delivery: z.enum(["neutral", "narrator"]).default("neutral"),
   rate: z.number().min(0.8).max(1.3).default(1),
   musicAssetId: z.string().optional(),
   musicVolume: z.number().min(0).max(0.35).default(0.12),
 });
 export type AudioConfig = z.infer<typeof AudioConfigSchema>;
 export const defaultAudio: AudioConfig = AudioConfigSchema.parse({});
+export const narratorAudio: AudioConfig = {
+  ...defaultAudio,
+  mode: "automatic",
+  voice: "es_MX-claude-high",
+  delivery: "narrator",
+};
 export const AudioAssetSchema = z.object({
   id: z.string(),
   name: z.string(),

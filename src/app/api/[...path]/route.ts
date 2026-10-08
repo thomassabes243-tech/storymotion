@@ -24,7 +24,10 @@ import {
 } from "../../../lib/domain";
 import { RenderQueue } from "../../../lib/render/RenderQueue";
 import { AudioManager } from "../../../lib/audio/AudioManager";
-import { speechAvailable } from "../../../lib/audio/providers/SpeechProvider";
+import {
+  speechAvailable,
+  availableVoices,
+} from "../../../lib/audio/providers/SpeechProvider";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 const json = (data: unknown, status = 200) => Response.json(data, { status });
@@ -46,7 +49,8 @@ async function handler(
         ok: true,
         imageProvider: !!process.env.IMAGE_PROVIDER_URL,
         storyAnalyzer: process.env.STORY_ANALYZER_URL ? "provider" : "local",
-        automaticVoice: speechAvailable(),
+        automaticVoice: availableVoices().length > 0,
+        voices: availableVoices(),
       });
     if (p[0] === "settings") {
       if (req.method === "GET") {
@@ -137,7 +141,10 @@ async function handler(
       if (p[2] === "analyze" && req.method === "POST")
         return json(await service.analyze(project));
       if (p[2] === "render" && req.method === "POST") {
-        if (project.audio.mode === "automatic" && !speechAvailable())
+        if (
+          project.audio.mode === "automatic" &&
+          !speechAvailable(project.audio.voice)
+        )
           throw new Error(
             "La voz automática no está instalada en este servidor",
           );
@@ -148,7 +155,10 @@ async function handler(
           const body = z
             .object({ revision: z.number().int(), audio: AudioConfigSchema })
             .parse(await req.json());
-          if (body.audio.mode === "automatic" && !speechAvailable())
+          if (
+            body.audio.mode === "automatic" &&
+            !speechAvailable(body.audio.voice)
+          )
             throw new Error(
               "La voz automática no está instalada en este servidor",
             );

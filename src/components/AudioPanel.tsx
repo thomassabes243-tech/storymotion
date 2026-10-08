@@ -14,13 +14,19 @@ export default function AudioPanel({
 }) {
   const [audio, setAudio] = useState(project.audio);
   const [available, setAvailable] = useState<boolean>();
+  const [voices, setVoices] = useState<Project["audio"]["voice"][]>([]);
   const dirty = JSON.stringify(audio) !== JSON.stringify(project.audio);
   useEffect(() => {
     let live = true;
     fetch("/api/health")
       .then((r) => r.json())
       .then((data) => {
-        if (live) setAvailable(data.automaticVoice);
+        if (live) {
+          setAvailable(data.automaticVoice);
+          setVoices(
+            data.voices || (data.automaticVoice ? ["es_MX-ald-medium"] : []),
+          );
+        }
       })
       .catch(() => {
         if (live) setAvailable(false);
@@ -68,6 +74,52 @@ export default function AudioPanel({
       {audio.mode === "automatic" && (
         <>
           <label>
+            Voz
+            <select
+              value={audio.voice}
+              onChange={(e) =>
+                setAudio({
+                  ...audio,
+                  voice: e.target.value as Project["audio"]["voice"],
+                  delivery:
+                    e.target.value === "es_MX-claude-high"
+                      ? "narrator"
+                      : "neutral",
+                })
+              }
+            >
+              <option
+                value="es_MX-claude-high"
+                disabled={!voices.includes("es_MX-claude-high")}
+              >
+                Narrador · español latino
+              </option>
+              <option
+                value="es_MX-ald-medium"
+                disabled={!voices.includes("es_MX-ald-medium")}
+              >
+                Voz original · español mexicano
+              </option>
+            </select>
+          </label>
+          <label>
+            Forma de narrar
+            <select
+              value={audio.delivery}
+              onChange={(e) =>
+                setAudio({
+                  ...audio,
+                  delivery: e.target.value as Project["audio"]["delivery"],
+                })
+              }
+            >
+              <option value="narrator">
+                Narrador pausado · pausas entre frases
+              </option>
+              <option value="neutral">Lectura continua</option>
+            </select>
+          </label>
+          <label>
             Velocidad de la voz
             <select
               value={audio.rate}
@@ -88,7 +140,11 @@ export default function AudioPanel({
       )}
       <button
         className="primary"
-        disabled={busy || (audio.mode === "automatic" && available !== true)}
+        disabled={
+          busy ||
+          (audio.mode === "automatic" &&
+            (available !== true || !voices.includes(audio.voice)))
+        }
       >
         Guardar audio
       </button>
@@ -140,7 +196,7 @@ export default function AudioPanel({
       )}
       <p className="muted">
         La narración se genera al exportar y se reutiliza mientras no cambies la
-        historia o la velocidad.
+        historia, la voz, la forma de narrar o la velocidad.
       </p>
     </form>
   );

@@ -3,7 +3,12 @@ import assert from "node:assert/strict";
 import { mkdtemp, readFile, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { ProjectSchema, totalFrames } from "../src/lib/domain";
+import {
+  AudioConfigSchema,
+  narratorAudio,
+  ProjectSchema,
+  totalFrames,
+} from "../src/lib/domain";
 import { ProjectService } from "../src/lib/story/ProjectService";
 import { StoryAnalyzer } from "../src/lib/story/StoryAnalyzer";
 import { ScenePlanner } from "../src/lib/story/ScenePlanner";
@@ -37,10 +42,11 @@ test("old projects remain silent; optional audio and resources persist across re
     const legacy = { ...f.project } as Partial<typeof f.project>;
     delete legacy.audio;
     assert.equal(ProjectSchema.parse(legacy).audio.mode, "off");
+    assert.equal(ProjectSchema.parse(legacy).audio.delivery, "neutral");
     const saved = f.repo.save(
       {
         ...f.project,
-        audio: { ...f.project.audio, mode: "automatic", rate: 1.15 },
+        audio: { ...narratorAudio, rate: 0.9 },
       },
       f.project.revision,
     );
@@ -150,6 +156,27 @@ test("narration cache survives reopening and camera edits, but regenerates for a
       first.id,
     );
     assert.equal(calls, 2);
+    f.project.audio.voice = "es_MX-claude-high";
+    const newVoice = await new AudioManager(
+      reopened,
+      f.storage,
+      provider,
+    ).narration(f.project);
+    assert.notEqual(newVoice.id, first.id);
+    assert.equal(calls, 3);
+    f.project.audio.delivery = "narrator";
+    assert.notEqual(
+      (
+        await new AudioManager(reopened, f.storage, provider).narration(
+          f.project,
+        )
+      ).id,
+      newVoice.id,
+    );
+    assert.equal(calls, 4);
+    assert.throws(() =>
+      AudioConfigSchema.parse({ voice: "../../untrusted-model" }),
+    );
     reopened.close();
   } finally {
     await rm(f.dir, { recursive: true, force: true });
