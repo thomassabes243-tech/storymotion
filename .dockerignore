@@ -12,3 +12,5 @@ docs/*.mp4
 docs/*.png
 *.tsbuildinfo
 *.log
+voice-env
+voices

@@ -1,7 +1,12 @@
 import React from "react";
 import { Composition, registerRoot } from "remotion";
 import { StoryComposition } from "./compositions/StoryComposition";
-import { defaultConfig, totalFrames, type RenderProps } from "../lib/domain";
+import {
+  defaultConfig,
+  defaultAudio,
+  totalFrames,
+  type RenderProps,
+} from "../lib/domain";
 const empty: RenderProps = {
   project: {
     schemaVersion: 1,
@@ -12,6 +17,7 @@ const empty: RenderProps = {
     createdAt: "",
     updatedAt: "",
     config: defaultConfig,
+    audio: defaultAudio,
     scenes: [],
     assets: [],
     warnings: [],

@@ -8,12 +8,14 @@ import {
   openBrowser,
 } from "@remotion/renderer";
 import type { Project, RenderJob, RenderProps } from "../domain";
-import { totalFrames } from "../domain";
+import { totalFrames, ProjectSchema } from "../domain";
 import { SQLiteRepository } from "../storage/ProjectRepository";
 import { FileSystemStorage } from "../storage/StorageProvider";
 import { FFmpegService } from "./FFmpegService";
 import { RenderQueue } from "./RenderQueue";
 import { sceneCacheKey } from "./SceneCache";
+import { AudioManager } from "../audio/AudioManager";
+import { alignToNarration } from "../audio/AudioTiming";
 let rendererBuild: { signature: string; url: Promise<string> } | undefined;
 async function rendererSignature() {
   const roots = ["src/remotion", "src/lib/animation"];
@@ -48,8 +50,19 @@ export class RenderManager extends RenderQueue {
       this.repo.putJob(job);
     };
     try {
-      const project = job.snapshot,
-        assetSources: Record<string, string> = {};
+      let project = ProjectSchema.parse(job.snapshot);
+      const audio = new AudioManager(this.repo, this.storage);
+      let narration;
+      if (project.audio.mode === "automatic") {
+        update({ phase: "NARRATION", progress: 0 });
+        narration = await audio.narration(project, (progress) =>
+          update({ progress: progress * 0.08 }),
+        );
+        project = alignToNarration(project, narration.cues);
+        update({ narrationAssetId: narration.id, renderedPlan: project });
+      }
+      update({ phase: "VISUALS", progress: 0.08 });
+      const assetSources: Record<string, string> = {};
       const required = new Set(
         project.scenes.flatMap((s) =>
           s.layers
@@ -98,7 +111,7 @@ export class RenderManager extends RenderQueue {
         await fs.mkdir(path.dirname(outputLocation), { recursive: true });
         update({
           currentScene: i + 1,
-          progress: (i / project.scenes.length) * 0.95,
+          progress: 0.08 + (i / project.scenes.length) * 0.85,
         });
         if (!(await this.storage.exists(key))) {
           let lastUpdate = 0;
@@ -125,7 +138,8 @@ export class RenderManager extends RenderQueue {
             onProgress: ({ progress }) => {
               if (Date.now() - lastUpdate > 1200) {
                 update({
-                  progress: ((i + progress) / project.scenes.length) * 0.95,
+                  progress:
+                    0.08 + ((i + progress) / project.scenes.length) * 0.85,
                 });
                 lastUpdate = Date.now();
               }
@@ -136,19 +150,40 @@ export class RenderManager extends RenderQueue {
         files.push(outputLocation);
         from += scene.durationFrames;
       }
-      update({ progress: 0.96 });
+      update({ progress: 0.94, phase: "MIXING" });
       const outputKey = `renders/${job.id}.mp4`,
         output = this.storage.resolve(outputKey);
       await fs.mkdir(path.dirname(output), { recursive: true });
-      await this.ffmpeg.concat(files, `${output}.partial.mp4`, {
+      const visualOutput = narration
+        ? `${output}.visual.mp4`
+        : `${output}.partial.mp4`;
+      await this.ffmpeg.concat(files, visualOutput, {
         fps: project.config.fps,
         durationFrames: project.scenes.map((scene) => scene.durationFrames),
       });
+      if (narration) {
+        const music = project.audio.musicAssetId
+          ? this.repo.getAudio(project.audio.musicAssetId)
+          : undefined;
+        if (project.audio.musicAssetId && !music)
+          throw new Error("No se encuentra la música del proyecto");
+        await audio.mux(
+          visualOutput,
+          narration,
+          `${output}.partial.mp4`,
+          totalFrames(project.scenes) / project.config.fps,
+          music,
+          project.audio.musicVolume,
+        );
+        await fs.rm(visualOutput, { force: true });
+      }
+      update({ phase: "VALIDATING", progress: 0.98 });
       const probe = this.ffmpeg.validate(
         await this.ffmpeg.probe(`${output}.partial.mp4`),
         {
           ...project.config,
           duration: totalFrames(project.scenes) / project.config.fps,
+          audioStreams: narration ? 1 : 0,
         },
       );
       await fs.rename(`${output}.partial.mp4`, output);

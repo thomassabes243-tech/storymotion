@@ -25,7 +25,10 @@ async function main() {
     await new FFmpegService().probe(storage.resolve(job.outputKey!)),
     {
       ...job.snapshot.config,
-      duration: totalFrames(job.snapshot.scenes) / job.snapshot.config.fps,
+      duration:
+        totalFrames((job.renderedPlan || job.snapshot).scenes) /
+        job.snapshot.config.fps,
+      audioStreams: job.snapshot.audio?.mode === "automatic" ? 1 : 0,
     },
   );
   repo.close();

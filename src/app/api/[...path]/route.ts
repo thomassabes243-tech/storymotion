@@ -20,13 +20,16 @@ import {
   reflow,
   type RenderJob,
   AssetSchema,
+  AudioConfigSchema,
 } from "../../../lib/domain";
 import { RenderQueue } from "../../../lib/render/RenderQueue";
+import { AudioManager } from "../../../lib/audio/AudioManager";
+import { speechAvailable } from "../../../lib/audio/providers/SpeechProvider";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 const json = (data: unknown, status = 200) => Response.json(data, { status });
 const publicJob = (job: RenderJob) => {
-  const { snapshot, ...view } = job;
+  const { snapshot, renderedPlan, ...view } = job;
   return view;
 };
 async function handler(
@@ -43,6 +46,7 @@ async function handler(
         ok: true,
         imageProvider: !!process.env.IMAGE_PROVIDER_URL,
         storyAnalyzer: process.env.STORY_ANALYZER_URL ? "provider" : "local",
+        automaticVoice: speechAvailable(),
       });
     if (p[0] === "settings") {
       if (req.method === "GET") {
@@ -114,9 +118,13 @@ async function handler(
               name: z.string().min(1).max(120),
               story: z.string().min(3).max(50000),
               config: ConfigSchema,
+              audio: AudioConfigSchema.optional(),
             })
             .parse(await req.json());
-          return json(service.create(body.name, body.story, body.config), 201);
+          return json(
+            service.create(body.name, body.story, body.config, body.audio),
+            201,
+          );
         }
       }
       const project = repo.get(p[1]);
@@ -128,8 +136,58 @@ async function handler(
         });
       if (p[2] === "analyze" && req.method === "POST")
         return json(await service.analyze(project));
-      if (p[2] === "render" && req.method === "POST")
+      if (p[2] === "render" && req.method === "POST") {
+        if (project.audio.mode === "automatic" && !speechAvailable())
+          throw new Error(
+            "La voz automática no está instalada en este servidor",
+          );
         return json(publicJob(new RenderQueue(repo).enqueue(project)), 202);
+      }
+      if (p[2] === "audio") {
+        if (req.method === "PATCH") {
+          const body = z
+            .object({ revision: z.number().int(), audio: AudioConfigSchema })
+            .parse(await req.json());
+          if (body.audio.mode === "automatic" && !speechAvailable())
+            throw new Error(
+              "La voz automática no está instalada en este servidor",
+            );
+          if (
+            body.audio.musicAssetId &&
+            repo.getAudio(body.audio.musicAssetId)?.source !== "music"
+          )
+            throw new Error("Música desconocida");
+          return json(
+            repo.save({ ...project, audio: body.audio }, body.revision),
+          );
+        }
+        if (req.method === "POST" && p[3] === "music") {
+          const length = Number(req.headers.get("content-length"));
+          if (length > 51 * 1024 * 1024)
+            throw new Error("El audio supera los 50 MB");
+          const form = await req.formData(),
+            file = form.get("file");
+          if (!(file instanceof File) || file.size > 50 * 1024 * 1024)
+            throw new Error("Selecciona un audio de hasta 50 MB");
+          const revision = z.coerce.number().int().parse(form.get("revision"));
+          if (revision !== project.revision)
+            throw new ConflictError("El proyecto cambió. Recárgalo.");
+          const asset = await new AudioManager(repo, storage).importMusic(
+            new Uint8Array(await file.arrayBuffer()),
+            file.name,
+          );
+          return json(
+            repo.save(
+              {
+                ...project,
+                audio: { ...project.audio, musicAssetId: asset.id },
+              },
+              revision,
+            ),
+            201,
+          );
+        }
+      }
       if (p[2] === "json")
         return new Response(
           JSON.stringify(

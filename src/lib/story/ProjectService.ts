@@ -5,6 +5,8 @@ import {
   AnalysisSchema,
   defaultConfig,
   ProjectSchema,
+  type AudioConfig,
+  defaultAudio,
 } from "../domain";
 import { StoryAnalyzer, type StoryAnalysisProvider } from "./StoryAnalyzer";
 import { ScenePlanner } from "./ScenePlanner";
@@ -48,7 +50,12 @@ export function assetManager(repo: SQLiteRepository) {
 }
 export class ProjectService {
   constructor(private repo: SQLiteRepository) {}
-  create(name: string, story: string, config: Config = defaultConfig) {
+  create(
+    name: string,
+    story: string,
+    config: Config = defaultConfig,
+    audio: AudioConfig = defaultAudio,
+  ) {
     const now = new Date().toISOString();
     return this.repo.save(
       ProjectSchema.parse({
@@ -60,6 +67,7 @@ export class ProjectService {
         createdAt: now,
         updatedAt: now,
         config,
+        audio,
         scenes: [],
         assets: [],
         warnings: [],

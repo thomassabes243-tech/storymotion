@@ -7,3 +7,5 @@ playwright-report/
 *.tsbuildinfo
 .env*
 !.env.example
+voice-env/
+voices/

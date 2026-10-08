@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import AudioPanel from "./AudioPanel";
 import { useRouter } from "next/navigation";
 import {
   BookOpen,
@@ -35,6 +36,7 @@ import {
 } from "lucide-react";
 import {
   defaultConfig,
+  defaultAudio,
   defaultSettings,
   cameraMovements,
   transitions,
@@ -46,7 +48,7 @@ import {
   type RenderJob,
   type Config,
 } from "../lib/domain";
-type Job = Omit<RenderJob, "snapshot">;
+type Job = Omit<RenderJob, "snapshot" | "renderedPlan">;
 type ViewProject = Project & { jobs?: Job[] };
 const PreviewPlayer = dynamic(() => import("./PreviewPlayer"), {
   ssr: false,
@@ -169,7 +171,7 @@ export function Studio({
       initialPage,
     ),
     [tab, setTab] = useState<
-      "storyboard" | "preview" | "characters" | "render"
+      "storyboard" | "preview" | "characters" | "audio" | "render"
     >("storyboard"),
     [editing, setEditing] = useState<string>(),
     [busy, setBusy] = useState(""),
@@ -312,7 +314,7 @@ export function Studio({
             <strong>{title}</strong>
           </div>
           <span className="output-pill">
-            <Film size={14} /> MP4 · Sin audio
+            <Film size={14} /> MP4 · Voz opcional
           </span>
         </header>
         <div className="content">
@@ -367,7 +369,13 @@ export function Studio({
                 aria-label="Vistas del proyecto"
               >
                 {(
-                  ["storyboard", "preview", "characters", "render"] as const
+                  [
+                    "storyboard",
+                    "preview",
+                    "characters",
+                    "audio",
+                    "render",
+                  ] as const
                 ).map((t) => (
                   <button
                     role="tab"
@@ -393,6 +401,7 @@ export function Studio({
                         storyboard: "Storyboard",
                         preview: "Preview",
                         characters: "Personajes",
+                        audio: "Audio",
                         render: "Render",
                       }[t]
                     }
@@ -622,7 +631,11 @@ export function Studio({
                       <dt>Escenas</dt>
                       <dd>{project.scenes.length}</dd>
                       <dt>Audio</dt>
-                      <dd>Sin pista de audio</dd>
+                      <dd>
+                        {project.audio.mode === "automatic"
+                          ? "Voz automática al exportar"
+                          : "Sin pista de audio"}
+                      </dd>
                     </dl>
                     <button
                       className="primary"
@@ -636,6 +649,43 @@ export function Studio({
                     </div>
                   </div>
                 </div>
+              ) : tab === "audio" ? (
+                <AudioPanel
+                  key={`${project.id}:${project.revision}`}
+                  project={project}
+                  busy={!!busy}
+                  onSave={(audio) =>
+                    act("Guardando audio", async () => {
+                      setProject(
+                        await api<Project>(
+                          `/api/projects/${project.id}/audio`,
+                          {
+                            method: "PATCH",
+                            body: JSON.stringify({
+                              revision: project.revision,
+                              audio,
+                            }),
+                          },
+                        ),
+                      );
+                      setNotice("Audio guardado");
+                    })
+                  }
+                  onMusic={(file) =>
+                    act("Guardando música", async () => {
+                      const form = new FormData();
+                      form.set("file", file);
+                      form.set("revision", String(project.revision));
+                      setProject(
+                        await api<Project>(
+                          `/api/projects/${project.id}/audio/music`,
+                          { method: "POST", body: form },
+                        ),
+                      );
+                      setNotice("Música guardada");
+                    })
+                  }
+                />
               ) : tab === "characters" ? (
                 <div className="character-grid">
                   {project.analysis?.characters.map((c) => (
@@ -829,7 +879,10 @@ export function Studio({
                 </span>
                 <div>
                   <strong>Una historia es el punto de partida.</strong>
-                  <p>Texto → Storyboard → Capas y movimiento → MP4 sin audio</p>
+                  <p>
+                    Texto → Storyboard → Capas y movimiento → MP4 con voz
+                    opcional
+                  </p>
                 </div>
                 <span className="workflow-format">
                   1080 × 1920 <span>30 FPS</span>
@@ -882,7 +935,32 @@ function NewProject({
 }) {
   const [name, setName] = useState(""),
     [story, setStory] = useState(""),
+    [audio, setAudio] = useState({
+      ...defaultAudio,
+      mode: "automatic" as const,
+    } as Project["audio"]),
+    [voiceAvailable, setVoiceAvailable] = useState<boolean>(),
     [config, setConfig] = useState<Config>({ ...defaultConfig, settings });
+  useEffect(() => {
+    let live = true;
+    api<{ automaticVoice: boolean }>("/api/health")
+      .then((data) => {
+        if (live) {
+          setVoiceAvailable(data.automaticVoice);
+          if (!data.automaticVoice)
+            setAudio((current) => ({ ...current, mode: "off" }));
+        }
+      })
+      .catch(() => {
+        if (live) {
+          setVoiceAvailable(false);
+          setAudio((current) => ({ ...current, mode: "off" }));
+        }
+      });
+    return () => {
+      live = false;
+    };
+  }, []);
   const words = (story.match(/[\p{L}\p{N}]+/gu) || []).length;
   return (
     <div className="new-project">
@@ -900,7 +978,7 @@ function NewProject({
           act("Analizando historia y preparando capas", async () => {
             const draft = await api<Project>("/api/projects", {
               method: "POST",
-              body: JSON.stringify({ name, story, config }),
+              body: JSON.stringify({ name, story, config, audio }),
             });
             try {
               const p = await api<Project>(
@@ -1030,8 +1108,32 @@ function NewProject({
           </label>
         </div>
         <div className="form-submit">
-          <p>El resultado será un video visual sin audio.</p>
-          <button className="primary" disabled={!!busy || words < 3}>
+          <label>
+            Narración
+            <select
+              value={audio.mode}
+              onChange={(e) =>
+                setAudio({
+                  ...audio,
+                  mode: e.target.value as Project["audio"]["mode"],
+                })
+              }
+            >
+              <option value="automatic" disabled={voiceAvailable !== true}>
+                Voz automática en español
+              </option>
+              <option value="off">Sin audio</option>
+            </select>
+          </label>
+          <p>
+            {audio.mode === "automatic"
+              ? "La voz leerá toda la historia. La duración final se ajustará a la narración."
+              : "El resultado será un video visual sin audio."}
+          </p>
+          <button
+            className="primary"
+            disabled={!!busy || words < 3 || voiceAvailable === undefined}
+          >
             {busy ? (
               <LoaderCircle className="spin" size={17} />
             ) : (
@@ -1561,16 +1663,24 @@ function RenderPanel({
     <div className="render-layout">
       <div className="render-main">
         <div className="eyebrow">EXPORTAR VIDEO</div>
-        <h2>Una secuencia lista para editar.</h2>
+        <h2>
+          {project.audio.mode === "automatic"
+            ? "Tu video con narración, listo."
+            : "Una secuencia lista para editar."}
+        </h2>
         <p>
-          MP4 vertical para Shorts, Reels y TikTok. Añade tu narración o música
-          después, en el editor que prefieras.
+          MP4 vertical para Shorts, Reels y TikTok.{" "}
+          {project.audio.mode === "automatic"
+            ? "Incluye la narración automática y la música que hayas elegido en Audio."
+            : "Puedes activar la narración desde la pestaña Audio."}
         </p>
         <div className="render-specs">
           <span>1080 × 1920</span>
           <span>H.264</span>
           <span>{project.config.fps} FPS</span>
-          <span>Sin audio</span>
+          <span>
+            {project.audio.mode === "automatic" ? "Con narración" : "Sin audio"}
+          </span>
         </div>
         {active ? (
           <div className="render-progress">
@@ -1578,9 +1688,15 @@ function RenderPanel({
             <h3>{statusNames[active.state]}</h3>
             <div className="progress-label">
               <span>
-                {active.currentScene
-                  ? `Plano ${active.currentScene} de ${active.sceneCount}`
-                  : "Esperando al worker de render"}
+                {active.phase === "NARRATION"
+                  ? "Generando narración"
+                  : active.phase === "MIXING"
+                    ? "Uniendo video y audio"
+                    : active.phase === "VALIDATING"
+                      ? "Verificando MP4"
+                      : active.currentScene
+                        ? `Plano ${active.currentScene} de ${active.sceneCount}`
+                        : "Esperando al worker de render"}
               </span>
               <strong>{Math.round(active.progress * 100)} %</strong>
             </div>
@@ -1636,7 +1752,12 @@ function RenderPanel({
               <Film size={19} />
               <div>
                 <strong>{statusNames[job.state]}</strong>
-                <small>{new Date(job.createdAt).toLocaleString("es")}</small>
+                <small>
+                  {new Date(job.createdAt).toLocaleString("es")}
+                  {job.probe
+                    ? ` · ${time(job.probe.duration)} · ${job.probe.audioStreams ? "Con audio" : "Sin audio"}`
+                    : ""}
+                </small>
               </div>
               {job.state === "COMPLETE" && (
                 <a
@@ -1666,7 +1787,10 @@ function RenderPanel({
               <Download size={17} /> Descargar MP4
             </a>
             <p>
-              <Check size={15} /> Formato y ausencia de audio verificados
+              <Check size={15} /> MP4 verificado ·{" "}
+              {jobs.find((j) => j.state === "COMPLETE")?.probe?.audioStreams
+                ? "Con audio"
+                : "Sin audio"}
             </p>
           </>
         ) : (

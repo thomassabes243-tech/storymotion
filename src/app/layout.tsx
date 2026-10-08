@@ -4,7 +4,7 @@ import { PwaRegistration } from "../components/PwaRegistration";
 export const metadata: Metadata = {
   title: "StoryMotion · De historia a movimiento",
   description:
-    "Estudio independiente de animación narrativa 2.5D. De texto a MP4 sin audio.",
+    "Estudio independiente de animación narrativa 2.5D. De texto a MP4 con narración opcional.",
   manifest: "/manifest.webmanifest",
   icons: { icon: "/icon.svg", apple: "/icon.svg" },
 };

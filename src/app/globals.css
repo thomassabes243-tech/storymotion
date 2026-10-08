@@ -841,6 +841,9 @@ code {
   color: var(--muted);
   font-size: 0.6rem;
 }
+.audio-panel { max-width: 700px; display: grid; gap: 20px; }
+.audio-panel h2, .audio-panel p { margin: 0; }
+.audio-panel input[type="file"] { max-width: 100%; }
 .new-project,
 .settings-panel {
   max-width: 780px;

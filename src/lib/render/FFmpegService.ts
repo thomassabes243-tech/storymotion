@@ -47,18 +47,28 @@ export class FFmpegService {
       audioStreams: result.streams.filter(
         (s: { codec_type: string }) => s.codec_type === "audio",
       ).length,
+      audioCodec: result.streams.find(
+        (s: { codec_type: string }) => s.codec_type === "audio",
+      )?.codec_name,
     };
   }
   validate(
     probe: VideoProbe,
-    expected: { width: number; height: number; fps: number; duration?: number },
+    expected: {
+      width: number;
+      height: number;
+      fps: number;
+      duration?: number;
+      audioStreams?: number;
+    },
   ) {
     if (
       probe.width !== expected.width ||
       probe.height !== expected.height ||
       probe.codec !== "h264" ||
       Math.abs(probe.fps - expected.fps) > 0.01 ||
-      probe.audioStreams !== 0
+      probe.audioStreams !== (expected.audioStreams ?? 0) ||
+      ((expected.audioStreams ?? 0) > 0 && probe.audioCodec !== "aac")
     )
       throw new Error(`Salida inválida: ${JSON.stringify(probe)}`);
     if (
@@ -108,6 +118,10 @@ export class FFmpegService {
         list,
         "-c:v",
         "copy",
+        "-bsf:v",
+        `setts=pts=round(PTS*TB*${timing.fps})/(${timing.fps}*TB):dts=round(DTS*TB*${timing.fps})/(${timing.fps}*TB):duration=1/(${timing.fps}*TB)`,
+        "-video_track_timescale",
+        "90000",
         "-an",
         "-movflags",
         "+faststart",

@@ -7,6 +7,8 @@ import {
   type Project,
   type Asset,
   type RenderJob,
+  AudioAssetSchema,
+  type AudioAsset,
 } from "../domain";
 export interface ProjectRepository {
   list(): Project[];
@@ -21,6 +23,9 @@ export class SQLiteRepository implements ProjectRepository {
     this.db = new DatabaseSync(path.join(directory, "storymotion.sqlite"));
     this.db.exec(
       `PRAGMA journal_mode=WAL; PRAGMA busy_timeout=5000; CREATE TABLE IF NOT EXISTS projects (id TEXT PRIMARY KEY, revision INTEGER NOT NULL, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS assets (id TEXT PRIMARY KEY, fingerprint TEXT, document TEXT NOT NULL); CREATE INDEX IF NOT EXISTS asset_fingerprint ON assets(fingerprint); CREATE TABLE IF NOT EXISTS jobs (id TEXT PRIMARY KEY, project_id TEXT NOT NULL, state TEXT NOT NULL, created_at TEXT NOT NULL, document TEXT NOT NULL); CREATE INDEX IF NOT EXISTS queue ON jobs(state, created_at); CREATE TABLE IF NOT EXISTS settings (id TEXT PRIMARY KEY, document TEXT NOT NULL);`,
+    );
+    this.db.exec(
+      "CREATE TABLE IF NOT EXISTS audio_assets (id TEXT PRIMARY KEY, fingerprint TEXT NOT NULL UNIQUE, document TEXT NOT NULL)",
     );
   }
   list() {
@@ -103,6 +108,25 @@ export class SQLiteRepository implements ProjectRepository {
             .prepare("SELECT document FROM jobs ORDER BY created_at DESC")
             .all() as unknown)
     ) as { document: string }[];
+  }
+  getAudio(id: string) {
+    const row = this.db
+      .prepare("SELECT document FROM audio_assets WHERE id=?")
+      .get(id) as { document: string } | undefined;
+    return row ? AudioAssetSchema.parse(JSON.parse(row.document)) : undefined;
+  }
+  findAudio(fingerprint: string) {
+    const row = this.db
+      .prepare("SELECT document FROM audio_assets WHERE fingerprint=?")
+      .get(fingerprint) as { document: string } | undefined;
+    return row ? AudioAssetSchema.parse(JSON.parse(row.document)) : undefined;
+  }
+  putAudio(asset: AudioAsset) {
+    const parsed = AudioAssetSchema.parse(asset);
+    this.db
+      .prepare("INSERT OR REPLACE INTO audio_assets VALUES (?,?,?)")
+      .run(parsed.id, parsed.fingerprint, JSON.stringify(parsed));
+    return parsed;
   }
   listJobs(projectId?: string) {
     return this.jobs(projectId).map((r) => JSON.parse(r.document) as RenderJob);

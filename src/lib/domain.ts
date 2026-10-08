@@ -207,6 +207,28 @@ export const AssetSchema = z.object({
   height: z.number(),
 });
 export type Asset = z.infer<typeof AssetSchema>;
+export const AudioConfigSchema = z.object({
+  mode: z.enum(["off", "automatic"]).default("off"),
+  voice: z.literal("es_MX-ald-medium").default("es_MX-ald-medium"),
+  rate: z.number().min(0.8).max(1.3).default(1),
+  musicAssetId: z.string().optional(),
+  musicVolume: z.number().min(0).max(0.35).default(0.12),
+});
+export type AudioConfig = z.infer<typeof AudioConfigSchema>;
+export const defaultAudio: AudioConfig = AudioConfigSchema.parse({});
+export const AudioAssetSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  storageKey: z.string(),
+  mime: z.literal("audio/mp4"),
+  duration: z.number().positive(),
+  source: z.enum(["narration", "music"]),
+  fingerprint: z.string(),
+  cues: z
+    .array(z.object({ text: z.string(), duration: z.number().positive() }))
+    .default([]),
+});
+export type AudioAsset = z.infer<typeof AudioAssetSchema>;
 export const ProjectSchema = z.object({
   schemaVersion: z.literal(1),
   id: z.string(),
@@ -219,6 +241,7 @@ export const ProjectSchema = z.object({
   analysis: AnalysisSchema.optional(),
   scenes: z.array(SceneSchema),
   assets: z.array(AssetSchema),
+  audio: AudioConfigSchema.default(defaultAudio),
   warnings: z.array(z.string()),
   state: z.enum(jobStates),
 });
@@ -238,6 +261,9 @@ export type RenderJob = {
   attempts: number;
   snapshot: Project;
   probe?: VideoProbe;
+  phase?: "NARRATION" | "VISUALS" | "MIXING" | "VALIDATING";
+  narrationAssetId?: string;
+  renderedPlan?: Project;
 };
 export type VideoProbe = {
   width: number;
@@ -246,6 +272,7 @@ export type VideoProbe = {
   fps: number;
   duration: number;
   audioStreams: number;
+  audioCodec?: string;
 };
 export type RenderProps = {
   project: Project;
