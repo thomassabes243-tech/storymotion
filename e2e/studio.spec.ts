@@ -128,13 +128,25 @@ test("demo preview animates, mobile views fit and export responds with a queued 
   await expect(
     page.getByText("Sin audio", { exact: true }).last(),
   ).toBeVisible();
-  const enqueueResponse = page.waitForResponse(
-    (r) =>
-      r.url().endsWith(`/api/projects/${demo.id}/render`) &&
-      r.request().method() === "POST",
+  const current = await (await request.get(`/api/projects/${demo.id}`)).json();
+  const active = current.jobs.find((j: { state: string }) =>
+    ["RENDER_QUEUED", "RENDERING"].includes(j.state),
   );
-  await page.getByRole("button", { name: /Renderizar (cambios|MP4)/ }).click();
-  const response = await enqueueResponse;
+  let response;
+  if (active) {
+    // A retried browser run can attach to work resumed by the worker.
+    response = await request.post(`/api/projects/${demo.id}/render`);
+  } else {
+    const enqueueResponse = page.waitForResponse(
+      (r) =>
+        r.url().endsWith(`/api/projects/${demo.id}/render`) &&
+        r.request().method() === "POST",
+    );
+    await page
+      .getByRole("button", { name: /Renderizar (cambios|MP4)/ })
+      .click();
+    response = await enqueueResponse;
+  }
   expect(response.status()).toBe(202);
   const job = await response.json();
   expect(["RENDER_QUEUED", "RENDERING"]).toContain(job.state);

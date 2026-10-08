@@ -16,3 +16,9 @@ Flujo verificado: historia escrita → storyboard → configuración de voz pers
 La prueba de reinicio detectó un caso real de un proceso zombie: la comprobación del PID lo consideraba activo y retenía el render. La corrección verifica su estado en Linux y guarda su instante de creación para distinguir un PID reutilizado. El trabajo volvió a la cola y reanudó sus planos pendientes utilizando los segmentos guardados.
 
 Los proyectos existentes mantienen el modo sin audio. El validador continúa exigiendo cero pistas en ese modo; para voz exige una pista AAC. La vista previa de storyboard conserva su ritmo visual estimado; el render guarda el plan ajustado y su duración final.
+
+Cinco pruebas de navegador aprobadas tras corregir la prueba para reconocer un render que ya estaba activo: narración, edición/importación/reapertura, exportación sin audio de 30 segundos, estructura de escenas y fallo aislado de una imagen. La exportación silenciosa reanudó el trabajo interrumpido y finalizó con H.264, 1080 × 1920, 30 FPS y cero pistas de audio.
+
+Después del nuevo despliegue se reabrió el proyecto publicado, se confirmó la persistencia de voz, música y MP4 anteriores y se exportó de nuevo reutilizando recursos. El nuevo trabajo guardó la identidad del proceso y finalizó con una pista AAC.
+
+Demostración completa de José: 1.887 palabras narradas, 56 fragmentos, 151 planos, 22.838 fotogramas, 761,266667 segundos, H.264 1080 × 1920 a 30/1 FPS y una pista AAC. Decodificación completa aprobada; reproducción móvil y saltos a seis secciones aprobados. El archivo de esta demostración se entrega por separado, fuera del almacenamiento de la app publicada.
