@@ -12,6 +12,8 @@ test("Hosted owner gate protects the app, assets, mutations and MP4 downloads", 
       "/api/projects",
       "/api/assets/a/data",
       "/api/jobs/j/video",
+      "/api/deliveries/d/video",
+      "/delivery/d",
     ])
       assert.equal(
         proxy(new NextRequest(`https://storymotion.example${route}`)).status,

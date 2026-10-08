@@ -1,6 +1,4 @@
 import { NextRequest } from "next/server";
-import { Readable } from "node:stream";
-import { createReadStream, promises as fs } from "node:fs";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import {
@@ -25,6 +23,12 @@ import {
 import { RenderQueue } from "../../../lib/render/RenderQueue";
 import { AudioManager } from "../../../lib/audio/AudioManager";
 import {
+  VideoDeliveryManager,
+  deliveryChunkSize,
+  DeliveryRequestSchema,
+} from "../../../lib/delivery/VideoDelivery";
+import { videoResponse } from "../../../lib/render/VideoResponse";
+import {
   speechAvailable,
   availableVoices,
 } from "../../../lib/audio/providers/SpeechProvider";
@@ -44,6 +48,44 @@ async function handler(
       repo = repository(),
       service = new ProjectService(repo),
       storage = new FileSystemStorage();
+    if (p[0] === "deliveries") {
+      const manager = new VideoDeliveryManager(storage);
+      if (!p[1] && req.method === "POST")
+        return json(
+          await manager.begin(DeliveryRequestSchema.parse(await req.json())),
+          201,
+        );
+      if (p[1] && p[2] === "parts" && req.method === "PUT") {
+        if (Number(req.headers.get("content-length")) > deliveryChunkSize)
+          throw new Error("La parte del video supera los 8 MB");
+        await manager.putPart(
+          p[1],
+          Number(p[3]),
+          new Uint8Array(await req.arrayBuffer()),
+        );
+        return json({ ok: true });
+      }
+      if (p[1] && p[2] === "complete" && req.method === "POST")
+        return json(await manager.complete(p[1]));
+      if (p[1]) {
+        const delivery = await manager.get(p[1]);
+        if (p[2] === "video") {
+          if (delivery.state !== "READY")
+            return json({ error: "Video todavía no disponible" }, 404);
+          return videoResponse(
+            req,
+            storage.resolve(manager.videoKey(delivery.id)),
+            delivery.filename,
+          );
+        }
+        if (!p[2] && ["GET", "HEAD"].includes(req.method))
+          return json({
+            ...delivery,
+            chunkSize: deliveryChunkSize,
+            missingParts: await manager.missingParts(delivery),
+          });
+      }
+    }
     if (p[0] === "health")
       return json({
         ok: true,
@@ -381,49 +423,11 @@ async function handler(
       if (p[2] === "video") {
         if (job.state !== "COMPLETE" || !job.outputKey)
           return json({ error: "Video todavía no disponible" }, 404);
-        const file = storage.resolve(job.outputKey),
-          stat = await fs.stat(file),
-          range = req.headers.get("range");
-        let start = 0,
-          end = stat.size - 1,
-          status = 200;
-        if (range) {
-          const m = /^bytes=(\d*)-(\d*)$/.exec(range);
-          if (!m)
-            return new Response(null, {
-              status: 416,
-              headers: { "Content-Range": `bytes */${stat.size}` },
-            });
-          if (m[1]) {
-            start = Number(m[1]);
-            if (m[2]) end = Math.min(Number(m[2]), end);
-          } else if (m[2]) start = Math.max(0, stat.size - Number(m[2]));
-          if (start > end || start >= stat.size)
-            return new Response(null, {
-              status: 416,
-              headers: { "Content-Range": `bytes */${stat.size}` },
-            });
-          status = 206;
-        }
-        const stream = Readable.toWeb(
-          createReadStream(file, { start, end }),
-        ) as ReadableStream;
-        return new Response(stream, {
-          status,
-          headers: {
-            "Content-Type": "video/mp4",
-            "Content-Length": String(end - start + 1),
-            "Accept-Ranges": "bytes",
-            ...(status === 206
-              ? { "Content-Range": `bytes ${start}-${end}/${stat.size}` }
-              : {}),
-            ...(req.nextUrl.searchParams.has("download")
-              ? {
-                  "Content-Disposition": `attachment; filename="storymotion-${job.id}.mp4"`,
-                }
-              : {}),
-          },
-        });
+        return videoResponse(
+          req,
+          storage.resolve(job.outputKey),
+          `storymotion-${job.id}.mp4`,
+        );
       }
     }
     return json({ error: "Ruta no encontrada" }, 404);
@@ -446,3 +450,4 @@ export const GET = handler;
 export const POST = handler;
 export const PATCH = handler;
 export const PUT = handler;
+export const HEAD = handler;

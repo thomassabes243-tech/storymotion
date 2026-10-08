@@ -26,6 +26,8 @@ export class FFmpegService {
       await runProcess(process.env.FFPROBE_PATH || "ffprobe", [
         "-v",
         "error",
+        "-protocol_whitelist",
+        "file,pipe",
         "-show_streams",
         "-show_format",
         "-of",
