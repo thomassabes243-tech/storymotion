@@ -1,3 +1,8 @@
+import { mkdtempSync, rmSync } from "node:fs";
+import os from "node:os";
+import path from "node:path";
+import { SQLiteRepository } from "../src/lib/storage/ProjectRepository";
+import { RenderQueue } from "../src/lib/render/RenderQueue";
 import test from "node:test";
 import assert from "node:assert/strict";
 import { StoryAnalyzer } from "../src/lib/story/StoryAnalyzer";
@@ -95,4 +100,16 @@ test("old projects opt out; title and smoothing settings invalidate rendered cac
   const withTitle = sceneCacheKey(p, 0, {}, "v1");
   p.config.motionBlur = "subtle";
   assert.notEqual(sceneCacheKey(p, 0, {}, "v1"), withTitle);
+  const directory = mkdtempSync(path.join(os.tmpdir(), "actionmotion-title-"));
+  const repo = new SQLiteRepository(directory);
+  try {
+    p.scenes[0].clipAssetId = "existing-clip";
+    assert.throws(
+      () => new RenderQueue(repo).enqueue(p),
+      /título fijo.*ilustradas/,
+    );
+  } finally {
+    repo.close();
+    rmSync(directory, { recursive: true, force: true });
+  }
 });

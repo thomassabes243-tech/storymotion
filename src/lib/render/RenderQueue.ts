@@ -29,6 +29,10 @@ export class RenderQueue {
       throw new Error(
         "BLOQUEADO: motor generativo no disponible; no se sustituirá por 2.5D.",
       );
+    if (project.config.fixedTitle && project.scenes.some((s) => s.clipAssetId))
+      throw new Error(
+        "El título fijo está disponible en escenas ilustradas. Los clips importados requieren añadirlo en un editor externo antes de exportar.",
+      );
     if (requestKey) {
       const previous = this.repo
         .listJobs(project.id)
