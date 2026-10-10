@@ -258,6 +258,7 @@ export class ScenePlanner {
       status: "NEEDS_REVIEW",
       intentionalStill: false,
       continuityNotes: [],
+      clipStart: 0,
     }));
     return {
       scenes: new ContinuityEngine().apply(reflow(scenes, fps), analysis),

@@ -6,7 +6,13 @@ import { workerIsAlive } from "./WorkerIdentity";
 // Lightweight queue API: it never loads Chromium, webpack or the renderer.
 export class RenderQueue {
   constructor(protected repo: SQLiteRepository) {}
-  enqueue(project: Project) {
+  enqueue(project: Project, requestKey?: string) {
+    if (requestKey) {
+      const previous = this.repo
+        .listJobs(project.id)
+        .find((j) => j.requestKey === requestKey);
+      if (previous) return previous;
+    }
     if (!project.scenes.length || !project.analysis)
       throw new Error("Analiza la historia antes de renderizar");
     const continuity = new ContinuityEngine().validate(
@@ -24,7 +30,7 @@ export class RenderQueue {
         (s) =>
           s.status === "GENERATING" ||
           s.status === "FAILED" ||
-          !s.layers.length,
+          (!s.layers.length && !s.clipAssetId),
       )
     )
       throw new Error("Revisa las escenas con assets pendientes o fallidos");
@@ -44,6 +50,7 @@ export class RenderQueue {
       updatedAt: now,
       attempts: 0,
       snapshot: structuredClone(project),
+      requestKey,
     });
   }
   retry(id: string) {

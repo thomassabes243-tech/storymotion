@@ -142,6 +142,7 @@ function character(
       face: "rasgos definidos, rostro consistente",
       artStyle: "historical_parchment",
     },
+    referenceAssetIds: [],
     poses: [
       "standing",
       "walking",
