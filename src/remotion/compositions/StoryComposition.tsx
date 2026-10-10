@@ -110,6 +110,30 @@ export function StoryComposition({ project, assetSources }: RenderProps) {
           </Sequence>
         );
       })}
+      {project.config.fixedTitle && (
+        <div
+          style={{
+            position: "absolute",
+            left: 138,
+            top: 255,
+            width: 792,
+            padding: "24px 26px",
+            boxSizing: "border-box",
+            borderRadius: 22,
+            background: "rgba(16,21,23,.83)",
+            color: "#fff1d8",
+            fontFamily: "Arial, sans-serif",
+            fontSize: 50,
+            fontWeight: 700,
+            lineHeight: 1.18,
+            textAlign: "center",
+            textShadow: "0 2px 4px rgba(0,0,0,.5)",
+            pointerEvents: "none",
+          }}
+        >
+          {project.config.fixedTitle}
+        </div>
+      )}
     </AbsoluteFill>
   );
 }

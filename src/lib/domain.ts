@@ -102,6 +102,25 @@ export const SceneSchema = z.object({
   continuityNotes: z.array(z.string()).default([]),
   clipAssetId: z.string().optional(),
   clipStart: z.number().min(0).default(0),
+  illustration: z
+    .object({
+      profile: z.literal("biblical_cutout"),
+      framing: z.enum([
+        "wide",
+        "pair",
+        "face",
+        "hands",
+        "coins",
+        "shadows",
+        "kiss",
+        "arrest",
+      ]),
+      setting: z.enum(["supper", "chamber", "street", "garden"]),
+      focusId: z.string().optional(),
+      variant: z.number().int().min(0),
+      poses: z.record(z.string(), z.string()),
+    })
+    .optional(),
   environment: z
     .object({
       weather: z.enum(["clear", "rain"]),
@@ -214,6 +233,8 @@ export const ConfigSchema = z.object({
   settings: SettingsSchema,
   quality: z.enum(["fast", "balanced", "cinematic"]).default("balanced"),
   motionMode: z.enum(["cutout", "generative"]).default("cutout"),
+  fixedTitle: z.string().max(180).optional(),
+  motionBlur: z.enum(["off", "subtle"]).default("off"),
 });
 export type Config = z.infer<typeof ConfigSchema>;
 export const defaultConfig: Config = {
@@ -226,6 +247,7 @@ export const defaultConfig: Config = {
   settings: defaultSettings,
   quality: "balanced",
   motionMode: "cutout",
+  motionBlur: "off",
 };
 export const AssetSchema = z.object({
   id: z.string(),

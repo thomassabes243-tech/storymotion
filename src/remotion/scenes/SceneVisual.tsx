@@ -5,6 +5,7 @@ import { cameraMotion, smooth } from "../../lib/animation/CameraMotion";
 import { parallax } from "../../lib/animation/Parallax";
 import { ArticulatedCharacter } from "../layers/ArticulatedCharacter";
 import { sampleLayer } from "../../lib/animation/AnimationEngine";
+import { BiblicalCutout } from "../layers/BiblicalCutout";
 function Cutout({
   layer,
   frame,
@@ -65,6 +66,15 @@ export function SceneVisual({
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />
       </AbsoluteFill>
+    );
+  if (project && scene.illustration?.profile === "biblical_cutout")
+    return (
+      <BiblicalCutout
+        project={project}
+        scene={scene}
+        frame={frame}
+        sources={sources}
+      />
     );
   const camera = cameraMotion(frame, scene.durationFrames, scene.camera);
   return (

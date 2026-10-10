@@ -15,6 +15,34 @@ export const wordCount = (s: string) =>
   (s.match(/[\p{L}\p{N}]+(?:['’-][\p{L}]+)*/gu) || []).length;
 const archetypes: [RegExp, string, string, string, string][] = [
   [
+    /\bjesus\b/,
+    "jesus",
+    "Jesús",
+    "main",
+    "túnica marfil, manto rojo oscuro, cabello castaño largo y barba",
+  ],
+  [
+    /\bjudas\b/,
+    "judas",
+    "Judas",
+    "main",
+    "túnica verde oliva, manto marrón, cabello oscuro corto y barba",
+  ],
+  [
+    /\bdiscipul\w*\b/,
+    "disciples",
+    "Discípulos",
+    "group",
+    "túnicas ocres y mantos azul gris",
+  ],
+  [
+    /\bguardias?\b/,
+    "guards",
+    "Guardias",
+    "group",
+    "túnicas granate, cascos de bronce y lanzas",
+  ],
+  [
     /\b(figura misteriosa|silueta|mysterious figure)\b/,
     "mysterious_figure",
     "Figura misteriosa",
@@ -95,6 +123,11 @@ const placePatterns: [RegExp, string][] = [
 // event may later expand into preparation, action and consequence shots.
 function actionOf(text: string) {
   const t = normalize(text);
+  if (/bes[oó]|bes[aá]|besarlo/.test(t)) return "kiss";
+  if (/sujet|arrest|prendier|detuvier/.test(t)) return "arrest";
+  if (/monedas|plata.*manos/.test(t)) return "exchange_coins";
+  if (/compart.*pan/.test(t)) return "share_bread";
+  if (/bajo la mirada/.test(t)) return "lower_gaze";
   if (
     /flechas.*(caer|cayer|fall)|lluvia de flechas|arrows.*(rain|fall)/.test(t)
   )
@@ -153,7 +186,17 @@ function character(
             ? ["espada", "escudo"]
             : [],
       colors:
-        id === "commander" ? ["#872f2d", "#ae8652"] : ["#504b35", "#bb955f"],
+        id === "jesus"
+          ? ["#e3d3ae", "#793c35"]
+          : id === "judas"
+            ? ["#67634c", "#5b4136"]
+            : id === "guards"
+              ? ["#593b3b", "#977456"]
+              : id === "disciples"
+                ? ["#7c817c", "#ad895f"]
+                : id === "commander"
+                  ? ["#872f2d", "#ae8652"]
+                  : ["#504b35", "#bb955f"],
       face: "rasgos definidos, rostro consistente",
       artStyle: "historical_parchment",
     },

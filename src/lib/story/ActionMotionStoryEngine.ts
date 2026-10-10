@@ -17,17 +17,29 @@ export class ActionMotionStoryEngine {
       )
         weather = "clear";
       const next =
-        s.action === "advance"
-          ? "walking"
-          : s.action === "stop"
-            ? "stopped"
-            : s.action === "head_turn"
-              ? "looking_back"
-              : s.action === "escape"
-                ? "running"
-                : s.action === "observe"
-                  ? "observing"
-                  : state;
+        s.action === "share_bread"
+          ? "sharing_bread"
+          : s.action === "exchange_coins"
+            ? "exchanging_coins"
+            : s.action === "kiss"
+              ? "betraying_kiss"
+              : s.action === "arrest"
+                ? "arrested"
+                : s.action === "depart"
+                  ? "departing"
+                  : s.action === "lower_gaze"
+                    ? "looking_down"
+                    : s.action === "advance"
+                      ? "walking"
+                      : s.action === "stop"
+                        ? "stopped"
+                        : s.action === "head_turn"
+                          ? "looking_back"
+                          : s.action === "escape"
+                            ? "running"
+                            : s.action === "observe"
+                              ? "observing"
+                              : state;
       const result = {
         ...s,
         environment: {

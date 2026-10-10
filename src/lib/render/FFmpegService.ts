@@ -32,6 +32,35 @@ export function runProcess(
   });
 }
 export class FFmpegService {
+  async subtleMotionBlur(input: string, output: string, crf: number) {
+    // A real three-frame weighted temporal blend, not a claim of optical flow.
+    // Applied once after montage to preserve exact frame count and fixed titles.
+    await runProcess(process.env.FFMPEG_PATH || "ffmpeg", [
+      "-y",
+      "-v",
+      "error",
+      "-i",
+      input,
+      "-map",
+      "0:v:0",
+      "-an",
+      "-vf",
+      "tmix=frames=3:weights=1 8 1",
+      "-c:v",
+      "libx264",
+      "-crf",
+      String(crf),
+      "-preset",
+      "fast",
+      "-pix_fmt",
+      "yuv420p",
+      "-video_track_timescale",
+      "90000",
+      "-movflags",
+      "+faststart",
+      output,
+    ]);
+  }
   async probe(file: string): Promise<VideoProbe> {
     const result = JSON.parse(
       await runProcess(process.env.FFPROBE_PATH || "ffprobe", [

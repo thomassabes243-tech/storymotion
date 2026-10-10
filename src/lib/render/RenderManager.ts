@@ -220,6 +220,19 @@ export class RenderManager extends RenderQueue {
         fps: project.config.fps,
         durationFrames: project.scenes.map((scene) => scene.durationFrames),
       });
+      if (project.config.motionBlur === "subtle") {
+        const softened = `${output}.motion.mp4`;
+        try {
+          await this.ffmpeg.subtleMotionBlur(
+            visualOutput,
+            softened,
+            quality.crf,
+          );
+          await fs.rename(softened, visualOutput);
+        } finally {
+          await fs.rm(softened, { force: true });
+        }
+      }
       if (narration) {
         const music = project.audio.musicAssetId
           ? this.repo.getAudio(project.audio.musicAssetId)
