@@ -193,3 +193,5 @@ La revisión se encuentra en [PR #1](https://github.com/thomassabes243-tech/stor
 5. Completar autorización por operación/presupuesto para proveedores comerciales antes de habilitar sus llamadas. Ninguna aprobación local de storyboard habilita gastos.
 
 **No se declara terminado el estudio cinematográfico generativo.** Se entrega un flujo local funcional y verificable, con integración y recursos necesarios identificados, preservando la aplicación anterior y su producción.
+
+Prueba adicional: [la traición de Judas, 23 tomas y narración local, 69,87 s](ACTIONMOTION-E2E-JUDAS.md).

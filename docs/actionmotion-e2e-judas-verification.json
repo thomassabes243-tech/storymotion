@@ -1,0 +1,2686 @@
+{
+  "status": "FUNCTIONAL_WITH_VISUAL_LIMITATIONS",
+  "scope": "Original story → mobile UI → local rule storyboard → CharacterBible → local Piper narration → persistent director → layered Remotion render → FFmpeg montage/AAC → technical QA → HTTP download/mobile playback",
+  "originalStory": "¿Qué pasaría si supieras que tu amigo te va a traicionar? Aquella noche, Jesús compartía el pan con sus discípulos. Las lámparas iluminaban una despedida. Judas estaba allí, a su lado. Jesús lo miró con tristeza, sin dejar de amarlo. Uno de ustedes me entregará, dijo. El silencio pesó más que cualquier respuesta. Judas bajó la mirada. En su corazón, la decisión ya estaba tomada. Treinta monedas de plata cambiaron de manos. Un precio pequeño para una traición inmensa. Después, Judas salió a la oscuridad. Jesús fue al huerto, y allí esperó. Entre los olivos aparecieron antorchas y guardias. Judas se acercó, llamándolo maestro. Entonces lo besó. El gesto que debía expresar cariño se convirtió en una señal. Los guardias sujetaron a Jesús. Él no respondió con odio; aceptó aquel dolor en silencio. La traición había llegado desde una mano conocida. Y aun así, el amor permaneció. Si supieras que tu amigo te va a traicionar, ¿elegirías vengarte, o conservar tu paz?",
+  "fixedTitle": "¿Qué pasaría si supieras que tu amigo te va a traicionar?",
+  "titleSafeBox": {
+    "x": 138,
+    "y": 255,
+    "width": 792,
+    "fontSize": 50,
+    "platform": "conservative margins; platform UI varies"
+  },
+  "wordCount": 162,
+  "requested": {
+    "durationSeconds": 69,
+    "quality": "balanced",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "crf": 20,
+    "motionMode": "cutout"
+  },
+  "projectId": "6b7e4a5c-727b-40d8-ae6c-800dee195d07",
+  "agentId": "bb7d6272-d0da-4a32-8f90-399acfe1194d",
+  "renderJobId": "f9c5b92a-dd84-4e38-9c5a-a7011a84e326",
+  "state": "READY_FOR_REVIEW",
+  "elapsedMs": 1382820,
+  "audio": {
+    "source": "real_local_tts",
+    "provider": "Piper",
+    "voice": "es_MX-claude-high",
+    "delivery": "narrator",
+    "rate": 1.1053264886941587,
+    "duration": 69.85260770975057,
+    "cues": [
+      {
+        "text": "¿Qué pasaría si supieras que tu amigo te va a traicionar?",
+        "duration": 3.631111111111111
+      },
+      {
+        "text": "Aquella noche, Jesús compartía el pan con sus discípulos. Las lámparas iluminaban una despedida.",
+        "duration": 6.803265306122449
+      },
+      {
+        "text": "Judas estaba allí, a su lado. Jesús lo miró con tristeza, sin dejar de amarlo.",
+        "duration": 6.037006802721089
+      },
+      {
+        "text": "Uno de ustedes me entregará, dijo. El silencio pesó más que cualquier respuesta.",
+        "duration": 5.711927437641723
+      },
+      {
+        "text": "Judas bajó la mirada. En su corazón, la decisión ya estaba tomada.",
+        "duration": 5.526167800453515
+      },
+      {
+        "text": "Treinta monedas de plata cambiaron de manos. Un precio pequeño para una traición inmensa.",
+        "duration": 5.700317460317461
+      },
+      {
+        "text": "Después, Judas salió a la oscuridad. Jesús fue al huerto, y allí esperó.",
+        "duration": 5.491337868480725
+      },
+      {
+        "text": "Entre los olivos aparecieron antorchas y guardias. Judas se acercó, llamándolo maestro.",
+        "duration": 6.257596371882086
+      },
+      {
+        "text": "Entonces lo besó. El gesto que debía expresar cariño se convirtió en una señal.",
+        "duration": 6.187936507936508
+      },
+      {
+        "text": "Los guardias sujetaron a Jesús. Él no respondió con odio; aceptó aquel dolor en silencio.",
+        "duration": 6.489795918367347
+      },
+      {
+        "text": "La traición había llegado desde una mano conocida. Y aun así, el amor permaneció.",
+        "duration": 6.304036281179139
+      },
+      {
+        "text": "Si supieras que tu amigo te va a traicionar, ¿elegirías vengarte, o conservar tu paz?",
+        "duration": 5.712108843537415
+      }
+    ],
+    "calibration": [
+      {
+        "rate": 1,
+        "duration": 72.60417233560091
+      },
+      {
+        "rate": 1.0522343816753754,
+        "duration": 71.47800453514739
+      },
+      {
+        "rate": 1.0900233899337752,
+        "duration": 69.9687074829932
+      },
+      {
+        "rate": 1.1053264886941587,
+        "duration": 69.85260770975057
+      }
+    ],
+    "placeholder": false,
+    "background": {
+      "source": "local FFmpeg additive synthesis",
+      "placeholder": false,
+      "volume": 0.12
+    }
+  },
+  "probe": {
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "fps": 30,
+    "duration": 69.866667,
+    "audioStreams": 1,
+    "audioCodec": "aac"
+  },
+  "frames": 2096,
+  "sceneCount": 23,
+  "qa": {
+    "encoder": {
+      "observedCrf": [
+        20
+      ],
+      "evidence": "x264 encoder options embedded in segment SEI"
+    },
+    "decode": {
+      "passed": true,
+      "elapsedMs": 11665,
+      "freezeThreshold": "-50 dB / 1.5 segundos",
+      "blackThreshold": "0.8 segundos / pix_th 0.03",
+      "freezeEvents": [],
+      "blackEvents": [],
+      "logFile": "docs/actionmotion-e2e-judas-decode.log",
+      "decodedFrames": 2096
+    },
+    "loudness": {
+      "integratedLufs": -15.96,
+      "truePeakDb": -0.88,
+      "loudnessRange": 3
+    },
+    "technicalIssues": [],
+    "warnings": [
+      {
+        "code": "audio_optional",
+        "severity": "info",
+        "message": "Voz opcional activada explícitamente; no condiciona el análisis de la historia.",
+        "resolved": false
+      }
+    ],
+    "warningCounts": {
+      "audio_optional": 1
+    },
+    "fixedTitle": {
+      "passed": true,
+      "expected": "¿Qué pasaría si supieras que tu amigo te va a traicionar?",
+      "ocrObserved": "éQué pasaria si supieras que\ntu amigo te va a traicionar?",
+      "ocrLanguage": "eng; matching ignores case, punctuation, accents and leading punctuation noise",
+      "framesChecked": 2096,
+      "minimumTextMaskIoU": 0.9908700322234156,
+      "textPixelBounds": {
+        "left": 190,
+        "top": 291,
+        "right": 880,
+        "bottom": 395
+      },
+      "safeBox": {
+        "left": 138,
+        "top": 255,
+        "right": 930,
+        "bottom": 435
+      },
+      "limitation": "Conservative framing; platform UI and captions vary."
+    },
+    "fullProbe": {
+      "streams": [
+        {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1080,
+          "height": 1920,
+          "coded_width": 1080,
+          "coded_height": 1920,
+          "closed_captions": 0,
+          "film_grain": 0,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "9:16",
+          "pix_fmt": "yuvj420p",
+          "level": 40,
+          "color_range": "pc",
+          "color_space": "bt470bg",
+          "chroma_location": "left",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "30/1",
+          "avg_frame_rate": "30/1",
+          "time_base": "1/90000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 6288000,
+          "duration": "69.866667",
+          "bit_rate": "2544171",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "2096",
+          "extradata_size": 51,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0,
+            "multilayer": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.19.101 libx264"
+          }
+        },
+        {
+          "index": 1,
+          "codec_name": "aac",
+          "codec_long_name": "AAC (Advanced Audio Coding)",
+          "profile": "LC",
+          "codec_type": "audio",
+          "codec_tag_string": "mp4a",
+          "codec_tag": "0x6134706d",
+          "sample_fmt": "fltp",
+          "sample_rate": "48000",
+          "channels": 1,
+          "channel_layout": "mono",
+          "bits_per_sample": 0,
+          "initial_padding": 0,
+          "id": "0x2",
+          "r_frame_rate": "0/0",
+          "avg_frame_rate": "0/0",
+          "time_base": "1/48000",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 3353568,
+          "duration": "69.866000",
+          "bit_rate": "182776",
+          "nb_frames": "3274",
+          "extradata_size": 5,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0,
+            "multilayer": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "SoundHandler",
+            "vendor_id": "[0][0][0][0]"
+          }
+        }
+      ],
+      "format": {
+        "filename": "docs/actionmotion-e2e-judas.mp4",
+        "nb_streams": 2,
+        "nb_programs": 0,
+        "nb_stream_groups": 0,
+        "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+        "format_long_name": "QuickTime / MOV",
+        "start_time": "0.000000",
+        "duration": "69.866667",
+        "size": "23894107",
+        "bit_rate": "2735966",
+        "probe_score": 100,
+        "tags": {
+          "major_brand": "isom",
+          "minor_version": "512",
+          "compatible_brands": "isomiso2avc1mp41",
+          "encoder": "Lavf61.7.103"
+        }
+      }
+    },
+    "continuity": {
+      "passed": true,
+      "check": "CharacterBible appearance SHA256, recurring IDs and narrative state chain",
+      "characterIds": [
+        "jesus",
+        "judas",
+        "disciples",
+        "guards"
+      ],
+      "uniqueBackgroundAssets": 23,
+      "framingCounts": {
+        "wide": 5,
+        "hands": 3,
+        "face": 7,
+        "pair": 2,
+        "shadows": 2,
+        "coins": 2,
+        "kiss": 1,
+        "arrest": 1
+      },
+      "shotDurationRange": [
+        2.7333333333333334,
+        3.6333333333333333
+      ]
+    },
+    "visualReview": {
+      "reviewer": "assistant",
+      "framesReviewed": 46,
+      "sampling": "midpoint and 85% of every exported shot; four contact sheets and full-size selected frames",
+      "corrections": [
+        "Merged first two shots to satisfy 2–4 seconds",
+        "Neutralized excessively smiling expressions",
+        "Added Judas profile for an illustrated kiss",
+        "Replaced only the street backdrop with dark architecture"
+      ],
+      "observed": "No conspicuous facial warping, missing titles or clipping of primary faces in the reviewed frames. Local vector rigs preserve their shapes.",
+      "limitations": [
+        "Schematic gestures and physical contact; not realistic human performance",
+        "Simple reused room/garden designs and restrained emotional expressions",
+        "Environmental lamps and small props are stylized; not physically realistic lighting fixtures",
+        "Sampling is not a learned anatomy or face-identity detector"
+      ]
+    },
+    "tests": {
+      "unitTestsPassed": 43,
+      "unitTestsFailed": 0,
+      "targetedRegressionTestsPassed": 3,
+      "typecheck": "PASS",
+      "nextProductionBuild": "PASS; final Remotion source additionally compiled and rendered in the complete video"
+    }
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "fits": true,
+    "metadata": {
+      "width": 1080,
+      "height": 1920,
+      "duration": 69.866667,
+      "playing": true
+    },
+    "decodedFrame": {
+      "currentTime": 0.799125,
+      "frames": 28,
+      "meanRgb": 68.9985119047619
+    },
+    "errors": []
+  },
+  "http": {
+    "downloadStatus": 200,
+    "contentDisposition": "attachment; filename=\"storymotion-f9c5b92a-dd84-4e38-9c5a-a7011a84e326.mp4\"",
+    "rangeStatus": 206
+  },
+  "characters": [
+    {
+      "id": "jesus",
+      "name": "Jesús",
+      "role": "main",
+      "description": "Jesús, antigüedad bíblica, túnica marfil, manto rojo oscuro, cabello castaño largo y barba",
+      "appearance": {
+        "age": 33,
+        "hair": "castaño largo, barba castaña",
+        "clothing": "túnica marfil, manto rojo oscuro, cabello castaño largo y barba",
+        "accessories": [],
+        "weapons": [],
+        "colors": [
+          "#e3d3ae",
+          "#793c35"
+        ],
+        "face": "rostro alargado, mirada serena, barba castaña",
+        "artStyle": "ilustración vectorial bíblica, modo 2.5D local"
+      },
+      "poses": [
+        "look",
+        "offering",
+        "lower_gaze",
+        "walking",
+        "kiss",
+        "reach",
+        "arrested"
+      ],
+      "referenceAssetIds": []
+    },
+    {
+      "id": "judas",
+      "name": "Judas",
+      "role": "main",
+      "description": "Judas, antigüedad bíblica, túnica verde oliva, manto marrón, cabello oscuro corto y barba",
+      "appearance": {
+        "age": 34,
+        "hair": "oscuro corto, barba oscura",
+        "clothing": "túnica verde oliva, manto marrón, cabello oscuro corto y barba",
+        "accessories": [],
+        "weapons": [],
+        "colors": [
+          "#67634c",
+          "#5b4136"
+        ],
+        "face": "rasgos mediterráneos, misma identidad entre planos",
+        "artStyle": "ilustración vectorial bíblica, modo 2.5D local"
+      },
+      "poses": [
+        "look",
+        "offering",
+        "lower_gaze",
+        "walking",
+        "kiss",
+        "reach",
+        "arrested"
+      ],
+      "referenceAssetIds": []
+    },
+    {
+      "id": "disciples",
+      "name": "Discípulos",
+      "role": "group",
+      "description": "Discípulos, antigüedad bíblica, túnicas ocres y mantos azul gris",
+      "appearance": {
+        "age": 36,
+        "hair": "oscuro",
+        "clothing": "túnicas ocres y mantos azul gris",
+        "accessories": [],
+        "weapons": [],
+        "colors": [
+          "#7c817c",
+          "#ad895f"
+        ],
+        "face": "rasgos mediterráneos, misma identidad entre planos",
+        "artStyle": "ilustración vectorial bíblica, modo 2.5D local"
+      },
+      "poses": [
+        "look",
+        "offering",
+        "lower_gaze",
+        "walking",
+        "kiss",
+        "reach",
+        "arrested"
+      ],
+      "referenceAssetIds": []
+    },
+    {
+      "id": "guards",
+      "name": "Guardias",
+      "role": "group",
+      "description": "Guardias, antigüedad bíblica, túnicas granate, cascos de bronce y lanzas",
+      "appearance": {
+        "age": 36,
+        "hair": "oscuro",
+        "clothing": "túnicas granate, cascos de bronce y lanzas",
+        "accessories": [],
+        "weapons": [
+          "lanzas"
+        ],
+        "colors": [
+          "#593b3b",
+          "#977456"
+        ],
+        "face": "rasgos mediterráneos, misma identidad entre planos",
+        "artStyle": "ilustración vectorial bíblica, modo 2.5D local"
+      },
+      "poses": [
+        "look",
+        "offering",
+        "lower_gaze",
+        "walking",
+        "kiss",
+        "reach",
+        "arrested"
+      ],
+      "referenceAssetIds": []
+    }
+  ],
+  "scenes": [
+    {
+      "id": "judas_001",
+      "duration": 3.6333333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus",
+        "judas",
+        "disciples"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795",
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf",
+          "disciples": "cf5363bce321b9aff8574cb9535a9cf22724e0b16e102b441bcb2b33e21af1f3"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          },
+          "disciples": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          },
+          "disciples": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "wide",
+        "setting": "supper",
+        "variant": 0,
+        "poses": {
+          "jesus": "look",
+          "judas": "look",
+          "disciples": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_003",
+      "duration": 3.4,
+      "action": "share_bread",
+      "camera": {
+        "shot": "wide",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_001",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "hands",
+        "setting": "supper",
+        "focusId": "jesus",
+        "variant": 2,
+        "poses": {
+          "jesus": "offering"
+        }
+      }
+    },
+    {
+      "id": "judas_004",
+      "duration": 3.4,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_left",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus",
+        "judas",
+        "disciples"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_003",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795",
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf",
+          "disciples": "cf5363bce321b9aff8574cb9535a9cf22724e0b16e102b441bcb2b33e21af1f3"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          },
+          "disciples": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          },
+          "disciples": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "wide",
+        "setting": "supper",
+        "variant": 3,
+        "poses": {
+          "jesus": "look",
+          "judas": "look",
+          "disciples": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_005",
+      "duration": 3.033333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_004",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "face",
+        "setting": "supper",
+        "focusId": "jesus",
+        "variant": 4,
+        "poses": {
+          "jesus": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_006",
+      "duration": 3,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_005",
+        "identityHashes": {
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "face",
+        "setting": "supper",
+        "focusId": "judas",
+        "variant": 5,
+        "poses": {
+          "judas": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_007",
+      "duration": 2.8666666666666667,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_right",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus",
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_006",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795",
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "pair",
+        "setting": "supper",
+        "variant": 6,
+        "poses": {
+          "jesus": "look",
+          "judas": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_008",
+      "duration": 2.8333333333333335,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "disciples"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_007",
+        "identityHashes": {
+          "disciples": "cf5363bce321b9aff8574cb9535a9cf22724e0b16e102b441bcb2b33e21af1f3"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "disciples": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "disciples": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "shadows",
+        "setting": "supper",
+        "variant": 7,
+        "poses": {
+          "disciples": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_009",
+      "duration": 2.7666666666666666,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_left",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_008",
+        "identityHashes": {
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "face",
+        "setting": "supper",
+        "focusId": "judas",
+        "variant": 8,
+        "poses": {
+          "judas": "lower_gaze"
+        }
+      }
+    },
+    {
+      "id": "judas_010",
+      "duration": 2.7666666666666666,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_009",
+        "identityHashes": {
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "hands",
+        "setting": "supper",
+        "focusId": "judas",
+        "variant": 9,
+        "poses": {
+          "judas": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_011",
+      "duration": 2.8666666666666667,
+      "action": "exchange_coins",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "f9278030-f591-4821-ae55-78579c9ed61d",
+          "f21825eb-3be5-4931-87fd-aecd227986fe",
+          "f25e803e-5e31-47f9-bbe5-93b5edc28f55",
+          "a9a3c22b-9eb5-4d5e-a4d7-d524e408a458",
+          "9356a843-8d8a-4b67-aa3d-bd086172da26",
+          "0452f2a9-56da-4139-a305-c7187bfe85d7",
+          "a1e89b66-d200-41fa-95a4-f998d37de862",
+          "00cc567d-bac7-44a7-84fc-040549621286"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "coins",
+        "setting": "chamber",
+        "focusId": "judas",
+        "variant": 10,
+        "poses": {
+          "judas": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_012",
+      "duration": 2.8333333333333335,
+      "action": "exchange_coins",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_right",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_011",
+        "identityHashes": {
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "f9278030-f591-4821-ae55-78579c9ed61d",
+          "f21825eb-3be5-4931-87fd-aecd227986fe",
+          "f25e803e-5e31-47f9-bbe5-93b5edc28f55",
+          "a9a3c22b-9eb5-4d5e-a4d7-d524e408a458",
+          "9356a843-8d8a-4b67-aa3d-bd086172da26",
+          "0452f2a9-56da-4139-a305-c7187bfe85d7",
+          "a1e89b66-d200-41fa-95a4-f998d37de862",
+          "00cc567d-bac7-44a7-84fc-040549621286"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "coins",
+        "setting": "chamber",
+        "focusId": "judas",
+        "variant": 11,
+        "poses": {
+          "judas": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_013",
+      "duration": 2.7666666666666666,
+      "action": "depart",
+      "camera": {
+        "shot": "wide",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "fb5094ec-cdc2-4800-965c-e13ae31efe61",
+          "d7107e9d-0881-45f4-9aeb-219cd771b258",
+          "5d8fc770-712d-4b21-a116-600a96ac7664",
+          "5c6987b2-77ce-4388-bc24-8aa8da3f5d72",
+          "852138a7-b7c9-4ccd-a85d-d1f1c7dda356",
+          "44b554a8-c9de-4281-9ee7-4c977a37d1cd",
+          "5deb251e-441a-448d-a2a5-e7d0ed6edb61",
+          "4f10977e-4a7d-4cbc-ba7d-499e3def4f02"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "wide",
+        "setting": "street",
+        "focusId": "judas",
+        "variant": 12,
+        "poses": {
+          "judas": "walking"
+        }
+      }
+    },
+    {
+      "id": "judas_014",
+      "duration": 2.7333333333333334,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_left",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "wide",
+        "setting": "garden",
+        "focusId": "jesus",
+        "variant": 13,
+        "poses": {
+          "jesus": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_015",
+      "duration": 3.1333333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "guards"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_014",
+        "identityHashes": {
+          "guards": "e675ddae8f43d34264fa86c82959715d6d273e530fe5a82879e99a4fb2c1cf6b"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "guards": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "guards": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "shadows",
+        "setting": "garden",
+        "variant": 14,
+        "poses": {
+          "guards": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_016",
+      "duration": 3.1333333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus",
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_015",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795",
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "pair",
+        "setting": "garden",
+        "variant": 15,
+        "poses": {
+          "jesus": "look",
+          "judas": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_017",
+      "duration": 3.1,
+      "action": "kiss",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_right",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus",
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_016",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795",
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "kiss",
+        "setting": "garden",
+        "variant": 16,
+        "poses": {
+          "jesus": "kiss",
+          "judas": "kiss"
+        }
+      }
+    },
+    {
+      "id": "judas_018",
+      "duration": 3.066666666666667,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_017",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "face",
+        "setting": "garden",
+        "focusId": "jesus",
+        "variant": 17,
+        "poses": {
+          "jesus": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_019",
+      "duration": 3.2666666666666666,
+      "action": "arrest",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_left",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus",
+        "guards"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_018",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795",
+          "guards": "e675ddae8f43d34264fa86c82959715d6d273e530fe5a82879e99a4fb2c1cf6b"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "guards": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "guards": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "arrest",
+        "setting": "garden",
+        "variant": 18,
+        "poses": {
+          "jesus": "look",
+          "guards": "reach"
+        }
+      }
+    },
+    {
+      "id": "judas_020",
+      "duration": 3.2333333333333334,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_019",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "face",
+        "setting": "garden",
+        "focusId": "jesus",
+        "variant": 19,
+        "poses": {
+          "jesus": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_021",
+      "duration": 3.1666666666666665,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "judas"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_020",
+        "identityHashes": {
+          "judas": "ee34f615e82899c1a26f90dfa012d9874749d71d430a089ba6149a69d2eef2cf"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "judas": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "face",
+        "setting": "garden",
+        "focusId": "judas",
+        "variant": 20,
+        "poses": {
+          "judas": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_022",
+      "duration": 3.1333333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_right",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus",
+        "guards"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "judas_021",
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795",
+          "guards": "e675ddae8f43d34264fa86c82959715d6d273e530fe5a82879e99a4fb2c1cf6b"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "guards": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          },
+          "guards": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "wide",
+        "setting": "garden",
+        "variant": 21,
+        "poses": {
+          "jesus": "walking",
+          "guards": "walking"
+        }
+      }
+    },
+    {
+      "id": "judas_023",
+      "duration": 2.8666666666666667,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795"
+        },
+        "referenceAssetIds": [
+          "cd8644e5-3c66-4c7d-a697-31250ddb3ee7",
+          "5b58cfb7-b5d3-4334-ac2d-ed9b09a1b122",
+          "d71eebcd-b3a6-4e9d-8738-13aee0b0fb70",
+          "e4b6b13d-9487-46ea-9cbb-73543df43650",
+          "aafaa4bd-330e-4601-a7b9-350a86b1f562",
+          "d51402e7-e146-4718-aefc-1dbd8c3c72ff",
+          "078b9ee4-c0b6-4f3a-8f74-f7d1a33a678d",
+          "8b42f8e3-9349-47dc-a75b-110abda95fab",
+          "a41cee15-4a6e-4944-a63b-d081c4852cde",
+          "ce891e8b-2ac3-4da8-99a9-043bc7c97de3",
+          "d6d8b39f-a704-41cd-826e-4371bbe438a7",
+          "a3a560ee-1b49-4134-b01f-cf3cd84f0320",
+          "ba9b78a7-a1ba-44ef-ab86-8be76cfe37b5",
+          "e9531b28-f4a6-4f55-b773-38b8e6f0d4d2",
+          "4307a7dd-c864-401a-aba9-87001ac8779a",
+          "fd345b9c-9a81-491a-b053-ce41164222ea",
+          "d6ccc83e-4d02-4f94-aacb-6736828006b8",
+          "330f5f82-1597-48bc-bd68-bf952ef9c61b",
+          "0077a5bc-39cb-49b5-8428-f559c1ae1e82",
+          "652f01b4-5ad9-460b-8b6c-5ec2f1fda3d2",
+          "fb513f85-c7ec-4013-ab0b-adb0e72b6bc9",
+          "e1721c8f-65a9-495c-8bd1-4c4d423997c3",
+          "de972440-3708-4179-8ddc-aae5308455ff",
+          "4145f9b1-4170-4a0a-8200-3330a8b67580",
+          "d0197248-598c-47eb-94c7-38b7d93f0814",
+          "e32bb2da-009c-47b3-a60c-38efc3d040a8",
+          "0291df24-9215-4edc-bae5-b26d9702f30a",
+          "0848b948-6262-42e0-8095-fc67cf825b56",
+          "111ecbc1-9821-46e4-9ff0-5157118ce258",
+          "46735d87-c824-41b8-b805-9c89e0736fc6",
+          "f021b212-ce71-48a3-b9b5-6c15d16c26c4",
+          "b0214b95-b3a5-4d13-9358-b3c0db5c8d0a",
+          "e433cfae-b4bb-4106-8cb5-8cfd482378d2",
+          "b2699689-11fe-4894-a7d2-21e31f11ac0e",
+          "f92811a6-1b3a-49b9-828a-6ff0bea84c90",
+          "43988de8-51ba-43f2-9aee-5eaa6440aff5",
+          "f1044233-450c-4c50-830c-8920a24a2f1c",
+          "57d48f2f-0f90-4da7-814f-9460aa0d6fdb",
+          "5acfd858-fd0f-479a-a0cd-07b7624663e6",
+          "94519fc2-d04d-45a9-b608-2e5bf7f507cb",
+          "16579b84-4703-451f-9b66-750fd7d62e03",
+          "010245f2-44a1-45bc-b451-407cec0dc8bb",
+          "b3c62e1a-ce24-41f8-a2ee-6869909d7aca",
+          "f2955b40-56a3-4440-991c-b91c8ff125cb"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "hands",
+        "setting": "supper",
+        "focusId": "jesus",
+        "variant": 22,
+        "poses": {
+          "jesus": "look"
+        }
+      }
+    },
+    {
+      "id": "judas_024",
+      "duration": 2.8666666666666667,
+      "action": "observe",
+      "camera": {
+        "shot": "wide",
+        "movement": "pan_left",
+        "direction": "left_to_right",
+        "intensity": 0.45
+      },
+      "characters": [
+        "jesus"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "jesus": "8bd62793b17a0db81ec9728b3cc661be67d39a6a3dd27a61a261da1dd3782795"
+        },
+        "referenceAssetIds": [
+          "94c4d3be-ffd4-4a54-954e-227087142c3b",
+          "e18f001f-0d2b-4317-bcfa-c05e4df46055",
+          "e8e87213-fd60-4949-9aaf-15e22ce062a4",
+          "01713e6e-90e2-493d-8389-c33c712afc0b",
+          "c8c0bc40-0dda-41d7-8a28-ca5f3b2d7f1a",
+          "4953c5d7-dbb5-47bb-a8fc-548b755e7598",
+          "baca1e3c-0849-4f63-93ac-0ff0b3550340",
+          "ecf6ca39-afb9-4552-a6a8-0c2d51dc6380",
+          "fbc1348a-a666-45e6-a814-d7f81b47efb3",
+          "0fdb835e-f2d8-4e8c-9284-3ee65449fba7",
+          "d9940801-72c7-47aa-9951-3510afc85f9a",
+          "76e79916-348c-4d07-a796-eddc602c1f19",
+          "e85e7f38-0642-4740-9f89-b4c2604eca43",
+          "86006182-5295-4e31-bd13-a480fa4166a3",
+          "7d350b20-004b-42e8-b729-432010a52d77",
+          "f876e308-0631-47f7-b09d-b058bcaac75a",
+          "bb8d5d12-a162-467d-82e6-14aa9866d170",
+          "38d81c2b-62a6-4ee6-a63e-284a665a8a18",
+          "1792b35d-c283-43cd-b09f-a55fac68a736",
+          "6361bd6f-226e-499c-846d-05a378bf4847",
+          "81cac936-2a55-4ffa-bda0-080a03e4297f",
+          "68588b04-7f5f-47b6-ae80-71a02c37da25",
+          "3bb06627-e37f-4ff0-97e6-6b2adbb6a8f0",
+          "8e83b0b9-6ee0-4f34-bdc2-5ff9499aaa99",
+          "a2d118dd-cb8f-4841-92b7-10e814584a80",
+          "a363db6e-4c62-4687-9466-cc8d85809c23",
+          "d3407154-c3f4-4211-8d60-aa3a73fd4be1",
+          "35ba705d-14f8-4539-91b0-04f99814b73c",
+          "f3d13549-8cee-4f18-be5e-209e8dffc00b",
+          "a60d3fac-7f54-413b-bfce-e5f9eaeacf90",
+          "510356f8-a210-4064-a773-8ac266b06493",
+          "cb444039-211b-4ba8-b62b-59f28f3f077d",
+          "4428e8f9-9358-4f1a-a510-075deea3179d",
+          "7cbb867f-331e-4baa-b716-adcb2aa6a90b",
+          "fcccb8d4-aef4-4a3e-a9cf-adde258d78b4",
+          "24c70564-4e82-4413-869d-2081a4fd34d2",
+          "ae330dd8-395d-44aa-bee0-a5283aca4d68",
+          "b9dae92e-2c48-43f8-8f47-5ee51dd1470d",
+          "452156ee-0b84-45ba-a580-40df808b96f9",
+          "759b2279-6511-46b3-a9bc-6c329e6f7eec"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "jesus": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "illustration": {
+        "profile": "biblical_cutout",
+        "framing": "face",
+        "setting": "garden",
+        "focusId": "jesus",
+        "variant": 23,
+        "poses": {
+          "jesus": "look"
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Hand-authored local biblical vector illustrations; no generative provider was used.",
+    "Animation is schematic 2.5D, not photorealistic human performance.",
+    "Narrative analysis uses local rules, not an installed language model.",
+    "QA verifies definitions and technical properties; keyframes are also visually reviewed by the assistant, not a learned face/anatomy detector.",
+    "No production deployment or paid service calls.",
+    "Storyboard and vector artwork were directed specifically for this test after local rule analysis.",
+    "No realistic lip synchronization or professional emotional voice acting."
+  ],
+  "output": "docs/actionmotion-e2e-judas.mp4",
+  "bytes": 23894107,
+  "sha256": "1155d69f65c4d5cf3aad10dff72246218eb351642892b9da29165fffba5d4981",
+  "events": [
+    {
+      "at": "2026-10-10T21:44:15.589Z",
+      "agent": "VideoEditorAgent",
+      "message": "Historia recibida; producción local sin servicios de pago."
+    },
+    {
+      "at": "2026-10-10T21:44:15.609Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Storyboard de 25 planos. Análisis local por reglas; requiere revisión narrativa."
+    },
+    {
+      "at": "2026-10-10T21:50:03.231Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_001 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.250Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_003 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.264Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_004 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.276Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_005 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.289Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_006 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.300Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_007 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.311Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_008 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.324Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_009 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.336Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_010 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.347Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_011 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.357Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_012 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.368Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_013 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.378Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_014 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.389Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_015 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.399Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_016 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.412Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_017 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.422Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_018 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.432Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_019 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.444Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_020 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.456Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_021 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.466Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_022 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.475Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_023 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.483Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano judas_024 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:50:03.538Z",
+      "agent": "MotionDirectorAgent",
+      "message": "Dirección, posiciones de entrada/salida y referencias persistentes preparadas."
+    },
+    {
+      "at": "2026-10-10T21:50:03.538Z",
+      "agent": "StoryContinuityAgent",
+      "message": "Continuidad de identidades y dirección comprobada."
+    },
+    {
+      "at": "2026-10-10T21:50:03.538Z",
+      "agent": "AudioEngineerAgent",
+      "message": "Audio opcional conservado."
+    },
+    {
+      "at": "2026-10-10T22:06:34.936Z",
+      "agent": "VideoEditorAgent",
+      "message": "MP4 compuesto; comienza verificación de salida."
+    },
+    {
+      "at": "2026-10-10T22:06:45.759Z",
+      "agent": "QualityControlAgent",
+      "message": "FFprobe y decodificación completa aprobados. La revisión de rostros y anatomía corresponde al usuario."
+    }
+  ],
+  "branch": "feat/actionmotion-director-ai",
+  "implementationCommits": [
+    "22abbb2",
+    "78a049b"
+  ]
+}
