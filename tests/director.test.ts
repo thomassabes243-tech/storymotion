@@ -109,6 +109,15 @@ test("persistent director claims atomically, survives restart, waits for approva
     director.jobs.cancel(job.id);
     assert.equal(director.jobs.get(job.id)!.state, "CANCELED");
     assert.equal(director.jobs.claim(process.pid), undefined);
+    assert.equal(
+      repo.getJob(one.id)!.state,
+      "CANCELED",
+      "cancel catches a render enqueued before its ID was checkpointed",
+    );
+    assert.throws(
+      () => queue.enqueue(ready.snapshot, `director:${job.id}`),
+      /cancelado/,
+    );
   } finally {
     repo.close();
     await rm(f.dir, { recursive: true, force: true });

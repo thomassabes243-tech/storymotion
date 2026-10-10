@@ -93,11 +93,13 @@ export class RenderManager extends RenderQueue {
       update({ phase: "VISUALS", progress: 0.08 });
       const assetSources: Record<string, string> = {};
       const required = new Set(
-        project.scenes.flatMap((s) =>
-          s.layers
-            .flatMap((l) => [l.assetId, ...l.poses.map((p) => p.assetId)])
-            .filter(Boolean),
-        ),
+        project.scenes
+          .filter((s) => !s.clipAssetId)
+          .flatMap((s) =>
+            s.layers
+              .flatMap((l) => [l.assetId, ...l.poses.map((p) => p.assetId)])
+              .filter(Boolean),
+          ),
       );
       for (const asset of project.assets.filter((a) => required.has(a.id)))
         assetSources[asset.id] =
@@ -118,27 +120,32 @@ export class RenderManager extends RenderQueue {
         }
       const inputProps: RenderProps = { project, assetSources };
       const signature = await rendererSignature();
-      if (rendererBuild?.signature !== signature)
-        rendererBuild = {
-          signature,
-          url: bundle({
-            entryPoint: path.resolve("src/remotion/Root.tsx"),
-            publicDir: null,
-          }),
-        };
-      const url = await rendererBuild.url;
+      const hasIllustrations = project.scenes.some((s) => !s.clipAssetId);
+      let url: string | undefined;
+      let composition:
+        Awaited<ReturnType<typeof selectComposition>> | undefined;
       const browserExecutable =
         process.env.CHROME_EXECUTABLE ||
         (existsSync("/usr/bin/chromium") ? "/usr/bin/chromium" : undefined);
-      browser = await openBrowser("chrome", { browserExecutable });
-      const baseComposition = await selectComposition({
-        serveUrl: url,
-        id: "StoryMotion",
-        inputProps,
-        browserExecutable,
-        puppeteerInstance: browser,
-      });
-      const composition = baseComposition;
+      if (hasIllustrations) {
+        if (rendererBuild?.signature !== signature)
+          rendererBuild = {
+            signature,
+            url: bundle({
+              entryPoint: path.resolve("src/remotion/Root.tsx"),
+              publicDir: null,
+            }),
+          };
+        url = await rendererBuild.url;
+        browser = await openBrowser("chrome", { browserExecutable });
+        composition = await selectComposition({
+          serveUrl: url,
+          id: "StoryMotion",
+          inputProps,
+          browserExecutable,
+          puppeteerInstance: browser,
+        });
+      }
       const files: string[] = [];
       let from = 0;
       for (let i = 0; i < project.scenes.length; i++) {
@@ -166,8 +173,8 @@ export class RenderManager extends RenderQueue {
             );
           } else
             await renderMedia({
-              serveUrl: url,
-              composition,
+              serveUrl: url!,
+              composition: composition!,
               inputProps,
               codec: "h264",
               pixelFormat: "yuv420p",

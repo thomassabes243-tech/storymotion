@@ -128,7 +128,12 @@ export class AgentRepository {
       const job = this.get(id);
       if (!job) throw Error("Trabajo no encontrado");
       if (terminal.includes(job.state)) return job;
-      if (job.renderJobId) new RenderQueue(this.repo).cancel(job.renderJobId);
+      const renderId =
+        job.renderJobId ||
+        this.repo
+          .listJobs(job.projectId)
+          .find((r) => r.requestKey === `director:${job.id}`)?.id;
+      if (renderId) new RenderQueue(this.repo).cancel(renderId);
       return this.put({
         ...job,
         state: "CANCELED",

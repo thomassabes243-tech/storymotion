@@ -10,6 +10,12 @@ import { ClipManager } from "../src/lib/video/ClipManager";
 import { FFmpegService, runProcess } from "../src/lib/render/FFmpegService";
 import { LocalCommandVideoProvider } from "../src/lib/video/providers/LocalCommandVideoProvider";
 import { ImportedAudio } from "../src/lib/audio/ImportedAudio";
+import { RenderManager } from "../src/lib/render/RenderManager";
+import { RenderQueue } from "../src/lib/render/RenderQueue";
+import { ProjectService } from "../src/lib/story/ProjectService";
+import { StoryAnalyzer } from "../src/lib/story/StoryAnalyzer";
+import { ScenePlanner } from "../src/lib/story/ScenePlanner";
+import { defaultConfig } from "../src/lib/domain";
 test("real moving clip import strips audio, saves frame references, reuses content and rejects excessive duration", async () => {
   const dir = await mkdtemp(path.join(tmpdir(), "actionmotion-clip-"));
   const repo = new SQLiteRepository(dir),
@@ -96,6 +102,92 @@ test("real moving clip import strips audio, saves frame references, reuses conte
     await assert.rejects(
       () => provider.generate({ ...request, prompt: "changed" }),
       /no pertenece/,
+    );
+    const project = new ProjectService(repo).create(
+      "Clips only",
+      "Un hombre camina por la calle.",
+      defaultConfig,
+    );
+    project.analysis = await new StoryAnalyzer().analyze(
+      project.story,
+      project.config.style,
+    );
+    const shot = new ScenePlanner().plan(
+      project.story,
+      project.analysis,
+      project.config,
+    ).scenes[0];
+    project.scenes = [
+      {
+        ...shot,
+        start: 0,
+        duration: 1,
+        durationFrames: 30,
+        clipAssetId: clip.id,
+        layers: [],
+        transitionOut: "hard_cut",
+        status: "READY",
+      },
+    ];
+    // Retain an old, deliberately missing illustration for rollback. It must not
+    // prevent a valid clip from rendering, or require opening Chromium.
+    const orphan = {
+      id: "ab2772e5-e45a-431c-9342-2b9bc694ba6a",
+      name: "old image",
+      kind: "background" as const,
+      mime: "image/png",
+      storageKey: "assets/missing.png",
+      source: "upload" as const,
+      width: 1080,
+      height: 1920,
+    };
+    project.assets = [orphan];
+    project.scenes[0].layers = [
+      {
+        id: "old-layer",
+        assetId: orphan.id,
+        kind: "background",
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        opacity: 1,
+        depth: 0,
+        blur: 0,
+        startFrame: 0,
+        endFrame: 30,
+        keyframes: [],
+        poses: [],
+      },
+    ];
+    const queue = new RenderManager(repo, storage);
+    const job = queue.enqueue(project);
+    const browserBefore = process.env.CHROME_EXECUTABLE;
+    process.env.CHROME_EXECUTABLE = "/no-browser-installed";
+    try {
+      const done = await queue.render(repo.claimJob(process.pid)!);
+      assert.equal(done.state, "COMPLETE", done.error);
+      assert.equal(done.id, job.id);
+      ffmpeg.validate(await ffmpeg.probe(storage.resolve(done.outputKey!)), {
+        width: 1080,
+        height: 1920,
+        fps: 30,
+        duration: 1,
+      });
+    } finally {
+      if (browserBefore === undefined) delete process.env.CHROME_EXECUTABLE;
+      else process.env.CHROME_EXECUTABLE = browserBefore;
+    }
+    const incompatible = structuredClone(project);
+    incompatible.scenes.push({
+      ...incompatible.scenes[0],
+      sceneId: "second",
+      start: 1,
+    });
+    incompatible.scenes[0].transitionOut = "crossfade";
+    assert.throws(
+      () => new RenderQueue(repo).enqueue(incompatible),
+      /cortes limpios/,
     );
     // Execute a fixture to verify the subprocess contract, not model inference.
     const fixture = path.join(dir, "fixture.cjs");

@@ -18,6 +18,13 @@ export class RenderQueue {
     }
   }
   private enqueueLocked(project: Project, requestKey?: string) {
+    if (requestKey?.startsWith("director:")) {
+      const parent = this.repo.db
+        .prepare("SELECT state FROM agent_jobs WHERE id=?")
+        .get(requestKey.slice(9)) as { state: string } | undefined;
+      if (!parent || parent.state === "CANCELED")
+        throw new Error("El director fue cancelado; no se encolará su render.");
+    }
     if (project.config.motionMode === "generative")
       throw new Error(
         "BLOQUEADO: motor generativo no disponible; no se sustituirá por 2.5D.",
@@ -30,6 +37,17 @@ export class RenderQueue {
     }
     if (!project.scenes.length || !project.analysis)
       throw new Error("Analiza la historia antes de renderizar");
+    for (const [i, scene] of project.scenes.entries()) {
+      const previous = project.scenes[i - 1];
+      if (
+        previous &&
+        (scene.clipAssetId || previous.clipAssetId) &&
+        previous.transitionOut !== "hard_cut"
+      )
+        throw new Error(
+          "Los clips importados admiten cortes limpios. Selecciona hard cut entre el clip y el plano adyacente.",
+        );
+    }
     const continuity = new ContinuityEngine().validate(
       project.scenes,
       project.analysis,

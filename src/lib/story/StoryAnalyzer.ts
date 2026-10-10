@@ -108,7 +108,11 @@ function actionOf(text: string) {
   if (/se detiene|se detuvo|stop/.test(t)) return "stop";
   if (/gira.*cabeza|turn.*head/.test(t)) return "head_turn";
   if (/observ|mirab|vigil|watch|look|acech/.test(t)) return "observe";
-  if (/\b(?:avanza\w*|avanzo|entr\w*|camin\w*|march\w*|walk\w*|enter\w*|atraves\w*)/.test(t))
+  if (
+    /\b(?:avanza\w*|avanzo|entr\w*|camin\w*|march\w*|walk\w*|enter\w*|atraves\w*)/.test(
+      t,
+    )
+  )
     return "advance";
   if (/huy|huyo|escap|flee|run|corr/.test(t)) return "escape";
   if (/luch|atac|combat|fight|attack/.test(t)) return "attack";
