@@ -3,6 +3,7 @@ import type { Project } from "../domain";
 import { SQLiteRepository } from "../storage/ProjectRepository";
 import { AgentJobSchema, type AgentJob } from "./contracts";
 import { processIdentity, workerIsAlive } from "../render/WorkerIdentity";
+import { RenderQueue } from "../render/RenderQueue";
 const terminal = ["READY_FOR_REVIEW", "FAILED", "CANCELED"];
 export class AgentRepository {
   constructor(private repo: SQLiteRepository) {
@@ -127,6 +128,7 @@ export class AgentRepository {
       const job = this.get(id);
       if (!job) throw Error("Trabajo no encontrado");
       if (terminal.includes(job.state)) return job;
+      if (job.renderJobId) new RenderQueue(this.repo).cancel(job.renderJobId);
       return this.put({
         ...job,
         state: "CANCELED",

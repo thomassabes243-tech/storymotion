@@ -1,23 +1,34 @@
 import { spawn } from "node:child_process";
 import { promises as fs } from "node:fs";
 import type { VideoProbe } from "../domain";
-export function runProcess(binary: string, args: string[]) {
+export function runProcess(
+  binary: string,
+  args: string[],
+  options: { captureStderr?: boolean; timeoutMs?: number } = {},
+) {
   return new Promise<string>((resolve, reject) => {
     const child = spawn(binary, args, { stdio: ["ignore", "pipe", "pipe"] });
     let out = "",
       error = "";
+    const timer = options.timeoutMs
+      ? setTimeout(() => child.kill("SIGKILL"), options.timeoutMs)
+      : undefined;
     child.stdout.on("data", (b) => {
       out += b.toString();
     });
     child.stderr.on("data", (b) => {
       error = (error + b.toString()).slice(-6000);
     });
-    child.on("error", reject);
-    child.on("close", (code) =>
+    child.on("error", (e) => {
+      clearTimeout(timer);
+      reject(e);
+    });
+    child.on("close", (code) => {
+      clearTimeout(timer);
       code === 0
-        ? resolve(out)
-        : reject(new Error(`${binary} terminó con ${code}: ${error}`)),
-    );
+        ? resolve(options.captureStderr ? out + error : out)
+        : reject(new Error(`${binary} terminó con ${code}: ${error}`));
+    });
   });
 }
 export class FFmpegService {
@@ -86,6 +97,7 @@ export class FFmpegService {
     timing: { fps: number; durationFrames: number[] },
   ) {
     const list = `${output}.concat.txt`;
+    const normalized: string[] = [];
     if (files.some((f) => /[\n\r']/.test(f)))
       throw new Error("Ruta de render no válida");
     if (
@@ -98,16 +110,63 @@ export class FFmpegService {
       throw new Error("Duraciones de render no válidas");
     // MP4 container durations can be rounded to milliseconds. Derive each
     // segment boundary from its frame count so concatenation stays on the grid.
-    await fs.writeFile(
-      list,
-      files
-        .map(
-          (file, i) =>
-            `file '${file}'\nduration ${(timing.durationFrames[i] / timing.fps).toFixed(12)}`,
-        )
-        .join("\n"),
-    );
     try {
+      // The concat demuxer interprets every segment using the first stream's
+      // time base. Remotion uses 1/90000 while imported MP4s often use 1/15360.
+      // Remux differing tracks without re-encoding; otherwise mixed clips
+      // silently acquire incorrect timestamps even when each clip is 30 FPS.
+      const bases = await Promise.all(
+        files.map(
+          async (file) =>
+            JSON.parse(
+              await runProcess(process.env.FFPROBE_PATH || "ffprobe", [
+                "-v",
+                "error",
+                "-select_streams",
+                "v:0",
+                "-show_entries",
+                "stream=time_base",
+                "-of",
+                "json",
+                file,
+              ]),
+            ).streams[0]?.time_base,
+        ),
+      );
+      const inputs: string[] = [];
+      for (const [i, file] of files.entries()) {
+        if (bases[i] === "1/90000") {
+          inputs.push(file);
+          continue;
+        }
+        const remuxed = `${output}.segment-${i}.mp4`;
+        normalized.push(remuxed);
+        await runProcess(process.env.FFMPEG_PATH || "ffmpeg", [
+          "-y",
+          "-v",
+          "error",
+          "-i",
+          file,
+          "-map",
+          "0:v:0",
+          "-c:v",
+          "copy",
+          "-an",
+          "-video_track_timescale",
+          "90000",
+          remuxed,
+        ]);
+        inputs.push(remuxed);
+      }
+      await fs.writeFile(
+        list,
+        inputs
+          .map(
+            (file, i) =>
+              `file '${file}'\nduration ${(timing.durationFrames[i] / timing.fps).toFixed(12)}`,
+          )
+          .join("\n"),
+      );
       await runProcess(process.env.FFMPEG_PATH || "ffmpeg", [
         "-y",
         "-v",
@@ -131,6 +190,7 @@ export class FFmpegService {
       ]);
     } finally {
       await fs.rm(list, { force: true });
+      await Promise.all(normalized.map((file) => fs.rm(file, { force: true })));
     }
   }
 }

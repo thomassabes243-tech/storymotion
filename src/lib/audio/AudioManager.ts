@@ -162,6 +162,7 @@ export class AudioManager {
     duration: number,
     music?: AudioAsset,
     musicVolume = 0.12,
+    offset = 0,
   ) {
     const args = [
       "-y",
@@ -179,9 +180,13 @@ export class AudioManager {
         "-i",
         this.storage.resolve(music.storageKey),
         "-filter_complex",
-        `[1:a]apad,asplit=2[voice][side];[2:a]volume=${musicVolume}[music];[music][side]sidechaincompress=threshold=0.02:ratio=6:attack=30:release=350[ducked];[voice][ducked]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[audio]`,
+        `[1:a]adelay=${Math.round(offset * 1000)}:all=1,apad,asplit=2[voice][side];[2:a]volume=${musicVolume}[music];[music][side]sidechaincompress=threshold=0.02:ratio=6:attack=30:release=350[ducked];[voice][ducked]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[audio]`,
       );
-    else args.push("-filter_complex", "[1:a]apad[audio]");
+    else
+      args.push(
+        "-filter_complex",
+        `[1:a]adelay=${Math.round(offset * 1000)}:all=1,apad[audio]`,
+      );
     args.push(
       "-map",
       "0:v:0",
@@ -192,7 +197,7 @@ export class AudioManager {
       "-c:a",
       "aac",
       "-b:a",
-      "160k",
+      "192k",
       "-ar",
       "48000",
       "-t",

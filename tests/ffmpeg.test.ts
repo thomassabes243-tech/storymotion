@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { FFmpegService, runProcess } from "../src/lib/render/FFmpegService";
 
-test("fractional-second segments retain every frame on a constant 30 FPS timeline", async () => {
+test("mixed MP4 time bases and fractional-second segments retain every frame on a constant 30 FPS timeline", async () => {
   const dir = await mkdtemp(path.join(os.tmpdir(), "storymotion-fps-"));
   const service = new FFmpegService();
   const durationFrames = [143, 99, 98, 55, 55];
@@ -26,7 +26,7 @@ test("fractional-second segments retain every frame on a constant 30 FPS timelin
         "-c:v",
         "libx264",
         "-video_track_timescale",
-        "90000",
+        i % 2 === 0 ? "90000" : "15360",
         "-an",
         file,
       ]);

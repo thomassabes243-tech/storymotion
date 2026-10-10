@@ -18,6 +18,7 @@ export class VisualPromptBuilder {
         style.prompt,
         `Era: ${project.analysis?.era}. Palette: ${style.palette.join(", ")}.`,
         `Location: ${location?.description || scene.location}. Light/time: ${scene.timeOfDay}.`,
+        `Weather: ${scene.environment?.weather || "as described"}. Action state: ${scene.narrativeState?.initial || "as described"} to ${scene.narrativeState?.final || scene.action}.`,
         `Narrative action: ${scene.description}. Shot: ${scene.camera.shot}. Movement direction: ${scene.camera.direction}.`,
         `Asset role: ${kind}. ${kind === "character" || kind === "object" || kind === "foreground" ? "Isolated cutout on transparent background, no full scene, maintain clean edges." : "Overscan composition suitable for vertical camera moves, 9:16."}`,
         characterId

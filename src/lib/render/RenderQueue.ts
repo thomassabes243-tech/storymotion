@@ -7,6 +7,21 @@ import { workerIsAlive } from "./WorkerIdentity";
 export class RenderQueue {
   constructor(protected repo: SQLiteRepository) {}
   enqueue(project: Project, requestKey?: string) {
+    this.repo.db.exec("BEGIN IMMEDIATE");
+    try {
+      const result = this.enqueueLocked(project, requestKey);
+      this.repo.db.exec("COMMIT");
+      return result;
+    } catch (e) {
+      this.repo.db.exec("ROLLBACK");
+      throw e;
+    }
+  }
+  private enqueueLocked(project: Project, requestKey?: string) {
+    if (project.config.motionMode === "generative")
+      throw new Error(
+        "BLOQUEADO: motor generativo no disponible; no se sustituirá por 2.5D.",
+      );
     if (requestKey) {
       const previous = this.repo
         .listJobs(project.id)
@@ -61,6 +76,17 @@ export class RenderQueue {
       ...job,
       state: "RENDER_QUEUED",
       error: undefined,
+      ownerPid: undefined,
+      ownerStartedAt: undefined,
+      updatedAt: new Date().toISOString(),
+    });
+  }
+  cancel(id: string) {
+    const job = this.repo.getJob(id);
+    if (!job || !["RENDER_QUEUED", "RENDERING"].includes(job.state)) return job;
+    return this.repo.putJob({
+      ...job,
+      state: "CANCELED",
       ownerPid: undefined,
       ownerStartedAt: undefined,
       updatedAt: new Date().toISOString(),

@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Sequence, useCurrentFrame } from "remotion";
 import { SceneVisual } from "../scenes/SceneVisual";
-import type { RenderProps, Scene } from "../../lib/domain";
+import type { RenderProps, Scene, Project } from "../../lib/domain";
 import { smooth } from "../../lib/animation/CameraMotion";
 function Shot({
   scene,
@@ -9,7 +9,9 @@ function Shot({
   sources,
   fps,
   last,
+  project,
 }: {
+  project: Project;
   scene: Scene;
   previous?: Scene;
   sources: Record<string, string>;
@@ -40,6 +42,7 @@ function Shot({
     <AbsoluteFill>
       {transitioning && (
         <SceneVisual
+          project={project}
           scene={previous}
           frame={previous.durationFrames + frame}
           sources={sources}
@@ -59,7 +62,12 @@ function Shot({
               : undefined,
         }}
       >
-        <SceneVisual scene={scene} frame={frame} sources={sources} />
+        <SceneVisual
+          project={project}
+          scene={scene}
+          frame={frame}
+          sources={sources}
+        />
       </AbsoluteFill>
       {transitioning && type === "light_flash" && (
         <AbsoluteFill style={{ background: "#fff1d7", opacity: 1 - p }} />
@@ -92,6 +100,7 @@ export function StoryComposition({ project, assetSources }: RenderProps) {
             durationInFrames={scene.durationFrames}
           >
             <Shot
+              project={project}
               scene={scene}
               previous={project.scenes[i - 1]}
               sources={assetSources}

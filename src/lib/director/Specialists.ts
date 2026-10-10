@@ -1,5 +1,7 @@
 import { createHash } from "node:crypto";
 import type { Project, Scene } from "../domain";
+import { ClipManager } from "../video/ClipManager";
+import type { SQLiteRepository } from "../storage/ProjectRepository";
 import { sampleLayer } from "../animation/AnimationEngine";
 import { VisualPromptBuilder } from "../assets/VisualPromptBuilder";
 import { FileSystemStorage } from "../storage/StorageProvider";
@@ -29,7 +31,7 @@ export class VisualDesignerAgent {
   }
 }
 export class MotionDirectorAgent {
-  plan(project: Project) {
+  plan(project: Project, clips?: ClipManager) {
     const p = structuredClone(project);
     let previous: Scene | undefined;
     for (const scene of p.scenes) {
@@ -38,7 +40,14 @@ export class MotionDirectorAgent {
         previous?.timeOfDay === scene.timeOfDay;
       if (same && previous) scene.camera.direction = previous.camera.direction;
       if (!scene.clipAssetId && !scene.intentionalStill) {
-        if (scene.camera.movement === "static")
+        if (
+          scene.camera.movement === "static" &&
+          !scene.animation.length &&
+          !scene.layers.some(
+            (l) =>
+              l.keyframes.length || l.poses.length || l.kind === "particles",
+          )
+        )
           scene.camera.movement = "slow_zoom_in";
         for (const layer of scene.layers.filter(
           (l) => l.kind === "character",
@@ -46,14 +55,18 @@ export class MotionDirectorAgent {
           const prev = same
             ? previous?.visualPlan?.exit[layer.characterId || ""]
             : undefined;
-          if (scene.action === "advance" && !layer.keyframes.length)
+          if (
+            ["advance", "escape"].includes(scene.action) &&
+            !layer.keyframes.length
+          )
             layer.keyframes = [
               { frame: 0, x: layer.x },
               {
                 frame: scene.durationFrames - 1,
                 x:
                   layer.x +
-                  (scene.camera.direction === "right_to_left" ? -110 : 110),
+                  (scene.camera.direction === "right_to_left" ? -1 : 1) *
+                    (scene.action === "escape" ? 240 : 110),
               },
             ];
           if (prev) {
@@ -80,6 +93,15 @@ export class MotionDirectorAgent {
             }),
         );
       scene.visualPlan = {
+        firstFrameKey: scene.clipAssetId
+          ? clips?.get(scene.clipAssetId)?.firstFrameKey
+          : undefined,
+        lastFrameKey: scene.clipAssetId
+          ? clips?.get(scene.clipAssetId)?.lastFrameKey
+          : undefined,
+        previousLastFrameKey: same
+          ? previous?.visualPlan?.lastFrameKey
+          : undefined,
         previousSceneId: same ? previous?.sceneId : undefined,
         identityHashes: Object.fromEntries(
           (p.analysis?.characters || [])
@@ -177,7 +199,42 @@ export class StoryContinuityAgent {
   }
 }
 export class AudioEngineerAgent {
-  inspect(project: Project): QualityIssue[] {
+  inspect(project: Project, repo?: SQLiteRepository): QualityIssue[] {
+    if (project.audio.mode === "imported" && repo) {
+      const audio = project.audio.importedAssetId
+        ? repo.getAudio(project.audio.importedAssetId)
+        : undefined;
+      if (!audio)
+        return [
+          {
+            code: "missing_audio",
+            severity: "error",
+            message: "Falta el audio importado.",
+            resolved: false,
+          },
+        ];
+      const duration = project.scenes.reduce((n, s) => n + s.duration, 0);
+      if (
+        audio.duration + project.audio.offset >
+        duration + 1 / project.config.fps
+      )
+        return [
+          {
+            code: "audio_too_long",
+            severity: "error",
+            message:
+              "El audio importado supera el storyboard. Aumenta su duración para conservarlo completo.",
+            resolved: false,
+          },
+        ];
+      return (audio.qualityReport?.warnings || []).map((message) => ({
+        code: "audio_review",
+        severity: "warning",
+        message,
+        resolved: false,
+      }));
+    }
+
     return project.audio.mode === "off"
       ? []
       : [
@@ -214,6 +271,7 @@ export class QualityControlAgent {
   async inspect(
     project: Project,
     storage = new FileSystemStorage(),
+    repo?: SQLiteRepository,
   ): Promise<QualityIssue[]> {
     const issues: QualityIssue[] = [];
     const add = (
@@ -223,8 +281,23 @@ export class QualityControlAgent {
       severity: QualityIssue["severity"] = "warning",
     ) => issues.push({ code, message, sceneId, severity, resolved: false });
     for (const s of project.scenes) {
+      if (s.clipAssetId && repo) {
+        const clip = new ClipManager(repo, storage).get(s.clipAssetId);
+        if (
+          !clip ||
+          !(await storage.exists(clip.storageKey)) ||
+          s.clipStart + s.duration > clip.duration + 1 / 60
+        )
+          add(
+            "invalid_clip",
+            "Clip ausente o insuficiente para el plano.",
+            s.sceneId,
+            "error",
+          );
+      }
       if (s.status === "FAILED" || (!s.layers.length && !s.clipAssetId))
         add("scene_failed", "Escena sin material listo.", s.sceneId, "error");
+      if (s.clipAssetId) continue;
       const used = s.layers
         .flatMap((l) => [l.assetId, ...l.poses.map((p) => p.assetId)])
         .filter((v): v is string => !!v);
@@ -274,16 +347,39 @@ export class QualityControlAgent {
   ) {
     const ffmpeg = new FFmpegService();
     const probe = ffmpeg.validate(await ffmpeg.probe(file), expected);
-    await runProcess(process.env.FFMPEG_PATH || "ffmpeg", [
-      "-v",
-      "error",
-      "-xerror",
-      "-i",
-      file,
-      "-f",
-      "null",
-      "-",
-    ]);
-    return probe;
+    const log = await runProcess(
+      process.env.FFMPEG_PATH || "ffmpeg",
+      [
+        "-v",
+        "info",
+        "-xerror",
+        "-i",
+        file,
+        "-vf",
+        "freezedetect=n=-50dB:d=1.5,blackdetect=d=0.8:pix_th=0.03",
+        "-f",
+        "null",
+        "-",
+      ],
+      { captureStderr: true },
+    );
+    const issues: QualityIssue[] = [];
+    if (/freeze_start:/.test(log))
+      issues.push({
+        code: "frozen_video",
+        severity: "warning",
+        message:
+          "Se detectaron fotogramas sin variación durante 1,5 segundos; revisar intención y movimiento.",
+        resolved: false,
+      });
+    if (/black_start:/.test(log))
+      issues.push({
+        code: "black_video",
+        severity: "warning",
+        message:
+          "Se detectó un intervalo mayormente negro; revisar iluminación o cortes.",
+        resolved: false,
+      });
+    return { probe, issues };
   }
 }

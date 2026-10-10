@@ -35,12 +35,14 @@ export const jobStates = [
   "RENDERING",
   "COMPLETE",
   "FAILED",
+  "CANCELED",
 ] as const;
 export const CameraSchema = z.object({
   shot: z.enum(["wide", "medium", "close", "detail"]),
   movement: z.enum(cameraMovements),
   direction: z.enum(["left_to_right", "right_to_left", "center"]),
   intensity: z.number().min(0).max(2),
+  angle: z.enum(["frontal", "lateral", "over_shoulder"]).optional(),
 });
 export type Camera = z.infer<typeof CameraSchema>;
 export const KeyframeSchema = z.object({
@@ -100,12 +102,30 @@ export const SceneSchema = z.object({
   continuityNotes: z.array(z.string()).default([]),
   clipAssetId: z.string().optional(),
   clipStart: z.number().min(0).default(0),
+  environment: z
+    .object({
+      weather: z.enum(["clear", "rain"]),
+      lighting: z.string(),
+      objects: z.array(z.string()),
+    })
+    .optional(),
+  narrativeState: z
+    .object({
+      initial: z.string(),
+      final: z.string(),
+      actorIds: z.array(z.string()),
+      nextSceneId: z.string().optional(),
+    })
+    .optional(),
   visualPlan: z
     .object({
       previousSceneId: z.string().optional(),
       identityHashes: z.record(z.string(), z.string()),
       referenceAssetIds: z.array(z.string()),
       motionMode: z.enum(["cutout", "video"]),
+      firstFrameKey: z.string().optional(),
+      lastFrameKey: z.string().optional(),
+      previousLastFrameKey: z.string().optional(),
       entry: z.record(z.string(), z.object({ x: z.number(), y: z.number() })),
       exit: z.record(z.string(), z.object({ x: z.number(), y: z.number() })),
     })
@@ -155,6 +175,7 @@ export const AnalysisSchema = z.object({
       sourceText: z.string(),
       action: z.string(),
       subjects: z.array(z.string()),
+      visibleCharacters: z.array(z.string()).default([]),
       location: z.string(),
       emotion: z.string(),
       timeOfDay: z.string(),
@@ -192,6 +213,7 @@ export const ConfigSchema = z.object({
   height: z.literal(1920),
   settings: SettingsSchema,
   quality: z.enum(["fast", "balanced", "cinematic"]).default("balanced"),
+  motionMode: z.enum(["cutout", "generative"]).default("cutout"),
 });
 export type Config = z.infer<typeof ConfigSchema>;
 export const defaultConfig: Config = {
@@ -203,6 +225,7 @@ export const defaultConfig: Config = {
   height: 1920,
   settings: defaultSettings,
   quality: "balanced",
+  motionMode: "cutout",
 };
 export const AssetSchema = z.object({
   id: z.string(),
@@ -265,6 +288,9 @@ export const AudioAssetSchema = z.object({
       warnings: z.array(z.string()),
     })
     .optional(),
+  originalKey: z.string().optional(),
+  originalMime: z.string().optional(),
+  originalName: z.string().optional(),
 });
 export type AudioAsset = z.infer<typeof AudioAssetSchema>;
 export const ProjectSchema = z.object({

@@ -18,7 +18,11 @@ export function placeholder(
     );
   if (kind === "environment") {
     let details = "";
-    if (location === "bosque")
+    if (location === "calle")
+      return wrap(
+        `<path d="M0 0H250V1550H0zM830 0h250v1550H830z" fill="${dark ? "#1b2231" : "#938777"}"/><path d="M0 1550L420 1020H660L1080 1550V1920H0z" fill="${dark ? "#293346" : "#797c7b"}"/><path d="M240 1920L450 1020H630L840 1920z" fill="${dark ? "#1d2737" : "#676c70"}"/>${Array.from({ length: 8 }, (_, i) => `<rect x="${i % 2 ? 875 : 55}" y="${180 + Math.floor(i / 2) * 300}" width="105" height="135" fill="#d6c390" opacity=".55"/>`).join("")}<path d="M320 900v850m440-850v850" stroke="#38444e" stroke-width="15"/><circle cx="320" cy="900" r="28" fill="#dfc693"/><circle cx="760" cy="900" r="28" fill="#dfc693"/><path d="M315 1770l35-500 35 500m340 0 35-500 35 500" stroke="#ddc38c" stroke-width="10" opacity=".12"/>`,
+      );
+    else if (location === "bosque")
       details = Array.from(
         { length: 12 },
         (_, i) =>
@@ -38,6 +42,10 @@ export function placeholder(
       `<path d="M-100 1210L190 680l210 360 310-580 440 700v760H-100z" fill="${mountain}"/><path d="M-80 1480L260 1110l190 220 300-420 410 420v590H-80z" fill="${dark ? "#404744" : "#777b5b"}"/><path d="M0 1530q540-220 1080 0v390H0" fill="${dark ? "#5a5146" : "#b2a178"}"/>${details}<path d="M420 1920l65-450 130-40 165 490" fill="#c8b58b" opacity=".7"/><path d="M0 1550q540-190 1080 0" fill="none" stroke="${ink}" stroke-width="5" opacity=".2"/>`,
     );
   }
+  if (kind === "foreground" && location === "calle")
+    return wrap(
+      `<path d="M0 1520l135 100v300H0zM1080 1500l-125 110v310h125z" fill="#141c29"/><path d="M40 1820h100m815-10h90" stroke="#8c9aac" opacity=".2" stroke-width="7"/>`,
+    );
   if (kind === "foreground")
     return wrap(
       `<path d="M-50 1920v-300l110-150 220 85 80 220 190 70 270-220 180 50 130 245z" fill="${dark ? "#242c29" : "#575c42"}" stroke="${ink}" stroke-width="8"/><path d="M60 1680l70 120 130-80M810 1800l65-90 120 120" stroke="#9b9b71" stroke-width="7" fill="none" opacity=".6"/>`,

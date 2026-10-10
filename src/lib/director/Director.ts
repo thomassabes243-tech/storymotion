@@ -6,10 +6,15 @@ import { SQLiteRepository, ConflictError } from "../storage/ProjectRepository";
 import { FileSystemStorage } from "../storage/StorageProvider";
 import { RenderQueue } from "../render/RenderQueue";
 import { totalFrames } from "../domain";
+import { ClipManager } from "../video/ClipManager";
 import { AgentRepository } from "./AgentRepository";
 import { agentConfig, type AgentJob, type Specialist } from "./contracts";
 import { OllamaNarrativeProvider } from "./OllamaNarrativeProvider";
 import { renderQuality } from "./Capabilities";
+import {
+  ActionMotionStoryEngine,
+  ActionMotionCinematicDirector,
+} from "../story/ActionMotionStoryEngine";
 import {
   VisualDesignerAgent,
   MotionDirectorAgent,
@@ -29,6 +34,10 @@ export class Director {
   enqueue(project: Project) {
     if (!agentConfig().enabled) throw Error("El director está desactivado.");
     renderQuality(project.config.quality);
+    if (project.config.motionMode === "generative")
+      throw Error(
+        "BLOQUEADO: no hay motor generativo de video validado. Elige explícitamente el modo ilustrado o integra un motor con modelo y recursos compatibles.",
+      );
     return this.jobs.enqueue(project);
   }
   approve(id: string, revision: number) {
@@ -60,6 +69,15 @@ export class Director {
       throw Error(
         "Se agotaron los reintentos; revisa el error antes de crear otro trabajo.",
       );
+    if (this.repo.get(job.projectId)?.revision !== job.snapshot.revision)
+      throw new ConflictError(
+        "El proyecto fue corregido. Inicia una nueva producción para usar la revisión actual sin sobrescribir tus cambios.",
+      );
+    if (
+      job.renderJobId &&
+      this.repo.getJob(job.renderJobId)?.state === "FAILED"
+    )
+      new RenderQueue(this.repo).retry(job.renderJobId);
     return this.jobs.put({
       ...job,
       state: job.resumeState || "ANALYZING",
@@ -120,6 +138,9 @@ export class Director {
               warnings: [...analysis.warnings, ...plan.warnings],
               state: "ASSETS_PENDING",
             };
+            p = new ActionMotionCinematicDirector().plan(
+              new ActionMotionStoryEngine().enrich(p),
+            );
           }
           event(
             "VisualDesignerAgent",
@@ -168,12 +189,19 @@ export class Director {
         }
         case "ANIMATING": {
           let p = new VisualDesignerAgent().plan(job.snapshot).project;
-          p = new MotionDirectorAgent().plan(p);
+          p = new MotionDirectorAgent().plan(
+            p,
+            new ClipManager(this.repo, this.storage),
+          );
           p.state = "ASSETS_READY";
-          const qc = await new QualityControlAgent().inspect(p, this.storage);
+          const qc = await new QualityControlAgent().inspect(
+            p,
+            this.storage,
+            this.repo,
+          );
           const issues = [
             ...new StoryContinuityAgent().inspect(p),
-            ...new AudioEngineerAgent().inspect(p),
+            ...new AudioEngineerAgent().inspect(p, this.repo),
             ...new VideoEditorAgent().inspect(p),
             ...qc,
           ];
@@ -208,6 +236,8 @@ export class Director {
                 `director:${job.id}`,
               );
           if (!render) throw Error("No se encuentra el trabajo de render.");
+          if (!job.renderJobId && render.requestKey !== `director:${job.id}`)
+            return checkpoint({ retryAt: Date.now() + 1500 });
           if (render.state === "FAILED")
             throw Error(render.error || "Falló el render.");
           if (render.state === "COMPLETE") {
@@ -232,7 +262,7 @@ export class Director {
           const render = this.repo.getJob(job.renderJobId!);
           if (!render?.outputKey) throw Error("Falta la salida del render.");
           const p = render.renderedPlan || job.snapshot;
-          await new QualityControlAgent().output(
+          const outputCheck = await new QualityControlAgent().output(
             this.storage.resolve(render.outputKey),
             {
               ...renderQuality(p.config.quality),
@@ -245,7 +275,11 @@ export class Director {
             "QualityControlAgent",
             "FFprobe y decodificación completa aprobados. La revisión de rostros y anatomía corresponde al usuario.",
           );
-          return checkpoint({ state: "READY_FOR_REVIEW", progress: 1 });
+          return checkpoint({
+            state: "READY_FOR_REVIEW",
+            progress: 1,
+            issues: [...job.issues, ...outputCheck.issues],
+          });
         }
         default:
           return checkpoint({});

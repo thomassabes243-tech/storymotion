@@ -55,7 +55,18 @@ test("persistent director claims atomically, survives restart, waits for approva
     planned = director.jobs.get(job.id)!;
     assert.ok(planned.snapshot.analysis);
     assert.ok(planned.snapshot.scenes.length >= 6);
-    director.approve(job.id, planned.snapshot.revision);
+    const edited = repo.save(
+      {
+        ...planned.snapshot,
+        scenes: planned.snapshot.scenes.map((s, i) =>
+          i === 0
+            ? { ...s, camera: { ...s.camera, movement: "pan_left" as const } }
+            : s,
+        ),
+      },
+      planned.snapshot.revision,
+    );
+    director.approve(job.id, edited.revision);
     for (let i = 0; i < 25; i++) {
       const next = director.jobs.claim(process.pid);
       if (next) await director.tick(next);
@@ -66,6 +77,11 @@ test("persistent director claims atomically, survives restart, waits for approva
     assert.equal(ready.state, "RENDERING");
     assert.equal(ready.completedScenes.length, ready.snapshot.scenes.length);
     assert.ok(ready.snapshot.scenes.every((s) => s.visualPlan));
+    assert.equal(
+      ready.snapshot.scenes[0].camera.movement,
+      "pan_left",
+      "approved camera edits are not overwritten by automatic direction",
+    );
     const copies = ready.snapshot.scenes.filter((s) =>
       s.characters.includes("archer"),
     );
@@ -146,9 +162,92 @@ test("interrupted stale project changes never overwrite edits; failure retries a
     await director.tick(claimed);
     assert.equal(f.repo.get(f.project.id)!.name, "User edit");
     assert.equal(director.jobs.get(job.id)!.state, "FAILED");
+    assert.throws(() => director.retry(job.id), /nueva producción/);
     const failed = director.jobs.get(job.id)!;
     director.jobs.put({ ...failed, attempts: 3 });
     assert.throws(() => director.retry(job.id), /agotaron/);
+  } finally {
+    f.repo.close();
+    await rm(f.dir, { recursive: true, force: true });
+  }
+});
+
+test("rainy-street story preserves black jacket, distinct actions and actor identity; generative mode never falls back", async () => {
+  const {
+    RAINY_STORY,
+    ActionMotionStoryEngine,
+    ActionMotionCinematicDirector,
+  } = await import("../src/lib/story/ActionMotionStoryEngine");
+  const { StoryAnalyzer } = await import("../src/lib/story/StoryAnalyzer");
+  const { ScenePlanner } = await import("../src/lib/story/ScenePlanner");
+  const f = await fixture();
+  try {
+    const analysis = await new StoryAnalyzer().analyze(RAINY_STORY);
+    const hero = analysis.characters.find((c) => c.id === "traveler")!;
+    assert.equal(hero.appearance.clothing, "chaqueta negra");
+    assert.ok(analysis.characters.some((c) => c.id === "mysterious_figure"));
+    for (const action of [
+      "advance",
+      "listen",
+      "stop",
+      "head_turn",
+      "observe",
+      "escape",
+    ])
+      assert.ok(
+        analysis.events.some((e) => e.action === action),
+        action,
+      );
+    assert.ok(
+      analysis.events.every(
+        (e) => e.location === "calle" && e.timeOfDay === "night",
+      ),
+    );
+    assert.ok(analysis.events.every((e) => e.subjects.includes(hero.id)));
+    const plan = new ScenePlanner().plan(RAINY_STORY, analysis, {
+      ...defaultConfig,
+      durationMode: "target",
+      targetDuration: 12,
+    });
+    let project: import("../src/lib/domain").Project = {
+      ...f.project,
+      story: RAINY_STORY,
+      analysis,
+      scenes: plan.scenes,
+    };
+    project = new ActionMotionCinematicDirector().plan(
+      new ActionMotionStoryEngine().enrich(project),
+    );
+    assert.ok(project.scenes.every((s) => s.environment?.weather === "rain"));
+    assert.ok(
+      project.scenes.some((s) => s.narrativeState?.final === "stopped"),
+    );
+    assert.ok(
+      project.scenes.some((s) => s.narrativeState?.final === "running"),
+    );
+    assert.equal(
+      project.scenes.find((s) => s.action === "head_turn")!.camera.angle,
+      "over_shoulder",
+    );
+    assert.ok(
+      project.scenes.slice(0, -1).every((s) => s.transitionOut === "hard_cut"),
+    );
+    assert.throws(
+      () =>
+        new Director(f.repo, f.storage).enqueue({
+          ...f.project,
+          config: { ...f.project.config, motionMode: "generative" },
+        }),
+      /BLOQUEADO/,
+    );
+    assert.throws(
+      () =>
+        new RenderQueue(f.repo).enqueue({
+          ...project,
+          config: { ...project.config, motionMode: "generative" },
+        }),
+      /no se sustituirá/,
+    );
   } finally {
     f.repo.close();
     await rm(f.dir, { recursive: true, force: true });

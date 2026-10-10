@@ -21,6 +21,10 @@ export function sceneCacheKey(
     .update(
       JSON.stringify({
         rendererSignature,
+        clips: [scene, previous]
+          .filter(Boolean)
+          .filter((s) => s.clipAssetId)
+          .map((s) => [s.clipAssetId, assetHashes[s.clipAssetId!]]),
         scene: { ...scene, start: 0 },
         previous: previous ? { ...previous, start: 0 } : undefined,
         config: project.config,
