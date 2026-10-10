@@ -1,0 +1,106 @@
+{
+  "story": "Elena caminó con Marcos por un bosque al amanecer. Elena observó una luz entre los árboles. Marcos entró al castillo. Elena levantó una antorcha.",
+  "projectId": "285c9ec7-0a53-44a2-bd78-41ae228a7a84",
+  "agentId": "221ffc67-ffca-4f96-9a3e-9cf204744b4e",
+  "renderJobId": "b51e678a-a67a-4334-be21-3c406e8752f4",
+  "state": "READY_FOR_REVIEW",
+  "probe": {
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "fps": 30,
+    "duration": 6.033333,
+    "audioStreams": 1,
+    "audioCodec": "aac"
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "fits": true,
+    "metadata": {
+      "width": 1080,
+      "height": 1920,
+      "duration": 6.033333,
+      "playing": true
+    },
+    "errors": []
+  },
+  "durationMs": 75190,
+  "clipSource": "synthetic moving test pattern; not generative AI",
+  "audioSource": "synthetic 1-second signal for pipeline measurement; not narration",
+  "limitations": [
+    "No image-to-video model or GPU is installed.",
+    "Remaining shots are articulated illustrations, not photorealistic animation."
+  ],
+  "events": [
+    {
+      "at": "2026-10-10T20:30:41.750Z",
+      "agent": "VideoEditorAgent",
+      "message": "Historia recibida; producción local sin servicios de pago."
+    },
+    {
+      "at": "2026-10-10T20:30:41.802Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Storyboard de 7 planos. Análisis local por reglas; requiere revisión narrativa."
+    },
+    {
+      "at": "2026-10-10T20:30:47.892Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_001 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T20:30:47.900Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_002 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T20:30:47.915Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_003 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T20:30:47.922Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_004 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T20:30:47.930Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_005 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T20:30:47.942Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_006 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T20:30:47.953Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_007 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T20:30:47.988Z",
+      "agent": "MotionDirectorAgent",
+      "message": "Dirección, posiciones de entrada/salida y referencias persistentes preparadas."
+    },
+    {
+      "at": "2026-10-10T20:30:47.988Z",
+      "agent": "StoryContinuityAgent",
+      "message": "Continuidad de identidades y dirección comprobada."
+    },
+    {
+      "at": "2026-10-10T20:30:47.988Z",
+      "agent": "AudioEngineerAgent",
+      "message": "Audio opcional conservado."
+    },
+    {
+      "at": "2026-10-10T20:31:50.605Z",
+      "agent": "VideoEditorAgent",
+      "message": "MP4 compuesto; comienza verificación de salida."
+    },
+    {
+      "at": "2026-10-10T20:31:51.859Z",
+      "agent": "QualityControlAgent",
+      "message": "FFprobe y decodificación completa aprobados. La revisión de rostros y anatomía corresponde al usuario."
+    }
+  ]
+}

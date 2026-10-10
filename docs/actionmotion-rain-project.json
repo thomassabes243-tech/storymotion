@@ -1,0 +1,1625 @@
+{
+  "schemaVersion": 1,
+  "id": "7f829a26-653f-463e-93f3-55d5424c048f",
+  "revision": 10,
+  "name": "Calle lluviosa · preview ilustrado",
+  "story": "Un hombre camina por una calle oscura durante una noche lluviosa. Lleva una chaqueta negra. De pronto escucha un ruido detrás de él. Se detiene, gira lentamente la cabeza y observa una figura misteriosa al fondo de la calle. Comienza a correr mientras la cámara lo sigue.",
+  "createdAt": "2026-10-10T20:17:52.799Z",
+  "updatedAt": "2026-10-10T20:17:53.905Z",
+  "config": {
+    "style": "historical_parchment",
+    "durationMode": "target",
+    "targetDuration": 12,
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "settings": {
+      "wordsPerMinute": 150,
+      "fast": [
+        2,
+        3
+      ],
+      "normal": [
+        3,
+        6
+      ],
+      "contemplative": [
+        5,
+        8
+      ]
+    },
+    "quality": "balanced",
+    "motionMode": "cutout"
+  },
+  "analysis": {
+    "title": "Un hombre camina por una calle oscura durante",
+    "genre": "horror",
+    "era": "época descrita en la historia",
+    "visualStyle": "historical_parchment",
+    "characters": [
+      {
+        "id": "mysterious_figure",
+        "name": "Figura misteriosa",
+        "role": "secondary",
+        "description": "Figura misteriosa, época descrita en la historia, silueta oscura, vestimenta no definida",
+        "appearance": {
+          "age": 36,
+          "hair": "cabello oscuro",
+          "clothing": "silueta oscura, vestimenta no definida",
+          "accessories": [],
+          "weapons": [],
+          "colors": [
+            "#504b35",
+            "#bb955f"
+          ],
+          "face": "rasgos definidos, rostro consistente",
+          "artStyle": "historical_parchment"
+        },
+        "poses": [
+          "standing",
+          "walking",
+          "observing",
+          "raising",
+          "drawing",
+          "firing",
+          "defending"
+        ],
+        "referenceAssetIds": []
+      },
+      {
+        "id": "traveler",
+        "name": "Viajero",
+        "role": "main",
+        "description": "Viajero, época descrita en la historia, chaqueta negra",
+        "appearance": {
+          "age": 36,
+          "hair": "cabello oscuro",
+          "clothing": "chaqueta negra",
+          "accessories": [],
+          "weapons": [],
+          "colors": [
+            "#111318"
+          ],
+          "face": "rasgos definidos, rostro consistente",
+          "artStyle": "historical_parchment"
+        },
+        "poses": [
+          "standing",
+          "walking",
+          "observing",
+          "raising",
+          "drawing",
+          "firing",
+          "defending"
+        ],
+        "referenceAssetIds": []
+      }
+    ],
+    "locations": [
+      {
+        "id": "calle",
+        "name": "Calle",
+        "description": "Calle, época descrita en la historia, ilustración con profundidad y luz coherente",
+        "referenceAssetIds": []
+      }
+    ],
+    "objects": [],
+    "relationships": [
+      {
+        "from": "mysterious_figure",
+        "to": "traveler",
+        "relationship": "shared_story"
+      }
+    ],
+    "events": [
+      {
+        "id": "event_1",
+        "sourceText": "Un hombre camina por una calle oscura durante una noche lluviosa. Lleva una chaqueta negra.",
+        "action": "advance",
+        "subjects": [
+          "traveler"
+        ],
+        "visibleCharacters": [
+          "traveler"
+        ],
+        "location": "calle",
+        "emotion": "calm",
+        "timeOfDay": "night",
+        "visualImportance": 2,
+        "temporalChange": false
+      },
+      {
+        "id": "event_2",
+        "sourceText": "De pronto escucha un ruido detrás de él.",
+        "action": "listen",
+        "subjects": [
+          "traveler"
+        ],
+        "visibleCharacters": [
+          "traveler"
+        ],
+        "location": "calle",
+        "emotion": "tension",
+        "timeOfDay": "night",
+        "visualImportance": 2,
+        "temporalChange": false
+      },
+      {
+        "id": "event_3",
+        "sourceText": "Se detiene",
+        "action": "stop",
+        "subjects": [
+          "traveler"
+        ],
+        "visibleCharacters": [
+          "traveler"
+        ],
+        "location": "calle",
+        "emotion": "tension",
+        "timeOfDay": "night",
+        "visualImportance": 2,
+        "temporalChange": false
+      },
+      {
+        "id": "event_4",
+        "sourceText": "gira lentamente la cabeza",
+        "action": "head_turn",
+        "subjects": [
+          "traveler"
+        ],
+        "visibleCharacters": [
+          "traveler"
+        ],
+        "location": "calle",
+        "emotion": "tension",
+        "timeOfDay": "night",
+        "visualImportance": 2,
+        "temporalChange": false
+      },
+      {
+        "id": "event_5",
+        "sourceText": "observa una figura misteriosa al fondo de la calle.",
+        "action": "observe",
+        "subjects": [
+          "traveler"
+        ],
+        "visibleCharacters": [
+          "traveler",
+          "mysterious_figure"
+        ],
+        "location": "calle",
+        "emotion": "suspense",
+        "timeOfDay": "night",
+        "visualImportance": 2,
+        "temporalChange": false
+      },
+      {
+        "id": "event_6",
+        "sourceText": "Comienza a correr mientras la cámara lo sigue.",
+        "action": "escape",
+        "subjects": [
+          "traveler"
+        ],
+        "visibleCharacters": [
+          "traveler"
+        ],
+        "location": "calle",
+        "emotion": "tension",
+        "timeOfDay": "night",
+        "visualImportance": 2,
+        "temporalChange": false
+      }
+    ],
+    "warnings": [
+      "Análisis local por reglas: revisa nombres, relaciones y acciones implícitas en relatos complejos."
+    ],
+    "analyzer": "local"
+  },
+  "scenes": [
+    {
+      "sceneId": "scene_001",
+      "start": 0,
+      "duration": 2.433333333333333,
+      "durationFrames": 73,
+      "sourceText": "Un hombre camina por una calle oscura durante una noche lluviosa. Lleva una chaqueta negra.",
+      "description": "Plano general: Un hombre camina por una calle oscura durante una noche lluviosa. Lleva una chaqueta negra",
+      "location": "calle",
+      "characters": [
+        "traveler"
+      ],
+      "action": "establish",
+      "emotion": "calm",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "layers": [
+        {
+          "id": "9183d765-46f0-4f86-b42d-04926f2af532",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "53e062d2-3240-4fe8-8fc0-c1341c8f17d7",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "b2cbaffb-bae9-4030-a48f-fdf0b0937ffc",
+          "assetId": "d7193572-3345-43a5-b693-f307585a1f21",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "6d79cd6c-8d1c-4b4d-99b9-91aac90057ba",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "9479d193-e322-4a5f-8df6-6ef0acbe8a17",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift"
+      ],
+      "transitionOut": "hard_cut",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "inicio",
+        "final": "inicio",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_002"
+      },
+      "visualPlan": {
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "sceneId": "scene_002",
+      "start": 2.433333333333333,
+      "duration": 2.433333333333333,
+      "durationFrames": 73,
+      "sourceText": "Un hombre camina por una calle oscura durante una noche lluviosa. Lleva una chaqueta negra.",
+      "description": "Acompañar el avance: Un hombre camina por una calle oscura durante una noche lluviosa. Lleva una chaqueta negra",
+      "location": "calle",
+      "characters": [
+        "traveler"
+      ],
+      "action": "advance",
+      "emotion": "calm",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "layers": [
+        {
+          "id": "df96bb5c-8f5a-4a9e-b920-38976d91e082",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "c58290cc-5f88-4dc7-a50e-ed9ea9fd6e41",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "9d112154-25c2-4c2c-a6ee-2e20002fa50b",
+          "assetId": "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 80,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [
+            {
+              "frame": 0,
+              "x": 0
+            },
+            {
+              "frame": 72,
+              "x": 180
+            }
+          ],
+          "poses": []
+        },
+        {
+          "id": "f3e64360-6ecb-4a3b-a972-e8bdf8464076",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "a08c43d1-5af2-4a09-8c00-2d2e23029e7d",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 73,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift"
+      ],
+      "transitionOut": "hard_cut",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Dirección conservada: left_to_right",
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "inicio",
+        "final": "walking",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_003"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_001",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "sceneId": "scene_003",
+      "start": 4.866666666666666,
+      "duration": 0.9666666666666667,
+      "durationFrames": 29,
+      "sourceText": "De pronto escucha un ruido detrás de él.",
+      "description": "Reacción al ruido: De pronto escucha un ruido detrás de él",
+      "location": "calle",
+      "characters": [
+        "traveler"
+      ],
+      "action": "listen",
+      "emotion": "tension",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "medium",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "layers": [
+        {
+          "id": "b7f24e00-4112-4fc2-b911-265b886d1fd1",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "041431b6-e04f-4962-b3d4-a66cd376dc77",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "f823d6bc-56b5-49e1-b9e9-b771ef7fa02c",
+          "assetId": "d7193572-3345-43a5-b693-f307585a1f21",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 180,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "dadd8e7b-eca1-4be2-80b3-7728351c2df3",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "28fd6b2b-8bd6-4171-af48-04499e1c8b7e",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift"
+      ],
+      "transitionOut": "hard_cut",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Dirección conservada: left_to_right",
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "walking",
+        "final": "walking",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_004"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_002",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "sceneId": "scene_004",
+      "start": 5.833333333333333,
+      "duration": 0.9666666666666667,
+      "durationFrames": 29,
+      "sourceText": "Se detiene",
+      "description": "El personaje se detiene: Se detiene",
+      "location": "calle",
+      "characters": [
+        "traveler"
+      ],
+      "action": "stop",
+      "emotion": "tension",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "layers": [
+        {
+          "id": "4c6bbd5a-864d-4a35-baa7-12e50b6ab83c",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "13a18e0d-2371-4281-b665-b581251e94e6",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "5fc5e17f-0f43-4e57-964a-06e516c65be1",
+          "assetId": "d7193572-3345-43a5-b693-f307585a1f21",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 180,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "cf1580d3-64aa-4ffb-b86d-55ce49cc5dc8",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "f531f07c-a6bd-4d57-b2e3-800bccdd4631",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 29,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift"
+      ],
+      "transitionOut": "hard_cut",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Dirección conservada: left_to_right",
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "walking",
+        "final": "stopped",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_005"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_003",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "sceneId": "scene_005",
+      "start": 6.8,
+      "duration": 0.9333333333333333,
+      "durationFrames": 28,
+      "sourceText": "gira lentamente la cabeza",
+      "description": "Giro de cabeza y mirada: gira lentamente la cabeza",
+      "location": "calle",
+      "characters": [
+        "traveler"
+      ],
+      "action": "head_turn",
+      "emotion": "tension",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "close",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "over_shoulder"
+      },
+      "layers": [
+        {
+          "id": "c7e324e8-542c-4f40-a86e-b7046d1ffd78",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "3362fa88-a3d7-4db6-b4b7-6a752ac9c4e7",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "69f06869-b908-49a5-a8ee-4aca29a9b3d0",
+          "assetId": "d7193572-3345-43a5-b693-f307585a1f21",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 180,
+          "y": 0,
+          "scale": 1.4,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "78e69c15-f219-4d79-84d5-a0a5125db27b",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "e689611c-57fc-4752-bf7f-3143c35e0a9e",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift"
+      ],
+      "transitionOut": "hard_cut",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Dirección conservada: left_to_right",
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "stopped",
+        "final": "looking_back",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_006"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_004",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "sceneId": "scene_006",
+      "start": 7.733333333333333,
+      "duration": 1.6666666666666667,
+      "durationFrames": 50,
+      "sourceText": "observa una figura misteriosa al fondo de la calle.",
+      "description": "Revelar el punto de observación: observa una figura misteriosa al fondo de la calle",
+      "location": "calle",
+      "characters": [
+        "traveler",
+        "mysterious_figure"
+      ],
+      "action": "reveal",
+      "emotion": "suspense",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "wide",
+        "movement": "reveal",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "layers": [
+        {
+          "id": "d0d701fe-439d-400f-8d1c-a2d6c0dd512e",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "ef271c8b-d3e1-41f1-a26b-38ad06af7cc9",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "03980311-115a-42bb-86aa-237a6785f25a",
+          "assetId": "bcb9a038-94cd-4026-9ad1-5b6ea94a5797",
+          "kind": "character",
+          "characterId": "mysterious_figure",
+          "x": 40,
+          "y": -250,
+          "scale": 0.4,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.32,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "f0f4b4cc-5e41-4c37-900b-240b132c9c85",
+          "assetId": "d7193572-3345-43a5-b693-f307585a1f21",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 180,
+          "y": 0,
+          "scale": 0.9,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "13efc3d5-fc34-4b15-9c06-e8b255283c16",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "13e69a98-2e17-4ea0-a1d4-c189d6ec7a90",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift"
+      ],
+      "transitionOut": "hard_cut",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Dirección conservada: left_to_right",
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "looking_back",
+        "final": "looking_back",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_007"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_005",
+        "identityHashes": {
+          "mysterious_figure": "aabcfb450538f71b77299f37f687da939837ddd7f3f8347830651cc697b08a8f",
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "sceneId": "scene_007",
+      "start": 9.4,
+      "duration": 1.6666666666666667,
+      "durationFrames": 50,
+      "sourceText": "observa una figura misteriosa al fondo de la calle.",
+      "description": "Mirada y tensión: observa una figura misteriosa al fondo de la calle",
+      "location": "calle",
+      "characters": [
+        "traveler",
+        "mysterious_figure"
+      ],
+      "action": "observe",
+      "emotion": "suspense",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "medium",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "layers": [
+        {
+          "id": "b6426d0e-810f-41e6-85b8-dfc391e85cc7",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "56bb3f08-6e5b-40b1-925d-b1e014cec973",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "b4c4b514-f531-45ae-893c-063fc1e481d2",
+          "assetId": "bcb9a038-94cd-4026-9ad1-5b6ea94a5797",
+          "kind": "character",
+          "characterId": "mysterious_figure",
+          "x": 40,
+          "y": -250,
+          "scale": 0.4,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.32,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "42f5f239-d980-43b4-8370-3a2caac7ede2",
+          "assetId": "d7193572-3345-43a5-b693-f307585a1f21",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 180,
+          "y": 0,
+          "scale": 0.9,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "63493c69-1a33-4b6c-9fd0-d8d0acbf12e7",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "a6d4795d-f477-4791-919b-40b1adc85c79",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 50,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift"
+      ],
+      "transitionOut": "hard_cut",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Dirección conservada: left_to_right",
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "looking_back",
+        "final": "observing",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_008"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_006",
+        "identityHashes": {
+          "mysterious_figure": "aabcfb450538f71b77299f37f687da939837ddd7f3f8347830651cc697b08a8f",
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "sceneId": "scene_008",
+      "start": 11.066666666666666,
+      "duration": 0.9333333333333333,
+      "durationFrames": 28,
+      "sourceText": "Comienza a correr mientras la cámara lo sigue.",
+      "description": "Carrera y seguimiento: Comienza a correr mientras la cámara lo sigue",
+      "location": "calle",
+      "characters": [
+        "traveler"
+      ],
+      "action": "escape",
+      "emotion": "tension",
+      "timeOfDay": "night",
+      "camera": {
+        "shot": "wide",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "layers": [
+        {
+          "id": "49fb9621-04b9-4f68-a2f6-879ca563074f",
+          "assetId": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "kind": "background",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.05,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "1af66462-65e2-48b3-bd20-e810e52b51c2",
+          "assetId": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "kind": "environment",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.25,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "b61afddc-9842-4956-907f-19614115edd1",
+          "assetId": "d7193572-3345-43a5-b693-f307585a1f21",
+          "kind": "character",
+          "characterId": "traveler",
+          "x": 180,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.5,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [
+            {
+              "frame": 0,
+              "x": 180
+            },
+            {
+              "frame": 27,
+              "x": 420
+            }
+          ],
+          "poses": []
+        },
+        {
+          "id": "2a5717a3-7813-4e24-aeba-6a6f8422a97f",
+          "assetId": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "kind": "foreground",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 1,
+          "depth": 0.85,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        },
+        {
+          "id": "92fa599e-dc3a-49a8-8f37-3d0504f11efe",
+          "kind": "particles",
+          "x": 0,
+          "y": 0,
+          "scale": 1,
+          "rotation": 0,
+          "opacity": 0.35,
+          "depth": 0.9,
+          "blur": 0,
+          "startFrame": 0,
+          "endFrame": 28,
+          "keyframes": [],
+          "poses": []
+        }
+      ],
+      "animation": [
+        "parallax",
+        "dust_drift",
+        "character_run"
+      ],
+      "transitionOut": "fade",
+      "status": "READY",
+      "intentionalStill": false,
+      "continuityNotes": [
+        "Dirección conservada: left_to_right",
+        "Luz: night; estilo: historical_parchment"
+      ],
+      "clipStart": 0,
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "observing",
+        "final": "running",
+        "actorIds": [
+          "traveler"
+        ]
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_007",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+          "5887a551-c3fe-45e5-90bc-d1e81af84893",
+          "d7193572-3345-43a5-b693-f307585a1f21",
+          "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+          "8c247bf9-0265-4c18-8890-5964be1ffca5",
+          "bcb9a038-94cd-4026-9ad1-5b6ea94a5797"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 420,
+            "y": 0
+          }
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "id": "cafcd92f-5b12-47ed-bef7-e611be5f27dc",
+      "name": "calle · background",
+      "kind": "background",
+      "mime": "image/png",
+      "storageKey": "assets/cafcd92f-5b12-47ed-bef7-e611be5f27dc.png",
+      "source": "placeholder",
+      "locationId": "calle",
+      "fingerprint": "005018bf6f9a39eac9fb6fbc7f51a51674ae366e94c111acae28a04417bc4b82",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "5887a551-c3fe-45e5-90bc-d1e81af84893",
+      "name": "calle · environment",
+      "kind": "environment",
+      "mime": "image/png",
+      "storageKey": "assets/5887a551-c3fe-45e5-90bc-d1e81af84893.png",
+      "source": "placeholder",
+      "locationId": "calle",
+      "fingerprint": "43d9e17ef8a1f84f8371cb79fa09d1dff2637eb2d65aee5f57e4f19aa7c42c6a",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "d7193572-3345-43a5-b693-f307585a1f21",
+      "name": "Viajero · standing",
+      "kind": "character",
+      "mime": "image/png",
+      "storageKey": "assets/d7193572-3345-43a5-b693-f307585a1f21.png",
+      "source": "placeholder",
+      "characterId": "traveler",
+      "locationId": "calle",
+      "pose": "standing",
+      "fingerprint": "9172f8119529675a2a726df6fa2e01a62f3f8f5f28a30145a999ca2650db849d",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "ac7d142c-23d8-4e9a-9c07-c320f4debb95",
+      "name": "calle · foreground",
+      "kind": "foreground",
+      "mime": "image/png",
+      "storageKey": "assets/ac7d142c-23d8-4e9a-9c07-c320f4debb95.png",
+      "source": "placeholder",
+      "locationId": "calle",
+      "fingerprint": "d4824ccb1d11776bc0c849be324f372cccda8ed6004c26a79e8657829ff15d52",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "8c247bf9-0265-4c18-8890-5964be1ffca5",
+      "name": "Viajero · walking",
+      "kind": "character",
+      "mime": "image/png",
+      "storageKey": "assets/8c247bf9-0265-4c18-8890-5964be1ffca5.png",
+      "source": "placeholder",
+      "characterId": "traveler",
+      "locationId": "calle",
+      "pose": "walking",
+      "fingerprint": "6cfc7f5b25eb12eecffb6df33db737c8ade2bc3a5d2d9e99e73c4f96e3e6cb28",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "id": "bcb9a038-94cd-4026-9ad1-5b6ea94a5797",
+      "name": "Figura misteriosa · standing",
+      "kind": "character",
+      "mime": "image/png",
+      "storageKey": "assets/bcb9a038-94cd-4026-9ad1-5b6ea94a5797.png",
+      "source": "placeholder",
+      "characterId": "mysterious_figure",
+      "locationId": "calle",
+      "pose": "standing",
+      "fingerprint": "b42af602f64d72822d9fb54935a8683ea9e535239913ab7b314eeb0e85d84ac9",
+      "width": 1080,
+      "height": 1920
+    }
+  ],
+  "audio": {
+    "mode": "off",
+    "voice": "es_MX-ald-medium",
+    "delivery": "neutral",
+    "rate": 1,
+    "musicVolume": 0.12,
+    "offset": 0
+  },
+  "warnings": [
+    "Análisis local por reglas: revisa nombres, relaciones y acciones implícitas en relatos complejos.",
+    "La duración estimada exige planos más rápidos que el mínimo configurado. Puedes aumentar la duración objetivo."
+  ],
+  "state": "ASSETS_READY"
+}

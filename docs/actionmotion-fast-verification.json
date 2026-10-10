@@ -1,0 +1,805 @@
+{
+  "status": "PARTIAL",
+  "acceptance": "BLOCKED",
+  "reason": "No GPU or generative video model is installed. This is an articulated illustration preview, not a cinematic real-motion result.",
+  "story": "Un hombre camina por una calle oscura durante una noche lluviosa. Lleva una chaqueta negra. De pronto escucha un ruido detrás de él. Se detiene, gira lentamente la cabeza y observa una figura misteriosa al fondo de la calle. Comienza a correr mientras la cámara lo sigue.",
+  "agentId": "47ffcb4c-45eb-494d-8373-d5f23fa4d1fc",
+  "renderJobId": "52188e9a-46fc-4474-a492-acf18b6f74da",
+  "elapsedMs": 88272,
+  "probe": {
+    "width": 540,
+    "height": 960,
+    "codec": "h264",
+    "fps": 24,
+    "duration": 2,
+    "audioStreams": 0
+  },
+  "frames": 48,
+  "hero": {
+    "id": "traveler",
+    "name": "Viajero",
+    "role": "main",
+    "description": "Viajero, época descrita en la historia, chaqueta negra",
+    "appearance": {
+      "age": 36,
+      "hair": "cabello oscuro",
+      "clothing": "chaqueta negra",
+      "accessories": [],
+      "weapons": [],
+      "colors": [
+        "#111318"
+      ],
+      "face": "rasgos definidos, rostro consistente",
+      "artStyle": "historical_parchment"
+    },
+    "poses": [
+      "standing",
+      "walking",
+      "observing",
+      "raising",
+      "drawing",
+      "firing",
+      "defending"
+    ],
+    "referenceAssetIds": []
+  },
+  "scenes": [
+    {
+      "id": "scene_001",
+      "action": "establish",
+      "duration": 0.4166666666666667,
+      "characters": [
+        "traveler"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "inicio",
+        "final": "inicio",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_002"
+      },
+      "visualPlan": {
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "transition": "hard_cut"
+    },
+    {
+      "id": "scene_002",
+      "action": "advance",
+      "duration": 0.4166666666666667,
+      "characters": [
+        "traveler"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "inicio",
+        "final": "walking",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_003"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_001",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "transition": "hard_cut"
+    },
+    {
+      "id": "scene_003",
+      "action": "listen",
+      "duration": 0.16666666666666666,
+      "characters": [
+        "traveler"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "walking",
+        "final": "walking",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_004"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_002",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "medium",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "transition": "hard_cut"
+    },
+    {
+      "id": "scene_004",
+      "action": "stop",
+      "duration": 0.16666666666666666,
+      "characters": [
+        "traveler"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "walking",
+        "final": "stopped",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_005"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_003",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "transition": "hard_cut"
+    },
+    {
+      "id": "scene_005",
+      "action": "head_turn",
+      "duration": 0.16666666666666666,
+      "characters": [
+        "traveler"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "stopped",
+        "final": "looking_back",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_006"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_004",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "close",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "over_shoulder"
+      },
+      "transition": "hard_cut"
+    },
+    {
+      "id": "scene_006",
+      "action": "reveal",
+      "duration": 0.25,
+      "characters": [
+        "traveler",
+        "mysterious_figure"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "looking_back",
+        "final": "looking_back",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_007"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_005",
+        "identityHashes": {
+          "mysterious_figure": "aabcfb450538f71b77299f37f687da939837ddd7f3f8347830651cc697b08a8f",
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "wide",
+        "movement": "reveal",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "transition": "hard_cut"
+    },
+    {
+      "id": "scene_007",
+      "action": "observe",
+      "duration": 0.25,
+      "characters": [
+        "traveler",
+        "mysterious_figure"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "looking_back",
+        "final": "observing",
+        "actorIds": [
+          "traveler"
+        ],
+        "nextSceneId": "scene_008"
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_006",
+        "identityHashes": {
+          "mysterious_figure": "aabcfb450538f71b77299f37f687da939837ddd7f3f8347830651cc697b08a8f",
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "mysterious_figure": {
+            "x": 40,
+            "y": -250
+          },
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "medium",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "transition": "hard_cut"
+    },
+    {
+      "id": "scene_008",
+      "action": "escape",
+      "duration": 0.16666666666666666,
+      "characters": [
+        "traveler"
+      ],
+      "environment": {
+        "weather": "rain",
+        "lighting": "night; dirección de luz coherente en calle",
+        "objects": []
+      },
+      "narrativeState": {
+        "initial": "observing",
+        "final": "running",
+        "actorIds": [
+          "traveler"
+        ]
+      },
+      "visualPlan": {
+        "previousSceneId": "scene_007",
+        "identityHashes": {
+          "traveler": "fcb14844e46f69a20ce10a783e8cd8178a0110337dce7a29aee77a846881b9ab"
+        },
+        "referenceAssetIds": [
+          "dd9ba73d-f89d-4f2b-9ae9-af23785b2b7f",
+          "6392d3c0-12dc-44b5-9dc5-6f5e275f4c5b",
+          "78571fba-2a40-45df-918b-662fd75ff294",
+          "f4b71931-87b4-4913-af85-a049cec727df",
+          "ed84226a-fc1e-42cd-a2e0-b034f0c01216",
+          "8fbd2071-4f3e-4354-81ef-16ca7ad5f224"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "traveler": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "traveler": {
+            "x": 420,
+            "y": 0
+          }
+        }
+      },
+      "camera": {
+        "shot": "wide",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "transition": "fade"
+    }
+  ],
+  "qualityIssues": [
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_001",
+      "resolved": false
+    },
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_002",
+      "resolved": false
+    },
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_003",
+      "resolved": false
+    },
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_004",
+      "resolved": false
+    },
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_005",
+      "resolved": false
+    },
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_006",
+      "resolved": false
+    },
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_007",
+      "resolved": false
+    },
+    {
+      "code": "short_shot",
+      "severity": "warning",
+      "message": "Plano menor de medio segundo: revisar legibilidad.",
+      "sceneId": "scene_008",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_001",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_001",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_001",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_001",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_002",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_002",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_002",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_002",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_003",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_003",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_003",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_003",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_004",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_004",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_004",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_004",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_005",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_005",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_005",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_005",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_006",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_006",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_006",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_006",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_006",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_007",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_007",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_007",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_007",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_007",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_008",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_008",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_008",
+      "resolved": false
+    },
+    {
+      "code": "placeholder",
+      "severity": "warning",
+      "message": "Ilustración provisional: necesita revisión artística.",
+      "sceneId": "scene_008",
+      "resolved": false
+    }
+  ],
+  "sha256": "d0ea278078ab9fef1ac3e727a046415972a5edc768ba3f526dbc7d2d3793fa59"
+}
