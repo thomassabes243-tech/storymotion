@@ -294,6 +294,9 @@ export class QualityControlAgent {
             s.sceneId,
             "error",
           );
+        else
+          for (const warning of clip.warnings)
+            add("clip_source_quality", warning, s.sceneId);
       }
       if (s.status === "FAILED" || (!s.layers.length && !s.clipAssetId))
         add("scene_failed", "Escena sin material listo.", s.sceneId, "error");

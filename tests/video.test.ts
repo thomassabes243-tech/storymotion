@@ -16,6 +16,7 @@ import { ProjectService } from "../src/lib/story/ProjectService";
 import { StoryAnalyzer } from "../src/lib/story/StoryAnalyzer";
 import { ScenePlanner } from "../src/lib/story/ScenePlanner";
 import { defaultConfig } from "../src/lib/domain";
+import { QualityControlAgent } from "../src/lib/director/Specialists";
 test("real moving clip import strips audio, saves frame references, reuses content and rejects excessive duration", async () => {
   const dir = await mkdtemp(path.join(tmpdir(), "actionmotion-clip-"));
   const repo = new SQLiteRepository(dir),
@@ -160,6 +161,22 @@ test("real moving clip import strips audio, saves frame references, reuses conte
         poses: [],
       },
     ];
+    const clipIssues = await new QualityControlAgent().inspect(
+      project,
+      storage,
+      repo,
+    );
+    assert.ok(
+      clipIssues.some(
+        (i) =>
+          i.code === "clip_source_quality" &&
+          i.message.includes("no crea detalle"),
+      ),
+    );
+    assert.ok(
+      !clipIssues.some((i) => i.code === "missing_asset"),
+      "unused clip backing images are not required by quality control",
+    );
     const queue = new RenderManager(repo, storage);
     const job = queue.enqueue(project);
     const browserBefore = process.env.CHROME_EXECUTABLE;
