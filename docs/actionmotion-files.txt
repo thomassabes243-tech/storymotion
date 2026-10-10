@@ -1,7 +1,16 @@
 .env.example
 README.md
+docs/ACTIONMOTION-E2E-120.md
 docs/ACTIONMOTION.md
 docs/actionmotion-demo.mp4
+docs/actionmotion-e2e-120-decode.log
+docs/actionmotion-e2e-120-frames.jpg
+docs/actionmotion-e2e-120-mobile-player.png
+docs/actionmotion-e2e-120-mobile.png
+docs/actionmotion-e2e-120-project.json
+docs/actionmotion-e2e-120-story.txt
+docs/actionmotion-e2e-120-verification.json
+docs/actionmotion-e2e-120.mp4
 docs/actionmotion-fast-preview.mp4
 docs/actionmotion-fast-project.json
 docs/actionmotion-fast-verification.json
@@ -18,6 +27,7 @@ e2e/director.spec.ts
 e2e/studio.spec.ts
 public/manifest.webmanifest
 scripts/actionmotion-demo.ts
+scripts/actionmotion-e2e-120.ts
 scripts/worker.ts
 src/app/api/[...path]/route.ts
 src/app/globals.css

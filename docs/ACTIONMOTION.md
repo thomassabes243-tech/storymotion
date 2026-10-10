@@ -1,5 +1,7 @@
 # ActionMotion — implementación y límites comprobables
 
+Prueba adicional de 120 segundos con narración local real: [resultado end-to-end y límites](ACTIONMOTION-E2E-120.md). Esta prueba verifica el alcance ilustrado 2.5D; no habilita el modo cinematográfico generativo.
+
 ## Resultado y auditoría
 
 Evolución de StoryMotion, sin reconstruir el producto ni integrar ClipForge. Punto de partida: `main`, commit `670fffa96063737515db0a7b9168076025707819`, Git limpio e igual a origin/main. Rama de implementación: `feat/actionmotion-director-ai`. La web de producción no se modifica ni se crean servicios de pago.
