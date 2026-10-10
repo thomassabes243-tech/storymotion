@@ -1,0 +1,38 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'docs/actionmotion-e2e-judas.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.103
+  Duration: 00:01:09.87, start: 0.000000, bitrate: 2735 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], 2544 kb/s, 30 fps, 30 tbr, 90k tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, mono, fltp, 182 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.103
+  Stream #0:0(und): Video: wrapped_avframe, yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 wrapped_avframe
+  Stream #0:1(und): Audio: pcm_s16le, 48000 Hz, mono, s16, 768 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 pcm_s16le
+frame=   67 fps=0.0 q=-0.0 size=N/A time=00:00:02.23 bitrate=N/A speed=4.46x    frame=  146 fps=146 q=-0.0 size=N/A time=00:00:04.86 bitrate=N/A speed=4.86x    frame=  204 fps=136 q=-0.0 size=N/A time=00:00:06.80 bitrate=N/A speed=4.53x    frame=  272 fps=136 q=-0.0 size=N/A time=00:00:09.06 bitrate=N/A speed=4.53x    frame=  370 fps=148 q=-0.0 size=N/A time=00:00:12.33 bitrate=N/A speed=4.92x    frame=  470 fps=156 q=-0.0 size=N/A time=00:00:15.66 bitrate=N/A speed=5.21x    frame=  549 fps=157 q=-0.0 size=N/A time=00:00:18.30 bitrate=N/A speed=5.22x    frame=  603 fps=150 q=-0.0 size=N/A time=00:00:20.10 bitrate=N/A speed=5.01x    frame=  659 fps=146 q=-0.0 size=N/A time=00:00:21.96 bitrate=N/A speed=4.86x    frame=  738 fps=147 q=-0.0 size=N/A time=00:00:24.60 bitrate=N/A speed= 4.9x    frame=  822 fps=149 q=-0.0 size=N/A time=00:00:27.40 bitrate=N/A speed=4.97x    frame=  931 fps=155 q=-0.0 size=N/A time=00:00:31.03 bitrate=N/A speed=5.16x    frame= 1030 fps=158 q=-0.0 size=N/A time=00:00:34.33 bitrate=N/A speed=5.27x    frame= 1139 fps=162 q=-0.0 size=N/A time=00:00:37.96 bitrate=N/A speed=5.41x    frame= 1248 fps=166 q=-0.0 size=N/A time=00:00:41.60 bitrate=N/A speed=5.53x    frame= 1364 fps=170 q=-0.0 size=N/A time=00:00:45.46 bitrate=N/A speed=5.67x    frame= 1476 fps=173 q=-0.0 size=N/A time=00:00:49.20 bitrate=N/A speed=5.77x    frame= 1587 fps=176 q=-0.0 size=N/A time=00:00:52.90 bitrate=N/A speed=5.86x    frame= 1696 fps=178 q=-0.0 size=N/A time=00:00:56.53 bitrate=N/A speed=5.93x    frame= 1808 fps=180 q=-0.0 size=N/A time=00:01:00.26 bitrate=N/A speed=6.01x    frame= 1910 fps=181 q=-0.0 size=N/A time=00:01:03.66 bitrate=N/A speed=6.04x    frame= 2004 fps=182 q=-0.0 size=N/A time=00:01:06.80 bitrate=N/A speed=6.05x    [out#0/null @ 0x563b41cbf6c0] video:901KiB audio:6546KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 2096 fps=182 q=-0.0 Lsize=N/A time=00:01:09.86 bitrate=N/A speed=6.08x    

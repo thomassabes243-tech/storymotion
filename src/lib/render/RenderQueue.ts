@@ -6,9 +6,52 @@ import { workerIsAlive } from "./WorkerIdentity";
 // Lightweight queue API: it never loads Chromium, webpack or the renderer.
 export class RenderQueue {
   constructor(protected repo: SQLiteRepository) {}
-  enqueue(project: Project) {
+  enqueue(project: Project, requestKey?: string) {
+    this.repo.db.exec("BEGIN IMMEDIATE");
+    try {
+      const result = this.enqueueLocked(project, requestKey);
+      this.repo.db.exec("COMMIT");
+      return result;
+    } catch (e) {
+      this.repo.db.exec("ROLLBACK");
+      throw e;
+    }
+  }
+  private enqueueLocked(project: Project, requestKey?: string) {
+    if (requestKey?.startsWith("director:")) {
+      const parent = this.repo.db
+        .prepare("SELECT state FROM agent_jobs WHERE id=?")
+        .get(requestKey.slice(9)) as { state: string } | undefined;
+      if (!parent || parent.state === "CANCELED")
+        throw new Error("El director fue cancelado; no se encolará su render.");
+    }
+    if (project.config.motionMode === "generative")
+      throw new Error(
+        "BLOQUEADO: motor generativo no disponible; no se sustituirá por 2.5D.",
+      );
+    if (project.config.fixedTitle && project.scenes.some((s) => s.clipAssetId))
+      throw new Error(
+        "El título fijo está disponible en escenas ilustradas. Los clips importados requieren añadirlo en un editor externo antes de exportar.",
+      );
+    if (requestKey) {
+      const previous = this.repo
+        .listJobs(project.id)
+        .find((j) => j.requestKey === requestKey);
+      if (previous) return previous;
+    }
     if (!project.scenes.length || !project.analysis)
       throw new Error("Analiza la historia antes de renderizar");
+    for (const [i, scene] of project.scenes.entries()) {
+      const previous = project.scenes[i - 1];
+      if (
+        previous &&
+        (scene.clipAssetId || previous.clipAssetId) &&
+        previous.transitionOut !== "hard_cut"
+      )
+        throw new Error(
+          "Los clips importados admiten cortes limpios. Selecciona hard cut entre el clip y el plano adyacente.",
+        );
+    }
     const continuity = new ContinuityEngine().validate(
       project.scenes,
       project.analysis,
@@ -24,7 +67,7 @@ export class RenderQueue {
         (s) =>
           s.status === "GENERATING" ||
           s.status === "FAILED" ||
-          !s.layers.length,
+          (!s.layers.length && !s.clipAssetId),
       )
     )
       throw new Error("Revisa las escenas con assets pendientes o fallidos");
@@ -44,6 +87,7 @@ export class RenderQueue {
       updatedAt: now,
       attempts: 0,
       snapshot: structuredClone(project),
+      requestKey,
     });
   }
   retry(id: string) {
@@ -54,6 +98,17 @@ export class RenderQueue {
       ...job,
       state: "RENDER_QUEUED",
       error: undefined,
+      ownerPid: undefined,
+      ownerStartedAt: undefined,
+      updatedAt: new Date().toISOString(),
+    });
+  }
+  cancel(id: string) {
+    const job = this.repo.getJob(id);
+    if (!job || !["RENDER_QUEUED", "RENDERING"].includes(job.state)) return job;
+    return this.repo.putJob({
+      ...job,
+      state: "CANCELED",
       ownerPid: undefined,
       ownerStartedAt: undefined,
       updatedAt: new Date().toISOString(),

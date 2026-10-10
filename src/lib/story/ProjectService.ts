@@ -10,8 +10,10 @@ import {
 } from "../domain";
 import { StoryAnalyzer, type StoryAnalysisProvider } from "./StoryAnalyzer";
 import { ScenePlanner } from "./ScenePlanner";
+import { ActionMotionStoryEngine } from "./ActionMotionStoryEngine";
 import { AssetManager } from "../assets/AssetManager";
 import { SQLiteRepository } from "../storage/ProjectRepository";
+import { agentConfig } from "../director/contracts";
 import { HttpImageProvider } from "../assets/providers/ImageProvider";
 export const DEMO_STORY =
   "Al amanecer, un ejército romano avanzaba lentamente por un valle. Sobre las montañas, varios arqueros enemigos observaban el movimiento. Uno de ellos levantó su arco y lanzó la primera flecha. Segundos después, cientos de flechas comenzaron a caer sobre los soldados.";
@@ -40,7 +42,9 @@ export function assetManager(repo: SQLiteRepository) {
   return new AssetManager(
     repo,
     undefined,
-    process.env.IMAGE_PROVIDER_URL
+    process.env.IMAGE_PROVIDER_URL &&
+      agentConfig().externalPaidCalls &&
+      !agentConfig().requireApproval
       ? new HttpImageProvider(
           process.env.IMAGE_PROVIDER_URL,
           process.env.IMAGE_PROVIDER_KEY,
@@ -86,7 +90,11 @@ export class ProjectService {
     );
     try {
       const analysis = await new StoryAnalyzer(
-        process.env.STORY_ANALYZER_URL ? new HttpStoryProvider() : undefined,
+        process.env.STORY_ANALYZER_URL &&
+          agentConfig().externalPaidCalls &&
+          !agentConfig().requireApproval
+          ? new HttpStoryProvider()
+          : undefined,
       ).analyze(project.story, project.config.style);
       const plan = new ScenePlanner().plan(
         project.story,
@@ -94,13 +102,13 @@ export class ProjectService {
         project.config,
       );
       let result = this.repo.save(
-        {
+        new ActionMotionStoryEngine().enrich({
           ...original,
           analysis,
           scenes: plan.scenes,
           warnings: [...analysis.warnings, ...plan.warnings],
           state: "ASSETS_PENDING",
-        },
+        }),
         original.revision,
       );
       const manager = assetManager(this.repo);

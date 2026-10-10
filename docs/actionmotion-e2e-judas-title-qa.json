@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "expected": "¿Qué pasaría si supieras que tu amigo te va a traicionar?",
+  "ocrObserved": "éQué pasaria si supieras que\ntu amigo te va a traicionar?",
+  "ocrLanguage": "eng; matching ignores case, punctuation, accents and leading punctuation noise",
+  "framesChecked": 2096,
+  "minimumTextMaskIoU": 0.9908700322234156,
+  "textPixelBounds": {
+    "left": 190,
+    "top": 291,
+    "right": 880,
+    "bottom": 395
+  },
+  "safeBox": {
+    "left": 138,
+    "top": 255,
+    "right": 930,
+    "bottom": 435
+  },
+  "limitation": "Conservative framing; platform UI and captions vary."
+}

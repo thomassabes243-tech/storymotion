@@ -1,9 +1,11 @@
 import React from "react";
-import { AbsoluteFill, Img } from "remotion";
-import type { Layer, Scene } from "../../lib/domain";
+import { AbsoluteFill, Img, Video } from "remotion";
+import type { Layer, Scene, Project } from "../../lib/domain";
 import { cameraMotion, smooth } from "../../lib/animation/CameraMotion";
 import { parallax } from "../../lib/animation/Parallax";
+import { ArticulatedCharacter } from "../layers/ArticulatedCharacter";
 import { sampleLayer } from "../../lib/animation/AnimationEngine";
+import { BiblicalCutout } from "../layers/BiblicalCutout";
 function Cutout({
   layer,
   frame,
@@ -47,11 +49,33 @@ export function SceneVisual({
   scene,
   frame,
   sources,
+  project,
 }: {
+  project?: Project;
   scene: Scene;
   frame: number;
   sources: Record<string, string>;
 }) {
+  if (scene.clipAssetId && sources[scene.clipAssetId])
+    return (
+      <AbsoluteFill>
+        <Video
+          src={sources[scene.clipAssetId]}
+          muted
+          startFrom={Math.round(scene.clipStart * (project?.config.fps || 30))}
+          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+        />
+      </AbsoluteFill>
+    );
+  if (project && scene.illustration?.profile === "biblical_cutout")
+    return (
+      <BiblicalCutout
+        project={project}
+        scene={scene}
+        frame={frame}
+        sources={sources}
+      />
+    );
   const camera = cameraMotion(frame, scene.durationFrames, scene.camera);
   return (
     <AbsoluteFill style={{ background: "#d7c097", overflow: "hidden" }}>
@@ -71,12 +95,27 @@ export function SceneVisual({
           >
             {layer.kind === "particles" ? (
               <Particles frame={frame} />
+            ) : project?.assets.find((a) => a.id === layer.assetId)?.source ===
+                "placeholder" &&
+              layer.characterId &&
+              project.analysis?.characters.find(
+                (c) => c.id === layer.characterId,
+              ) ? (
+              <ArticulatedCharacter
+                character={project.analysis.characters.find(
+                  (c) => c.id === layer.characterId,
+                )!}
+                frame={scene.intentionalStill ? 0 : frame}
+                fps={project.config.fps}
+                action={scene.action}
+              />
             ) : (
               <Cutout layer={layer} frame={frame} sources={sources} />
             )}
           </AbsoluteFill>
         );
       })}
+      {scene.environment?.weather === "rain" && <Rain frame={frame} />}
       {scene.action === "arrow_rain" && <ArrowRain frame={frame} />}
       <AbsoluteFill
         style={{
@@ -137,6 +176,35 @@ function ArrowRain({ frame }: { frame: number }) {
           />
         );
       })}
+    </AbsoluteFill>
+  );
+}
+
+function Rain({ frame }: { frame: number }) {
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none" }}>
+      {Array.from({ length: 64 }, (_, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            left: ((i * 173 + frame * 2) % 1200) - 70,
+            top: ((i * 277 + frame * 24) % 2100) - 100,
+            width: 2,
+            height: 24 + (i % 16),
+            background: "rgba(176,193,218,.42)",
+            transform: "rotate(12deg)",
+          }}
+        />
+      ))}
+      <AbsoluteFill
+        style={{
+          top: "81%",
+          background:
+            "repeating-linear-gradient(176deg,transparent 0 35px,rgba(166,188,212,.14) 36px,transparent 38px)",
+          opacity: 0.3 + Math.sin(frame * 0.035) * 0.04,
+        }}
+      />
     </AbsoluteFill>
   );
 }

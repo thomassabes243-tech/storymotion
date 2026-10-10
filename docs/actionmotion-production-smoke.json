@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "environment": "local compiled Next.js build; not production deployment",
+  "viewport": "390x844",
+  "fits": true,
+  "errors": [],
+  "projectId": "0193bc71-47a6-46eb-a03b-36010b1ece92",
+  "scenes": 8,
+  "audio": "off",
+  "narrativeEngine": "local_rules",
+  "paidCalls": false,
+  "canceled": true,
+  "requiresApproval": true,
+  "storyboardApproved": false
+}

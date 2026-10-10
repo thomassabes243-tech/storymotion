@@ -16,6 +16,9 @@ test("automatic narration settings persist and the worker exports a playable MP4
   await page
     .getByRole("button", { name: "Nuevo proyecto", exact: true })
     .click();
+  await page
+    .getByLabel("Usar Director con aprobación del storyboard")
+    .uncheck();
   await page.getByLabel("Nombre del proyecto").fill(`QA · voz ${Date.now()}`);
   await page
     .getByTestId("story-input")

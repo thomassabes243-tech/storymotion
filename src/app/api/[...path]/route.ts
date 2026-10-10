@@ -1,3 +1,6 @@
+import { agentApi } from "../../../lib/director/AgentApi";
+import { agentConfig } from "../../../lib/director/contracts";
+import { ClipManager } from "../../../lib/video/ClipManager";
 import { NextRequest } from "next/server";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
@@ -48,6 +51,8 @@ async function handler(
       repo = repository(),
       service = new ProjectService(repo),
       storage = new FileSystemStorage();
+    const directed = await agentApi(req, p, repo, storage);
+    if (directed) return directed;
     if (p[0] === "deliveries") {
       const manager = new VideoDeliveryManager(storage);
       if (!p[1] && req.method === "POST")
@@ -89,8 +94,16 @@ async function handler(
     if (p[0] === "health")
       return json({
         ok: true,
-        imageProvider: !!process.env.IMAGE_PROVIDER_URL,
-        storyAnalyzer: process.env.STORY_ANALYZER_URL ? "provider" : "local",
+        imageProvider:
+          !!process.env.IMAGE_PROVIDER_URL &&
+          agentConfig().externalPaidCalls &&
+          !agentConfig().requireApproval,
+        storyAnalyzer:
+          process.env.STORY_ANALYZER_URL &&
+          agentConfig().externalPaidCalls &&
+          !agentConfig().requireApproval
+            ? "provider"
+            : "local",
         automaticVoice: availableVoices().length > 0,
         voices: availableVoices(),
       });
@@ -205,6 +218,12 @@ async function handler(
               "La voz automática no está instalada en este servidor",
             );
           if (
+            body.audio.mode === "imported" &&
+            (!body.audio.importedAssetId ||
+              repo.getAudio(body.audio.importedAssetId)?.source !== "imported")
+          )
+            throw new Error("Audio importado desconocido");
+          if (
             body.audio.musicAssetId &&
             repo.getAudio(body.audio.musicAssetId)?.source !== "music"
           )
@@ -267,6 +286,11 @@ async function handler(
           const knownCharacters = new Set(
             project.analysis?.characters.map((c) => c.id),
           );
+          if (
+            body.scene.clipAssetId &&
+            !new ClipManager(repo, storage).get(body.scene.clipAssetId)
+          )
+            throw new Error("Clip desconocido");
           if (body.scene.characters.some((id) => !knownCharacters.has(id)))
             throw new Error("Personaje desconocido");
           project.scenes[index] = body.scene;
@@ -317,6 +341,14 @@ async function handler(
             }
           }
           if (body.action === "generate") {
+            if (
+              process.env.IMAGE_PROVIDER_URL &&
+              (!agentConfig().externalPaidCalls ||
+                agentConfig().requireApproval)
+            )
+              throw new Error(
+                "Las llamadas externas están desactivadas. Requieren autorización de proveedor y presupuesto.",
+              );
             if (
               body.characterId &&
               !project.analysis?.characters.some(

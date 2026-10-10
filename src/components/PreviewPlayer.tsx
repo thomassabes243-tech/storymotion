@@ -19,6 +19,9 @@ export default function PreviewPlayer({
   const sources = Object.fromEntries(
     project.assets.map((a) => [a.id, `/api/assets/${a.id}/data`]),
   );
+  for (const s of project.scenes)
+    if (s.clipAssetId)
+      sources[s.clipAssetId] = `/api/clips/${s.clipAssetId}/video`;
   if (!selected.scenes.length)
     return <div className="empty">Todavía no hay planos.</div>;
   return (

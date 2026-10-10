@@ -1,6 +1,8 @@
-# StoryMotion
+# ActionMotion (antes StoryMotion)
 
-MVP independiente que transforma una historia escrita en un storyboard editable y un MP4 animado 2.5D con narración automática opcional. No tiene dependencias de ClipForge.
+Evolución del MVP existente, sin dependencias de ClipForge. Esta rama añade un director persistente con storyboard aprobado, memoria de personajes, montaje de clips importados, animación ilustrada articulada y audio importado opcional. **No hay un modelo de video generativo operativo aquí: el objetivo de movimiento humano cinematográfico sigue bloqueado.** El modo 2.5D aparece explícitamente como alternativa.
+
+Consulta [la arquitectura, capacidades, pruebas y bloqueos de ActionMotion](docs/ACTIONMOTION.md). El código se mantiene separado de producción en `feat/actionmotion-director-ai`; la web enlazada abajo sigue siendo la instalación anterior hasta que se autorice y pruebe un despliegue.
 
 ## Aplicación web
 

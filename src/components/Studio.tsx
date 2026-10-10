@@ -2,6 +2,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import AgentPanel from "./AgentPanel";
 import AudioPanel from "./AudioPanel";
 import { useRouter } from "next/navigation";
 import {
@@ -116,6 +117,7 @@ const statusNames: Record<string, string> = {
   RENDER_QUEUED: "En cola",
   RENDERING: "Renderizando",
   COMPLETE: "Terminado",
+  CANCELED: "Cancelado",
 };
 const assetKinds: Record<Asset["kind"], string> = {
   background: "Fondo",
@@ -134,6 +136,15 @@ function Thumbnail({
   scene?: Scene;
   className?: string;
 }) {
+  if ((scene || project.scenes[0])?.clipAssetId)
+    return (
+      <div className={`thumbnail ${className}`}>
+        <img
+          alt="Primer fotograma del clip"
+          src={`/api/clips/${(scene || project.scenes[0]).clipAssetId}/first-frame`}
+        />
+      </div>
+    );
   const s = scene || project.scenes[0],
     assets = s?.layers
       .filter(
@@ -161,9 +172,11 @@ function Thumbnail({
 export function Studio({
   initialId,
   initialPage = "projects",
+  initialTab = "storyboard",
 }: {
   initialId?: string;
   initialPage?: "projects" | "new" | "assets" | "settings";
+  initialTab?: "storyboard" | "director";
 }) {
   const router = useRouter(),
     [projects, setProjects] = useState<ViewProject[]>([]),
@@ -172,8 +185,8 @@ export function Studio({
       initialPage,
     ),
     [tab, setTab] = useState<
-      "storyboard" | "preview" | "characters" | "audio" | "render"
-    >("storyboard"),
+      "storyboard" | "preview" | "characters" | "audio" | "render" | "director"
+    >(initialTab),
     [editing, setEditing] = useState<string>(),
     [busy, setBusy] = useState(""),
     [error, setError] = useState(""),
@@ -376,6 +389,7 @@ export function Studio({
                     "characters",
                     "audio",
                     "render",
+                    "director",
                   ] as const
                 ).map((t) => (
                   <button
@@ -404,6 +418,7 @@ export function Studio({
                         characters: "Personajes",
                         audio: "Audio",
                         render: "Render",
+                        director: "Director",
                       }[t]
                     }
                   </button>
@@ -415,7 +430,9 @@ export function Studio({
                   JSON <Download size={14} />
                 </a>
               </div>
-              {!project.scenes.length ? (
+              {tab === "director" ? (
+                <AgentPanel project={project} onProjectChanged={loadProject} />
+              ) : !project.scenes.length ? (
                 <div className="draft-panel">
                   <BookOpen size={35} />
                   <h2>La historia está lista para analizar</h2>
@@ -503,6 +520,11 @@ export function Studio({
                             <span className="edit-overlay">Editar plano</span>
                           </button>
                           <div className="scene-info">
+                            <p className="muted">
+                              {scene.clipAssetId
+                                ? "Fragmento de video importado"
+                                : "Ilustración por capas · 2.5D"}
+                            </p>
                             <div className="scene-type">
                               {
                                 {
@@ -635,7 +657,9 @@ export function Studio({
                       <dd>
                         {project.audio.mode === "automatic"
                           ? "Voz automática al exportar"
-                          : "Sin pista de audio"}
+                          : project.audio.mode === "imported"
+                            ? "Audio importado"
+                            : "Sin pista de audio"}
                       </dd>
                     </dl>
                     <button
@@ -670,6 +694,25 @@ export function Studio({
                         ),
                       );
                       setNotice("Audio guardado");
+                    })
+                  }
+                  onImported={(file, denoise, processing) =>
+                    act("Procesando audio importado", async () => {
+                      const form = new FormData();
+                      form.set("file", file);
+                      form.set("revision", String(project.revision));
+                      form.set("denoise", String(denoise));
+                      form.set("processing", processing);
+                      const result = await api<{ project: Project }>(
+                        `/api/projects/${project.id}/audio/import`,
+                        { method: "POST", body: form },
+                      );
+                      setProject(result.project);
+                      setNotice(
+                        processing === "clean"
+                          ? "Audio importado y normalizado"
+                          : "Audio importado sin filtros",
+                      );
                     })
                   }
                   onMusic={(file) =>
@@ -752,7 +795,11 @@ export function Studio({
               busy={busy}
               act={act}
               onBack={() => setPage("projects")}
-              onCreated={(p) => router.push(`/projects/${p.id}`)}
+              onCreated={(p) =>
+                router.push(
+                  `/projects/${p.id}${p.scenes.length ? "" : "?tab=director"}`,
+                )
+              }
             />
           ) : page === "assets" ? (
             <AssetLibrary act={act} busy={busy} />
@@ -934,11 +981,11 @@ function NewProject({
   onBack: () => void;
   onCreated: (p: Project) => void;
 }) {
+  const [useDirector, setUseDirector] = useState(true);
   const [name, setName] = useState(""),
     [story, setStory] = useState(""),
     [audio, setAudio] = useState({
       ...defaultAudio,
-      mode: "automatic" as const,
     } as Project["audio"]),
     [voiceAvailable, setVoiceAvailable] = useState<boolean>(),
     [config, setConfig] = useState<Config>({ ...defaultConfig, settings });
@@ -985,6 +1032,14 @@ function NewProject({
               method: "POST",
               body: JSON.stringify({ name, story, config, audio }),
             });
+            if (useDirector) {
+              await api(`/api/projects/${draft.id}/director`, {
+                method: "POST",
+                body: JSON.stringify({}),
+              });
+              onCreated(draft);
+              return;
+            }
             try {
               const p = await api<Project>(
                 `/api/projects/${draft.id}/analyze`,
@@ -998,6 +1053,14 @@ function NewProject({
           });
         }}
       >
+        <label className="checkbox-label">
+          <input
+            type="checkbox"
+            checked={useDirector}
+            onChange={(e) => setUseDirector(e.target.checked)}
+          />{" "}
+          Usar Director con aprobación del storyboard
+        </label>
         <label>
           Nombre del proyecto
           <input
@@ -1086,6 +1149,43 @@ function NewProject({
             {time(Math.max(2, (words / settings.wordsPerMinute) * 60))}
           </div>
         )}
+        <label>
+          Motor de movimiento
+          <select
+            value={config.motionMode}
+            onChange={(e) =>
+              setConfig({
+                ...config,
+                motionMode: e.target.value as Config["motionMode"],
+              })
+            }
+          >
+            <option value="cutout">
+              Ilustración animada 2.5D · disponible
+            </option>
+            <option value="generative" disabled>
+              Video generativo realista · motor bloqueado
+            </option>
+          </select>
+        </label>
+        <label>
+          Calidad de producción
+          <select
+            value={config.quality}
+            onChange={(e) =>
+              setConfig({
+                ...config,
+                quality: e.target.value as Config["quality"],
+              })
+            }
+          >
+            <option value="fast">Rápido · preview 540 × 960</option>
+            <option value="balanced">Equilibrado · 1080 × 1920</option>
+            <option value="cinematic" disabled>
+              Cinematográfico · motor pendiente
+            </option>
+          </select>
+        </label>
         <div className="form-columns">
           <label>
             Formato
@@ -1297,6 +1397,44 @@ function SceneEditor({
         </div>
         <div className="editor-controls">
           <h2>Editar plano {project.scenes.indexOf(scene) + 1}</h2>
+          <label>
+            Clip con movimiento (MP4, hasta 50 MB)
+            <input
+              type="file"
+              accept="video/mp4,video/webm,video/quicktime"
+              disabled={!!busy || dirty}
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                act("Preparando clip", async () => {
+                  const form = new FormData();
+                  form.set("file", file);
+                  form.set("revision", String(project.revision));
+                  const result = await api<{ project: Project }>(
+                    `/api/projects/${project.id}/scenes/${scene.sceneId}/clip`,
+                    { method: "POST", body: form },
+                  );
+                  onSave(result.project);
+                });
+                e.target.value = "";
+              }}
+            />
+          </label>
+          {draft.clipAssetId && (
+            <>
+              <p className="muted">
+                Este plano usa un clip. Su movimiento viene del video; la cámara
+                y las capas 2.5D quedan reemplazadas.
+              </p>
+              <button
+                type="button"
+                className="secondary"
+                onClick={() => patch({ clipAssetId: undefined, clipStart: 0 })}
+              >
+                Volver a capas 2.5D
+              </button>
+            </>
+          )}
           <label>
             Descripción visual
             <textarea
@@ -1680,11 +1818,19 @@ function RenderPanel({
             : "Puedes activar la narración desde la pestaña Audio."}
         </p>
         <div className="render-specs">
-          <span>1080 × 1920</span>
+          <span>
+            {project.config.quality === "fast"
+              ? "540 × 960 · Preview"
+              : "1080 × 1920"}
+          </span>
           <span>H.264</span>
           <span>{project.config.fps} FPS</span>
           <span>
-            {project.audio.mode === "automatic" ? "Con narración" : "Sin audio"}
+            {project.audio.mode === "automatic"
+              ? "Con narración"
+              : project.audio.mode === "imported"
+                ? "Audio importado"
+                : "Sin audio"}
           </span>
         </div>
         {active ? (

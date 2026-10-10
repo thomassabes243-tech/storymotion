@@ -1,0 +1,3559 @@
+{
+  "status": "FUNCTIONAL_WITH_VISUAL_LIMITATIONS",
+  "scope": "Original story → mobile UI → local rule storyboard → CharacterBible → local Piper narration → persistent director → layered Remotion render → FFmpeg montage/AAC → technical QA → HTTP download/mobile playback",
+  "originalStory": "Al amanecer, el comandante Darío avanzaba con sus soldados por un valle romano. La niebla cubría las montañas y el camino parecía desaparecer entre las rocas. Darío llevaba su capa roja sobre la armadura de bronce; buscaba una salida segura antes de que llegara la tormenta.\n\nEn lo alto, la arquera Elena observaba al grupo desde una roca. Conocía aquel valle desde pequeña y sabía que el sendero principal terminaba junto a un precipicio. Elena levantó su arco, eligió una flecha sin punta y tensó la cuerda con cuidado. Después lanzó la flecha hacia una piedra, lejos de los soldados.\n\nDarío se detuvo frente a la señal. El comandante giró la cabeza y observó a Elena sobre la montaña. Los soldados levantaron sus escudos, pero Darío alzó una mano para detenerlos. Atada a la flecha había una cinta azul, el mismo color que señalaba las rutas seguras del valle.\n\nElena señaló un paso estrecho entre dos montañas. Darío observó las marcas azules que continuaban por las rocas. El comandante avanzó primero, despacio, para comprobar el terreno. Los soldados caminaron detrás de él, guardando sus armas y ayudándose en los tramos difíciles.\n\nElena caminó por la ladera hasta encontrarlos al final del paso. Darío levantó su espada y la guardó ante ella, como muestra de respeto. Los soldados atravesaron la última curva mientras las primeras gotas caían sobre sus escudos. Desde un lugar protegido, el comandante observó el valle que acababan de cruzar. Aquella mañana, una flecha no había iniciado una batalla: había abierto un camino para regresar a casa.",
+  "wordCount": 259,
+  "requested": {
+    "durationSeconds": 120,
+    "quality": "balanced",
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "crf": 20,
+    "motionMode": "cutout"
+  },
+  "projectId": "6701da52-da3d-4ecc-a673-9b44c3f83676",
+  "agentId": "e2b9a52d-a4bf-4828-8075-3858ee040e9b",
+  "renderJobId": "e9ab832c-d7d6-462b-9650-ba177fff6fe3",
+  "state": "READY_FOR_REVIEW",
+  "elapsedMs": 942870,
+  "audio": {
+    "source": "real_local_tts",
+    "provider": "Piper",
+    "voice": "es_MX-claude-high",
+    "delivery": "narrator",
+    "rate": 0.8513355253872689,
+    "duration": 120.22485260770975,
+    "cues": [
+      {
+        "text": "Al amanecer, el comandante Darío avanzaba con sus soldados por un valle romano. La niebla cubría las montañas y el camino parecía desaparecer entre las rocas. Darío llevaba su capa roja sobre la armadura de bronce; buscaba una salida segura antes de que llegara la tormenta.\n\nEn lo alto, la arquera Elena observaba al grupo desde una roca. Conocía aquel valle desde pequeña y sabía que el sendero principal terminaba junto a un precipicio. Elena levantó su arco, eligió una flecha sin punta y tensó la cuerda con cuidado. Después lanzó la flecha hacia una piedra, lejos de los soldados.\n\nDarío se detuvo frente a la señal. El comandante giró la cabeza y observó a Elena sobre la montaña. Los soldados levantaron sus escudos, pero Darío alzó una mano para detenerlos. Atada a la flecha había una cinta azul, el mismo color que señalaba las rutas seguras del valle.\n\nElena señaló un paso estrecho entre dos montañas. Darío observó las marcas azules que continuaban por las rocas. El comandante avanzó primero, despacio, para comprobar el terreno. Los soldados caminaron detrás de él, guardando sus armas y ayudándose en los tramos difíciles.\n\nElena caminó por la ladera hasta encontrarlos al final del paso. Darío levantó su espada y la guardó ante ella, como muestra de respeto. Los soldados atravesaron la última curva mientras las primeras gotas caían sobre sus escudos. Desde un lugar protegido, el comandante observó el valle que acababan de cruzar. Aquella mañana, una flecha no había iniciado una batalla: había abierto un camino para regresar a casa.",
+        "duration": 120.22485260770975
+      }
+    ],
+    "calibration": [
+      {
+        "rate": 0.96,
+        "duration": 110.33315192743764
+      },
+      {
+        "rate": 0.882665215419501,
+        "duration": 116.24263038548753
+      },
+      {
+        "rate": 0.8550277199177982,
+        "duration": 119.48181405895691
+      },
+      {
+        "rate": 0.8513355253872689,
+        "duration": 120.22485260770975
+      }
+    ],
+    "placeholder": false
+  },
+  "probe": {
+    "width": 1080,
+    "height": 1920,
+    "codec": "h264",
+    "fps": 30,
+    "duration": 120.233333,
+    "audioStreams": 1,
+    "audioCodec": "aac"
+  },
+  "frames": 3607,
+  "sceneCount": 38,
+  "qa": {
+    "decode": {
+      "passed": true,
+      "elapsedMs": 15494,
+      "freezeThreshold": "-50 dB / 1.5 segundos",
+      "blackThreshold": "0.8 segundos / pix_th 0.03",
+      "freezeEvents": [],
+      "blackEvents": [],
+      "logFile": "docs/actionmotion-e2e-120-decode.log",
+      "decodedFrames": 3607
+    },
+    "loudness": {
+      "integratedLufs": -16.15,
+      "truePeakDb": -1.23,
+      "loudnessRange": 3.8
+    },
+    "technicalIssues": [],
+    "warnings": [
+      {
+        "code": "audio_optional",
+        "severity": "info",
+        "message": "Voz opcional activada explícitamente; no condiciona el análisis de la historia.",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_001",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_001",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_001",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_001",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_001",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_002",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_002",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_002",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_002",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_002",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_003",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_003",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_003",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_003",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_003",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_004",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_004",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_004",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_004",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_004",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_005",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_005",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_005",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_005",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_006",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_006",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_006",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_006",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_007",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_007",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_007",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_007",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_008",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_008",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_008",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_008",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_009",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_009",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_009",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_009",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_010",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_010",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_010",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_010",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_010",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_011",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_011",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_011",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_011",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_011",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_012",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_012",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_012",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_012",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_012",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_013",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_013",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_013",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_013",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_013",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_013",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_014",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_014",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_014",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_014",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_014",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_015",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_015",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_015",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_015",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_016",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_016",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_016",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_016",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_017",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_017",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_017",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_017",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_018",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_018",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_018",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_018",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_019",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_019",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_019",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_019",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_019",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_020",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_020",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_020",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_020",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_020",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_021",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_021",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_021",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_021",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_022",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_022",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_022",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_022",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_023",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_023",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_023",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_023",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_024",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_024",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_024",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_024",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_025",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_025",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_025",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_025",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_026",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_026",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_026",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_026",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_027",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_027",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_027",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_027",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_028",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_028",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_028",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_028",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_029",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_029",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_029",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_029",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_030",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_030",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_030",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_030",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_031",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_031",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_031",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_031",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_032",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_032",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_032",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_032",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_033",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_033",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_033",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_033",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_034",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_034",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_034",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_034",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_035",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_035",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_035",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_035",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_036",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_036",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_036",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_036",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_037",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_037",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_037",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_037",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_038",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_038",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_038",
+        "resolved": false
+      },
+      {
+        "code": "placeholder",
+        "severity": "warning",
+        "message": "Ilustración provisional: necesita revisión artística.",
+        "sceneId": "scene_038",
+        "resolved": false
+      }
+    ],
+    "warningCounts": {
+      "audio_optional": 1,
+      "placeholder": 164
+    },
+    "encoder": {
+      "observedCrf": [
+        20
+      ],
+      "evidence": "x264 encoder options embedded in segment SEI"
+    }
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "fits": true,
+    "metadata": {
+      "width": 1080,
+      "height": 1920,
+      "duration": 120.233333,
+      "playing": true
+    },
+    "errors": [],
+    "decodedFrame": {
+      "currentTime": 0.787863,
+      "frames": 29,
+      "meanRgb": 153.813244047619
+    }
+  },
+  "http": {
+    "downloadStatus": 200,
+    "contentDisposition": "attachment; filename=\"storymotion-e9ab832c-d7d6-462b-9650-ba177fff6fe3.mp4\"",
+    "rangeStatus": 206
+  },
+  "characters": [
+    {
+      "id": "commander",
+      "name": "Darío",
+      "role": "main",
+      "description": "Darío, Comandante, antigüedad romana, capa roja, armadura de bronce",
+      "appearance": {
+        "age": 36,
+        "hair": "cabello oscuro",
+        "clothing": "capa roja, armadura de bronce",
+        "accessories": [],
+        "weapons": [
+          "espada",
+          "escudo"
+        ],
+        "colors": [
+          "#872f2d",
+          "#ae8652"
+        ],
+        "face": "rasgos definidos, rostro consistente",
+        "artStyle": "historical_parchment"
+      },
+      "poses": [
+        "standing",
+        "walking",
+        "observing",
+        "raising",
+        "drawing",
+        "firing",
+        "defending"
+      ],
+      "referenceAssetIds": []
+    },
+    {
+      "id": "archer",
+      "name": "Elena",
+      "role": "secondary",
+      "description": "Elena, Arquero, antigüedad romana, túnica oscura, cuero marrón",
+      "appearance": {
+        "age": 36,
+        "hair": "cabello oscuro",
+        "clothing": "túnica oscura, cuero marrón",
+        "accessories": [],
+        "weapons": [
+          "arco",
+          "flechas"
+        ],
+        "colors": [
+          "#504b35",
+          "#bb955f"
+        ],
+        "face": "rasgos definidos, rostro consistente",
+        "artStyle": "historical_parchment"
+      },
+      "poses": [
+        "standing",
+        "walking",
+        "observing",
+        "raising",
+        "drawing",
+        "firing",
+        "defending"
+      ],
+      "referenceAssetIds": []
+    },
+    {
+      "id": "army",
+      "name": "Ejército",
+      "role": "group",
+      "description": "Ejército, antigüedad romana, armadura de bronce, escudos ocres",
+      "appearance": {
+        "age": 36,
+        "hair": "cabello oscuro",
+        "clothing": "armadura de bronce, escudos ocres",
+        "accessories": [],
+        "weapons": [
+          "espada",
+          "escudo"
+        ],
+        "colors": [
+          "#504b35",
+          "#bb955f"
+        ],
+        "face": "rasgos definidos, rostro consistente",
+        "artStyle": "historical_parchment"
+      },
+      "poses": [
+        "standing",
+        "walking",
+        "observing",
+        "raising",
+        "drawing",
+        "firing",
+        "defending"
+      ],
+      "referenceAssetIds": []
+    }
+  ],
+  "scenes": [
+    {
+      "id": "scene_001",
+      "duration": 3.6333333333333333,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander",
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe",
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_002",
+      "duration": 3.6333333333333333,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "commander",
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_001",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe",
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 30,
+            "y": 0
+          },
+          "army": {
+            "x": 330,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_003",
+      "duration": 3.6333333333333333,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander",
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe",
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_004",
+      "duration": 3.6333333333333333,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "commander",
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_003",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe",
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 30,
+            "y": 0
+          },
+          "army": {
+            "x": 330,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_005",
+      "duration": 3.6333333333333333,
+      "action": "contemplate",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_004",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 30,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 30,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_006",
+      "duration": 3.6333333333333333,
+      "action": "contemplate",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_005",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 30,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 30,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_007",
+      "duration": 2.566666666666667,
+      "action": "reveal",
+      "camera": {
+        "shot": "wide",
+        "movement": "reveal",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_006",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_008",
+      "duration": 2.533333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "medium",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_007",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_009",
+      "duration": 3.6333333333333333,
+      "action": "contemplate",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_010",
+      "duration": 3.6333333333333333,
+      "action": "raise_bow",
+      "camera": {
+        "shot": "close",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_009",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_011",
+      "duration": 3.6333333333333333,
+      "action": "draw_bow",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_010",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_012",
+      "duration": 1.4666666666666666,
+      "action": "draw_bow",
+      "camera": {
+        "shot": "close",
+        "movement": "push_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_011",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_013",
+      "duration": 1.4666666666666666,
+      "action": "fire_arrow",
+      "camera": {
+        "shot": "detail",
+        "movement": "dramatic_zoom",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_012",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_014",
+      "duration": 1.4666666666666666,
+      "action": "arrow_flight",
+      "camera": {
+        "shot": "wide",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_013",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_015",
+      "duration": 1.4666666666666666,
+      "action": "stop",
+      "camera": {
+        "shot": "medium",
+        "movement": "static",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_014",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_016",
+      "duration": 3.6333333333333333,
+      "action": "contemplate",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_015",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_017",
+      "duration": 2.533333333333333,
+      "action": "reveal",
+      "camera": {
+        "shot": "wide",
+        "movement": "reveal",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_018",
+      "duration": 2.533333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "medium",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_017",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_019",
+      "duration": 3.6333333333333333,
+      "action": "contemplate",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander",
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_018",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe",
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_020",
+      "duration": 3.6333333333333333,
+      "action": "contemplate",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander",
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe",
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": -150,
+            "y": 0
+          },
+          "army": {
+            "x": 150,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_021",
+      "duration": 3.6333333333333333,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_022",
+      "duration": 3.6333333333333333,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_021",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_023",
+      "duration": 2.533333333333333,
+      "action": "reveal",
+      "camera": {
+        "shot": "wide",
+        "movement": "reveal",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_022",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_024",
+      "duration": 2.533333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "medium",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_023",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_025",
+      "duration": 3.6,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_024",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_026",
+      "duration": 3.6,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_025",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_027",
+      "duration": 3.6,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_026",
+        "identityHashes": {
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "army": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "army": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_028",
+      "duration": 3.6,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_027",
+        "identityHashes": {
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "army": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "army": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_029",
+      "duration": 3.6,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_028",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_030",
+      "duration": 3.6,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "archer"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_029",
+        "identityHashes": {
+          "archer": "5255168d981cab3006ffee4a775788c5bf1dd8d4bbc4105c828006493b6dd8a4"
+        },
+        "referenceAssetIds": [
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "archer": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "archer": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_031",
+      "duration": 3.6,
+      "action": "raise_sword",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_030",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_032",
+      "duration": 3.6,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_031",
+        "identityHashes": {
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "army": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "army": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_033",
+      "duration": 3.6,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_032",
+        "identityHashes": {
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "army": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "army": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_034",
+      "duration": 3.6,
+      "action": "contemplate",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "army"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_033",
+        "identityHashes": {
+          "army": "b2076bde5714bd5ffeafced99127c626ed00adc6dc981a383c7bb72500daaeea"
+        },
+        "referenceAssetIds": [
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "89899b26-0952-46a1-8dbb-a46111551980",
+          "3b77c697-7e52-4293-8e25-154fe423551a",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "3a636419-b21d-4e0a-8c2b-68ae0e5c721d",
+          "3b873e15-4549-4d1d-8e27-8d84299a83d5",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "efeccf48-9c55-4802-94d3-0e731673edae",
+          "96131d1d-9491-47b1-9228-0ccd24343c81",
+          "c0c8b686-9dd9-4971-866c-149b87ca111b"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "army": {
+            "x": 180,
+            "y": 0
+          }
+        },
+        "exit": {
+          "army": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_035",
+      "duration": 2.533333333333333,
+      "action": "reveal",
+      "camera": {
+        "shot": "wide",
+        "movement": "reveal",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_036",
+      "duration": 2.533333333333333,
+      "action": "observe",
+      "camera": {
+        "shot": "medium",
+        "movement": "slow_zoom_in",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_035",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "90ed78a5-1365-481a-b99b-eb28cb1ed39b",
+          "2eef3d97-f772-481e-92b8-89d7d8945906",
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "c336674b-f6b8-45f3-92a3-92b0c356324e",
+          "e684dec4-ed3a-4c72-b568-eede8aca302d",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "6c5f7067-9e2d-4ce0-9276-239e67051f85",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "80966219-8a6c-47bd-b424-e96077b079cd",
+          "b9a33f47-8d9c-4120-b42d-35ac92c06a65",
+          "a2eed5c1-3d54-4a29-95bb-1edecb6eeb5b",
+          "8e2de4c3-7328-4855-8ff5-fe4c81ee7b7d",
+          "b033bbb2-b04d-4b8d-b5bf-4ab84fbdc198",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_037",
+      "duration": 3.6,
+      "action": "establish",
+      "camera": {
+        "shot": "wide",
+        "movement": "slow_zoom_out",
+        "direction": "left_to_right",
+        "intensity": 0.8
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "ef721c14-6f14-473d-9514-1427b79588cb",
+          "73e3ac64-5cf4-49a6-8f6a-9cbaad2c327f",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "2c0610e0-e839-4ad4-a3fb-513cf2e56ca1",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "scene_038",
+      "duration": 3.6,
+      "action": "advance",
+      "camera": {
+        "shot": "medium",
+        "movement": "follow_subject",
+        "direction": "left_to_right",
+        "intensity": 0.8,
+        "angle": "lateral"
+      },
+      "characters": [
+        "commander"
+      ],
+      "status": "READY",
+      "visualPlan": {
+        "previousSceneId": "scene_037",
+        "identityHashes": {
+          "commander": "816681e22f886ed013a24cd7983111063358b087ad6c279bdba35f46927586fe"
+        },
+        "referenceAssetIds": [
+          "3b48073d-7c0e-449e-8dcf-903d61bc45dc",
+          "d643b681-e4f2-415d-a2f8-e6a94853b8eb",
+          "3b06b61e-d3df-4c5b-9303-68232d08f4b8",
+          "d438e2e9-1089-48e5-908f-670530583dd6",
+          "ef721c14-6f14-473d-9514-1427b79588cb",
+          "73e3ac64-5cf4-49a6-8f6a-9cbaad2c327f",
+          "c5c5c049-f742-41f2-bd03-b8790d9fd803",
+          "2c0610e0-e839-4ad4-a3fb-513cf2e56ca1",
+          "5adf5b43-da3c-40df-aea7-74514ef6b8de"
+        ],
+        "motionMode": "cutout",
+        "entry": {
+          "commander": {
+            "x": 0,
+            "y": 0
+          }
+        },
+        "exit": {
+          "commander": {
+            "x": 180,
+            "y": 0
+          }
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Illustrations are procedural placeholders; no generative provider was used.",
+    "Animation is schematic 2.5D, not photorealistic human performance.",
+    "Narrative analysis uses local rules, not an installed language model.",
+    "QA verifies definitions and technical video/audio properties, not face identity or anatomy in pixels.",
+    "No production deployment or paid service calls."
+  ],
+  "output": "docs/actionmotion-e2e-120.mp4",
+  "bytes": 26023918,
+  "sha256": "613ce3ec299e6375570b58cc0df92924a7e9d60fd3d6b3d35d70af52aa194c0e",
+  "events": [
+    {
+      "at": "2026-10-10T21:06:01.802Z",
+      "agent": "VideoEditorAgent",
+      "message": "Historia recibida; producción local sin servicios de pago."
+    },
+    {
+      "at": "2026-10-10T21:06:01.827Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Storyboard de 38 planos. Análisis local por reglas; requiere revisión narrativa."
+    },
+    {
+      "at": "2026-10-10T21:07:00.736Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_001 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:00.793Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_002 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:00.843Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_003 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:00.960Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_004 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:00.970Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_005 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:00.984Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_006 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.029Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_007 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.038Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_008 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.081Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_009 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.148Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_010 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.195Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_011 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.205Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_012 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.273Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_013 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.286Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_014 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.296Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_015 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.327Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_016 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.348Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_017 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.358Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_018 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.372Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_019 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.383Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_020 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.391Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_021 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.437Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_022 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.447Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_023 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.456Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_024 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.468Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_025 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.479Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_026 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.489Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_027 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.498Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_028 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.510Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_029 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.523Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_030 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.533Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_031 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.542Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_032 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.551Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_033 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.561Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_034 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.573Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_035 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.589Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_036 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.731Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_037 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.776Z",
+      "agent": "VisualDesignerAgent",
+      "message": "Material del plano scene_038 listo; se reutilizan referencias existentes."
+    },
+    {
+      "at": "2026-10-10T21:07:01.813Z",
+      "agent": "MotionDirectorAgent",
+      "message": "Dirección, posiciones de entrada/salida y referencias persistentes preparadas."
+    },
+    {
+      "at": "2026-10-10T21:07:01.813Z",
+      "agent": "StoryContinuityAgent",
+      "message": "Continuidad de identidades y dirección comprobada."
+    },
+    {
+      "at": "2026-10-10T21:07:01.813Z",
+      "agent": "AudioEngineerAgent",
+      "message": "Audio opcional conservado."
+    },
+    {
+      "at": "2026-10-10T21:20:50.615Z",
+      "agent": "VideoEditorAgent",
+      "message": "MP4 compuesto; comienza verificación de salida."
+    },
+    {
+      "at": "2026-10-10T21:21:04.921Z",
+      "agent": "QualityControlAgent",
+      "message": "FFprobe y decodificación completa aprobados. La revisión de rostros y anatomía corresponde al usuario."
+    }
+  ],
+  "visualReview": {
+    "status": "BASIC_PROVISIONAL_ILLUSTRATION",
+    "frames": "docs/actionmotion-e2e-120-frames.jpg",
+    "limitations": [
+      "Generic faces and schematic limb animation",
+      "Blue ribbon and some hand/sword gestures are not represented faithfully",
+      "Local rules may interpret figurative phrasing as action or location",
+      "Single narration cue means global timing rather than word alignment"
+    ]
+  }
+}

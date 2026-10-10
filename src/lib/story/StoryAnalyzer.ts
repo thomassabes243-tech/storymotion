@@ -15,6 +15,41 @@ export const wordCount = (s: string) =>
   (s.match(/[\p{L}\p{N}]+(?:['’-][\p{L}]+)*/gu) || []).length;
 const archetypes: [RegExp, string, string, string, string][] = [
   [
+    /\bjesus\b/,
+    "jesus",
+    "Jesús",
+    "main",
+    "túnica marfil, manto rojo oscuro, cabello castaño largo y barba",
+  ],
+  [
+    /\bjudas\b/,
+    "judas",
+    "Judas",
+    "main",
+    "túnica verde oliva, manto marrón, cabello oscuro corto y barba",
+  ],
+  [
+    /\bdiscipul\w*\b/,
+    "disciples",
+    "Discípulos",
+    "group",
+    "túnicas ocres y mantos azul gris",
+  ],
+  [
+    /\bguardias?\b/,
+    "guards",
+    "Guardias",
+    "group",
+    "túnicas granate, cascos de bronce y lanzas",
+  ],
+  [
+    /\b(figura misteriosa|silueta|mysterious figure)\b/,
+    "mysterious_figure",
+    "Figura misteriosa",
+    "secondary",
+    "silueta oscura, vestimenta no definida",
+  ],
+  [
     /\b(comandante|capitan|general|commander|captain)\b/,
     "commander",
     "Comandante",
@@ -73,6 +108,7 @@ const archetypes: [RegExp, string, string, string, string][] = [
   ],
 ];
 const placePatterns: [RegExp, string][] = [
+  [/\b(calle|street)\b/, "Calle"],
   [/\b(valle|valley)\b/, "Valle"],
   [/\b(montana\w*|mountain\w*|acantilado|cliff)\b/, "Montañas"],
   [/\b(bosque|forest|woods)\b/, "Bosque"],
@@ -87,6 +123,11 @@ const placePatterns: [RegExp, string][] = [
 // event may later expand into preparation, action and consequence shots.
 function actionOf(text: string) {
   const t = normalize(text);
+  if (/bes[oó]|bes[aá]|besarlo/.test(t)) return "kiss";
+  if (/sujet|arrest|prendier|detuvier/.test(t)) return "arrest";
+  if (/monedas|plata.*manos/.test(t)) return "exchange_coins";
+  if (/compart.*pan/.test(t)) return "share_bread";
+  if (/bajo la mirada/.test(t)) return "lower_gaze";
   if (
     /flechas.*(caer|cayer|fall)|lluvia de flechas|arrows.*(rain|fall)/.test(t)
   )
@@ -96,8 +137,15 @@ function actionOf(text: string) {
   if (/tens|draw.*bow/.test(t)) return "draw_bow";
   if (/levant.*arco|rais.*bow/.test(t)) return "raise_bow";
   if (/levant.*espada|rais.*sword/.test(t)) return "raise_sword";
+  if (/escuch.*ruido|hear.*noise/.test(t)) return "listen";
+  if (/se detiene|se detuvo|stop/.test(t)) return "stop";
+  if (/gira.*cabeza|turn.*head/.test(t)) return "head_turn";
   if (/observ|mirab|vigil|watch|look|acech/.test(t)) return "observe";
-  if (/avanza|avanzo|entr|camin|march|walk|enter|atraves/.test(t))
+  if (
+    /\b(?:avanza\w*|avanzo|entr\w*|camin\w*|march\w*|walk\w*|enter\w*|atraves\w*)/.test(
+      t,
+    )
+  )
     return "advance";
   if (/huy|huyo|escap|flee|run|corr/.test(t)) return "escape";
   if (/luch|atac|combat|fight|attack/.test(t)) return "attack";
@@ -138,10 +186,21 @@ function character(
             ? ["espada", "escudo"]
             : [],
       colors:
-        id === "commander" ? ["#872f2d", "#ae8652"] : ["#504b35", "#bb955f"],
+        id === "jesus"
+          ? ["#e3d3ae", "#793c35"]
+          : id === "judas"
+            ? ["#67634c", "#5b4136"]
+            : id === "guards"
+              ? ["#593b3b", "#977456"]
+              : id === "disciples"
+                ? ["#7c817c", "#ad895f"]
+                : id === "commander"
+                  ? ["#872f2d", "#ae8652"]
+                  : ["#504b35", "#bb955f"],
       face: "rasgos definidos, rostro consistente",
       artStyle: "historical_parchment",
     },
+    referenceAssetIds: [],
     poses: [
       "standing",
       "walking",
@@ -243,6 +302,27 @@ export class StoryAnalyzer {
         matchers.set(id, new RegExp(`\\b${normalize(name)}\\b`));
       }
     }
+    const coat = story.match(
+      /(?:lleva|viste|vest[ií]a)\s+(?:una?\s+)?(chaqueta|abrigo)\s+(negra?|roja?|azul|verde)/i,
+    );
+    if (coat) {
+      const main =
+        characters.find((c) => c.id === "traveler") ||
+        characters.find((c) => c.role === "main");
+      if (main) {
+        main.appearance.clothing = `${coat[1]} ${coat[2]}`;
+        main.description = `${main.name}, ${era}, ${main.appearance.clothing}`;
+        main.appearance.colors = [
+          /negr/i.test(coat[2])
+            ? "#111318"
+            : /roj/i.test(coat[2])
+              ? "#872f2d"
+              : /azul/i.test(coat[2])
+                ? "#30466d"
+                : "#46553c",
+        ];
+      }
+    }
     const locations = placePatterns
       .filter(([p]) => p.test(t))
       .map(([, name]) => ({
@@ -258,19 +338,38 @@ export class StoryAnalyzer {
       });
     const clauses = story
       .split(
-        /(?<=[.!?;])\s+|,?\s+(?=(?:y entonces|entonces|cuando|mientras|segundos después|then|when|meanwhile)\b)|\s+y\s+(?=(?:lanz|dispar|levant|tens|corr|huy|encontr|mir|entr|atac))/i,
+        /(?<=[.!?;])\s+|,?\s+(?=(?:y entonces|entonces|cuando|mientras|segundos después|then|when|meanwhile)\b)|\s+y\s+(?=(?:lanz|dispar|levant|tens|corr|huy|encontr|mir|entr|atac|observ))/i,
+      )
+      .flatMap((part) =>
+        part.split(/,\s*(?=gira.*cabeza)|\s+(?=Se detiene\b)/i),
       )
       .map((x) => x.trim())
-      .filter(Boolean);
+      .filter(Boolean)
+      .reduce<string[]>((result, part) => {
+        if (
+          (/^(lleva|viste|vestía|wears)\b/i.test(part) ||
+            /^mientras la c[aá]mara/i.test(part)) &&
+          result.length
+        )
+          result[result.length - 1] += " " + part;
+        else result.push(part);
+        return result;
+      }, []);
     let currentLocation = locations[0].id,
       currentTime = timeOf(story.slice(0, 150), "day"),
-      subjects: string[] = characters.length ? [characters[0].id] : [];
+      subjects: string[] = characters.length
+        ? [characters.find((c) => c.role === "main")?.id || characters[0].id]
+        : [];
     const events = clauses.map((text, i) => {
       const n = normalize(text);
       const detected = characters
         .filter((c) => matchers.get(c.id)?.test(n))
         .map((c) => c.id);
-      if (detected.length) subjects = detected;
+      const action = actionOf(text);
+      const implicit =
+        /^(se |gira |observa |comienza |de pronto escucha |lleva )/i.test(text);
+      if (detected.length && !implicit) subjects = detected;
+      const visible = [...new Set([...subjects, ...detected])];
       const loc = placePatterns.find(
         ([p, name]) => p.test(n) && locations.some((l) => l.name === name),
       );
@@ -280,12 +379,12 @@ export class StoryAnalyzer {
         nextTime !== currentTime ||
         /dias despues|anos despues|next day|years later/.test(n);
       currentTime = nextTime;
-      const action = actionOf(text);
       return {
         id: `event_${i + 1}`,
         sourceText: text,
         action,
         subjects: [...subjects],
+        visibleCharacters: visible,
         location: currentLocation,
         emotion: [
           "fire_arrow",
@@ -293,6 +392,9 @@ export class StoryAnalyzer {
           "attack",
           "escape",
           "fall",
+          "listen",
+          "stop",
+          "head_turn",
         ].includes(action)
           ? "tension"
           : action === "observe"
@@ -314,8 +416,10 @@ export class StoryAnalyzer {
       if (
         ["raise_bow", "draw_bow", "fire_arrow"].includes(event.action) &&
         characters.some((c) => c.id === "archer")
-      )
+      ) {
         event.subjects = ["archer"];
+        event.visibleCharacters = ["archer"];
+      }
     const objects = [
       "flecha",
       "arco",

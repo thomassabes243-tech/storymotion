@@ -1,0 +1,41 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'docs/actionmotion-e2e-120.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.103
+  Duration: 00:02:00.23, start: 0.000000, bitrate: 1731 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], 1561 kb/s, 30 fps, 30 tbr, 90k tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+      Side data:
+        ICC Profile
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, mono, fltp, 161 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.103
+  Stream #0:0(und): Video: wrapped_avframe, yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1080x1920 [SAR 1:1 DAR 9:16], q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+      Metadata:
+        handler_name    : VideoHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 wrapped_avframe
+      Side data:
+        ICC Profile
+  Stream #0:1(und): Audio: pcm_s16le, 48000 Hz, mono, s16, 768 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 pcm_s16le
+frame=  108 fps=0.0 q=-0.0 size=N/A time=00:00:03.60 bitrate=N/A speed=6.83x    frame=  221 fps=215 q=-0.0 size=N/A time=00:00:07.36 bitrate=N/A speed=7.17x    frame=  333 fps=218 q=-0.0 size=N/A time=00:00:11.10 bitrate=N/A speed=7.27x    frame=  447 fps=220 q=-0.0 size=N/A time=00:00:14.90 bitrate=N/A speed=7.35x    frame=  586 fps=232 q=-0.0 size=N/A time=00:00:19.53 bitrate=N/A speed=7.73x    frame=  723 fps=239 q=-0.0 size=N/A time=00:00:24.10 bitrate=N/A speed=7.96x    frame=  855 fps=242 q=-0.0 size=N/A time=00:00:28.50 bitrate=N/A speed=8.07x    frame=  975 fps=242 q=-0.0 size=N/A time=00:00:32.53 bitrate=N/A speed=8.06x    frame= 1035 fps=224 q=-0.0 size=N/A time=00:00:34.50 bitrate=N/A speed=7.45x    frame= 1122 fps=219 q=-0.0 size=N/A time=00:00:37.40 bitrate=N/A speed=7.29x    frame= 1230 fps=218 q=-0.0 size=N/A time=00:00:41.00 bitrate=N/A speed=7.28x    frame= 1374 fps=224 q=-0.0 size=N/A time=00:00:45.80 bitrate=N/A speed=7.47x    frame= 1494 fps=225 q=-0.0 size=N/A time=00:00:49.80 bitrate=N/A speed=7.51x    frame= 1614 fps=226 q=-0.0 size=N/A time=00:00:53.80 bitrate=N/A speed=7.54x    frame= 1718 fps=225 q=-0.0 size=N/A time=00:00:57.26 bitrate=N/A speed= 7.5x    frame= 1819 fps=224 q=-0.0 size=N/A time=00:01:00.63 bitrate=N/A speed=7.46x    frame= 1938 fps=224 q=-0.0 size=N/A time=00:01:04.60 bitrate=N/A speed=7.48x    frame= 2059 fps=225 q=-0.0 size=N/A time=00:01:08.63 bitrate=N/A speed=7.51x    frame= 2187 fps=227 q=-0.0 size=N/A time=00:01:12.90 bitrate=N/A speed=7.57x    frame= 2308 fps=228 q=-0.0 size=N/A time=00:01:16.93 bitrate=N/A speed=7.59x    frame= 2410 fps=227 q=-0.0 size=N/A time=00:01:20.33 bitrate=N/A speed=7.55x    frame= 2502 fps=225 q=-0.0 size=N/A time=00:01:23.43 bitrate=N/A speed=7.49x    frame= 2622 fps=225 q=-0.0 size=N/A time=00:01:27.40 bitrate=N/A speed=7.51x    frame= 2753 fps=227 q=-0.0 size=N/A time=00:01:31.76 bitrate=N/A speed=7.56x    frame= 2885 fps=228 q=-0.0 size=N/A time=00:01:36.16 bitrate=N/A speed=7.61x    frame= 3002 fps=229 q=-0.0 size=N/A time=00:01:40.06 bitrate=N/A speed=7.62x    frame= 3127 fps=229 q=-0.0 size=N/A time=00:01:44.23 bitrate=N/A speed=7.64x    frame= 3258 fps=230 q=-0.0 size=N/A time=00:01:48.60 bitrate=N/A speed=7.68x    frame= 3397 fps=232 q=-0.0 size=N/A time=00:01:53.23 bitrate=N/A speed=7.73x    frame= 3542 fps=234 q=-0.0 size=N/A time=00:01:58.06 bitrate=N/A speed= 7.8x    [out#0/null @ 0x5631afa76600] video:1550KiB audio:11266KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 3607 fps=235 q=-0.0 Lsize=N/A time=00:02:00.23 bitrate=N/A speed=7.83x    

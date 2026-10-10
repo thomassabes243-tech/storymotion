@@ -67,7 +67,7 @@ export class AssetManager {
     const fingerprint = createHash("sha256")
       .update(
         JSON.stringify({
-          version: 2,
+          version: scene.location === "calle" ? 3 : 2,
           kind,
           location: scene.location,
           time: scene.timeOfDay,
@@ -155,6 +155,12 @@ export class AssetManager {
           { frame: 0, x: layer.x - 80 },
           { frame: scene.durationFrames - 1, x: layer.x + 100 },
         ];
+      if (kind === "character" && characterId === "mysterious_figure") {
+        layer.x = 40;
+        layer.y = -250;
+        layer.scale = 0.4;
+        layer.depth = 0.32;
+      }
       if (
         kind === "character" &&
         ["raise_bow", "draw_bow", "fire_arrow"].includes(scene.action)
@@ -217,6 +223,7 @@ export class AssetManager {
       poses: [],
     });
     result.status = "READY";
+    result.layers.sort((a, b) => a.depth - b.depth);
     delete result.error;
     return result;
   }

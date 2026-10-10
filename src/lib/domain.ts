@@ -35,12 +35,14 @@ export const jobStates = [
   "RENDERING",
   "COMPLETE",
   "FAILED",
+  "CANCELED",
 ] as const;
 export const CameraSchema = z.object({
   shot: z.enum(["wide", "medium", "close", "detail"]),
   movement: z.enum(cameraMovements),
   direction: z.enum(["left_to_right", "right_to_left", "center"]),
   intensity: z.number().min(0).max(2),
+  angle: z.enum(["frontal", "lateral", "over_shoulder"]).optional(),
 });
 export type Camera = z.infer<typeof CameraSchema>;
 export const KeyframeSchema = z.object({
@@ -98,6 +100,55 @@ export const SceneSchema = z.object({
   error: z.string().optional(),
   intentionalStill: z.boolean().default(false),
   continuityNotes: z.array(z.string()).default([]),
+  clipAssetId: z.string().optional(),
+  clipStart: z.number().min(0).default(0),
+  illustration: z
+    .object({
+      profile: z.literal("biblical_cutout"),
+      framing: z.enum([
+        "wide",
+        "pair",
+        "face",
+        "hands",
+        "coins",
+        "shadows",
+        "kiss",
+        "arrest",
+      ]),
+      setting: z.enum(["supper", "chamber", "street", "garden"]),
+      focusId: z.string().optional(),
+      variant: z.number().int().min(0),
+      poses: z.record(z.string(), z.string()),
+    })
+    .optional(),
+  environment: z
+    .object({
+      weather: z.enum(["clear", "rain"]),
+      lighting: z.string(),
+      objects: z.array(z.string()),
+    })
+    .optional(),
+  narrativeState: z
+    .object({
+      initial: z.string(),
+      final: z.string(),
+      actorIds: z.array(z.string()),
+      nextSceneId: z.string().optional(),
+    })
+    .optional(),
+  visualPlan: z
+    .object({
+      previousSceneId: z.string().optional(),
+      identityHashes: z.record(z.string(), z.string()),
+      referenceAssetIds: z.array(z.string()),
+      motionMode: z.enum(["cutout", "video"]),
+      firstFrameKey: z.string().optional(),
+      lastFrameKey: z.string().optional(),
+      previousLastFrameKey: z.string().optional(),
+      entry: z.record(z.string(), z.object({ x: z.number(), y: z.number() })),
+      exit: z.record(z.string(), z.object({ x: z.number(), y: z.number() })),
+    })
+    .optional(),
 });
 export type Scene = z.infer<typeof SceneSchema>;
 export const CharacterSchema = z.object({
@@ -116,6 +167,7 @@ export const CharacterSchema = z.object({
     artStyle: z.string(),
   }),
   poses: z.array(z.string()),
+  referenceAssetIds: z.array(z.string()).default([]),
 });
 export type Character = z.infer<typeof CharacterSchema>;
 export const AnalysisSchema = z.object({
@@ -125,7 +177,12 @@ export const AnalysisSchema = z.object({
   visualStyle: z.string(),
   characters: z.array(CharacterSchema),
   locations: z.array(
-    z.object({ id: z.string(), name: z.string(), description: z.string() }),
+    z.object({
+      id: z.string(),
+      name: z.string(),
+      description: z.string(),
+      referenceAssetIds: z.array(z.string()).default([]),
+    }),
   ),
   objects: z.array(z.string()),
   relationships: z.array(
@@ -137,6 +194,7 @@ export const AnalysisSchema = z.object({
       sourceText: z.string(),
       action: z.string(),
       subjects: z.array(z.string()),
+      visibleCharacters: z.array(z.string()).default([]),
       location: z.string(),
       emotion: z.string(),
       timeOfDay: z.string(),
@@ -173,6 +231,10 @@ export const ConfigSchema = z.object({
   width: z.literal(1080),
   height: z.literal(1920),
   settings: SettingsSchema,
+  quality: z.enum(["fast", "balanced", "cinematic"]).default("balanced"),
+  motionMode: z.enum(["cutout", "generative"]).default("cutout"),
+  fixedTitle: z.string().max(180).optional(),
+  motionBlur: z.enum(["off", "subtle"]).default("off"),
 });
 export type Config = z.infer<typeof ConfigSchema>;
 export const defaultConfig: Config = {
@@ -183,6 +245,9 @@ export const defaultConfig: Config = {
   width: 1080,
   height: 1920,
   settings: defaultSettings,
+  quality: "balanced",
+  motionMode: "cutout",
+  motionBlur: "off",
 };
 export const AssetSchema = z.object({
   id: z.string(),
@@ -209,12 +274,14 @@ export const AssetSchema = z.object({
 export type Asset = z.infer<typeof AssetSchema>;
 export const speechVoices = ["es_MX-ald-medium", "es_MX-claude-high"] as const;
 export const AudioConfigSchema = z.object({
-  mode: z.enum(["off", "automatic"]).default("off"),
+  mode: z.enum(["off", "automatic", "imported"]).default("off"),
   voice: z.enum(speechVoices).default("es_MX-ald-medium"),
   delivery: z.enum(["neutral", "narrator"]).default("neutral"),
   rate: z.number().min(0.8).max(1.3).default(1),
   musicAssetId: z.string().optional(),
   musicVolume: z.number().min(0).max(0.35).default(0.12),
+  importedAssetId: z.string().optional(),
+  offset: z.number().min(0).max(600).default(0),
 });
 export type AudioConfig = z.infer<typeof AudioConfigSchema>;
 export const defaultAudio: AudioConfig = AudioConfigSchema.parse({});
@@ -230,11 +297,22 @@ export const AudioAssetSchema = z.object({
   storageKey: z.string(),
   mime: z.literal("audio/mp4"),
   duration: z.number().positive(),
-  source: z.enum(["narration", "music"]),
+  source: z.enum(["narration", "music", "imported"]),
   fingerprint: z.string(),
   cues: z
     .array(z.object({ text: z.string(), duration: z.number().positive() }))
     .default([]),
+  qualityReport: z
+    .object({
+      integratedLufs: z.number(),
+      truePeakDb: z.number(),
+      processing: z.array(z.string()),
+      warnings: z.array(z.string()),
+    })
+    .optional(),
+  originalKey: z.string().optional(),
+  originalMime: z.string().optional(),
+  originalName: z.string().optional(),
 });
 export type AudioAsset = z.infer<typeof AudioAssetSchema>;
 export const ProjectSchema = z.object({
@@ -273,6 +351,7 @@ export type RenderJob = {
   phase?: "NARRATION" | "VISUALS" | "MIXING" | "VALIDATING";
   narrationAssetId?: string;
   renderedPlan?: Project;
+  requestKey?: string;
 };
 export type VideoProbe = {
   width: number;

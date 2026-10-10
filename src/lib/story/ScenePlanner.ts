@@ -30,6 +30,42 @@ function expand(event: Analysis["events"][number]): Shot[] {
           action: "advance",
         },
       ];
+    case "listen":
+      return [
+        {
+          description: `Reacción al ruido: ${base}`,
+          shot: "medium",
+          movement: "push_in",
+          action: "listen",
+        },
+      ];
+    case "stop":
+      return [
+        {
+          description: `El personaje se detiene: ${base}`,
+          shot: "medium",
+          movement: "static",
+          action: "stop",
+        },
+      ];
+    case "head_turn":
+      return [
+        {
+          description: `Giro de cabeza y mirada: ${base}`,
+          shot: "close",
+          movement: "slow_zoom_in",
+          action: "head_turn",
+        },
+      ];
+    case "escape":
+      return [
+        {
+          description: `Carrera y seguimiento: ${base}`,
+          shot: "wide",
+          movement: "follow_subject",
+          action: "escape",
+        },
+      ];
     case "observe":
       return [
         {
@@ -226,7 +262,9 @@ export class ScenePlanner {
         s.action === "reaction" &&
         analysis.characters.some((c) => c.id === "army")
           ? ["army"]
-          : e.subjects,
+          : e.visibleCharacters.length
+            ? e.visibleCharacters
+            : e.subjects,
       action: s.action,
       emotion: e.emotion,
       timeOfDay: e.timeOfDay,
@@ -258,6 +296,7 @@ export class ScenePlanner {
       status: "NEEDS_REVIEW",
       intentionalStill: false,
       continuityNotes: [],
+      clipStart: 0,
     }));
     return {
       scenes: new ContinuityEngine().apply(reflow(scenes, fps), analysis),
