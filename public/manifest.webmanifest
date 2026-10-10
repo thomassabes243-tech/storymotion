@@ -1,1 +1,17 @@
-{"name":"StoryMotion","short_name":"StoryMotion","description":"Historias en movimiento 2.5D","start_url":"/","display":"standalone","background_color":"#171918","theme_color":"#171918","icons":[{"src":"/icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
+{
+  "name": "ActionMotion",
+  "short_name": "ActionMotion",
+  "description": "Historias en movimiento 2.5D",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#171918",
+  "theme_color": "#171918",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

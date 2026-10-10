@@ -6,12 +6,22 @@ export default function AudioPanel({
   busy,
   onSave,
   onMusic,
+  onImported,
 }: {
   project: Project;
   busy: boolean;
   onSave: (audio: Project["audio"]) => Promise<void>;
   onMusic: (file: File) => Promise<void>;
+  onImported: (
+    file: File,
+    denoise: boolean,
+    processing: "clean" | "preserve",
+  ) => Promise<void>;
 }) {
+  const [processing, setProcessing] = useState<"clean" | "preserve">(
+    "preserve",
+  );
+  const [denoise, setDenoise] = useState(true);
   const [audio, setAudio] = useState(project.audio);
   const [available, setAvailable] = useState<boolean>();
   const [voices, setVoices] = useState<Project["audio"]["voice"][]>([]);
@@ -43,11 +53,11 @@ export default function AudioPanel({
         onSave(audio);
       }}
     >
-      <div className="eyebrow">NARRACIÓN Y MÚSICA</div>
-      <h2>Tu historia también se escucha.</h2>
+      <div className="eyebrow">AUDIO OPCIONAL</div>
+      <h2>Elige cómo acompañar tu historia.</h2>
       <p>
-        La voz lee la historia completa en español. Al exportar, los planos se
-        ajustan a la duración de la narración.
+        Exporta sin audio para CapCut, importa una grabación propia o activa la
+        voz local. La historia escrita sigue dirigiendo las escenas.
       </p>
       <label>
         Narración
@@ -64,6 +74,9 @@ export default function AudioPanel({
             Voz automática en español
           </option>
           <option value="off">Sin audio</option>
+          <option value="imported" disabled={!project.audio.importedAssetId}>
+            Audio importado
+          </option>
         </select>
       </label>
       {available === false && (
@@ -138,6 +151,66 @@ export default function AudioPanel({
           </p>
         </>
       )}
+      <label>
+        Tratamiento de la grabación
+        <select
+          value={processing}
+          onChange={(e) =>
+            setProcessing(e.target.value as "clean" | "preserve")
+          }
+        >
+          <option value="preserve">Conservar sonido · sin filtros</option>
+          <option value="clean">Limpiar voz y normalizar</option>
+        </select>
+      </label>
+      <label>
+        Importar voz o audio (hasta 50 MB)
+        <input
+          type="file"
+          accept="audio/*,.wav,.mp3,.m4a,.flac"
+          disabled={busy || dirty}
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) onImported(file, denoise, processing);
+            e.target.value = "";
+          }}
+        />
+      </label>
+      <label className="checkbox-label">
+        <input
+          type="checkbox"
+          checked={denoise}
+          onChange={(e) => setDenoise(e.target.checked)}
+        />{" "}
+        Reducir ruido de la grabación
+      </label>
+      {audio.mode === "imported" && (
+        <>
+          <p className="muted">
+            Ecualización de voz, compresión y normalización medida a −16 LUFS.
+            El montaje conserva sus tiempos; amplía el storyboard si la
+            grabación dura más.
+          </p>
+          <a
+            href={`/api/audio-assets/${audio.importedAssetId}/original?download=1`}
+          >
+            Descargar audio original
+          </a>
+          <label>
+            Inicio del audio (segundos)
+            <input
+              type="number"
+              min={0}
+              max={600}
+              step={0.1}
+              value={audio.offset}
+              onChange={(e) =>
+                setAudio({ ...audio, offset: Number(e.target.value) })
+              }
+            />
+          </label>
+        </>
+      )}
       <button
         className="primary"
         disabled={
@@ -155,7 +228,7 @@ export default function AudioPanel({
         <input
           type="file"
           accept="audio/*,.mp3,.m4a,.wav,.ogg,.flac"
-          disabled={busy || dirty || project.audio.mode !== "automatic"}
+          disabled={busy || dirty || project.audio.mode === "off"}
           onChange={(e) => {
             const file = e.target.files?.[0];
             if (file) onMusic(file);

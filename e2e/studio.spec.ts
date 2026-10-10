@@ -10,6 +10,9 @@ test("create from text, edit camera/duration, import a cutout and reopen the sto
   await page
     .getByRole("button", { name: "Nuevo proyecto", exact: true })
     .click();
+  await page
+    .getByLabel("Usar Director con aprobación del storyboard")
+    .uncheck();
   await page.getByLabel("Nombre del proyecto").fill(`QA · Elena ${Date.now()}`);
   await page
     .getByTestId("story-input")
@@ -74,7 +77,7 @@ test("create from text, edit camera/duration, import a cutout and reopen the sto
   await page
     .getByRole("button", { name: "Personaje · Elena", exact: false })
     .click();
-  await page.locator(".editor-controls input[type=file]").setInputFiles({
+  await page.getByLabel("Importar imagen", { exact: true }).setInputFiles({
     name: "cutout.png",
     mimeType: "image/png",
     buffer: await sharp({
